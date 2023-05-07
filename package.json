@@ -14,7 +14,8 @@
     "Model to code tool",
     "Model-Driven Architecture",
     "UML Profile",
-    "SmartSensor"
+    "SmartSensor",
+    "State Pattern"
   ],
   "author": "Julian Eduardo Plazas (jeplazas@unicauca.edu.co)",
   "license": "MPL-2.0",
