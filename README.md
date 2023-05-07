@@ -9,6 +9,7 @@ Model to code tool for the SmartSensor profile
     - [Regular Use](#regular-use)
   - [ChatGPT© Usage](#chatgpt-usage)
     - [Initial project template](#initial-project-template)
+  - [Copyright Notice](#copyright-notice)
 
 
 ## Tool Usage
@@ -67,3 +68,10 @@ This part required two prompts:
    2. Check that the first 'output' folder exists before creating the `output/${uniqueId}` folder. Create the first 'output' folder if necessary.
    3. Chech that only .xmi files are allowed to load in the application.
     ```
+
+## Copyright Notice
+Copyright &copy; 2023  Julián Eduardo Plazas.
+
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
