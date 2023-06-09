@@ -14,6 +14,7 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
 const fileCheck = require('./utils/file-check');
+const xmi_parser = require('./utils/xmi-parser');
 
 const views_path = path.join(__dirname, 'views');
 
@@ -34,13 +35,14 @@ const post_file = async (req, res, next) => {
         const outputZip = `output/${uniqueId}.zip`;
 
         // TODO: Perform XMI parsing and code generation here
+        const jsonObject = await xmi_parser(xmiFilePath);
         // TODO: Replace this section with your own logic to transform the XMI file into code
 
         // Create the output directory
         fs.mkdirSync(outputDir);
 
         // Save the JSON object as a file
-        const jsonObject = { example: 'data' };
+        // const jsonObject = { example: 'data' };
         fs.writeFileSync(`${outputDir}/model.json`, JSON.stringify(jsonObject));
 
         // Create a zip archive of the output directory
