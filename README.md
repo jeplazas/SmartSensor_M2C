@@ -18,7 +18,7 @@ To use the tool the first time follow the [setup](#setup) instructions. For its 
 
 ### Setup
 
-1. Download and install **NodeJS** *LTS* from the [official page](https://nodejs.org/en). This application has been tested on [*Node.js 16*](https://nodejs.org/en/download/releases).
+1. Download and install **NodeJS** *LTS* from the [official page](https://nodejs.org/en). This application has been tested on [*Node.js 18.16.1*](https://nodejs.org/en/download/releases).
 2. Clone the repository:
     ```
     git clone https://github.com/jeplazas/SmartSensor_M2C.git
