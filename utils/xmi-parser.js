@@ -18,14 +18,39 @@ const extract_xmi_object = async (file_path) => {
     return base_obj;
 };
 
+const extract_stereotype_base_name = (stereotype_content) => {
+    for (let ck of Object.keys(stereotype_content)) {
+        if (ck.includes('base_'))
+            return ck;
+    }
+    return false;
+};
+
 const extract_stereotypes_list = (base_obj) => {
-    const stereotypes = [];
+    const stereotypes = {};
     for (let k of Object.keys(base_obj['xmi:XMI'])) {
         if (k.includes("IOTAM_PSM:")) {
-            stereotypes.push({ stereotype: k, ...base_obj['xmi:XMI'][k] });
+            const temporal_content = { ...base_obj['xmi:XMI'][k] };
+            const stereotype_content = {};
+            const base_key_name = extract_stereotype_base_name(temporal_content);
+            if (base_key_name) {
+                const base_id = temporal_content[base_key_name];
+                delete temporal_content['xmi:id'];
+                delete temporal_content[base_key_name];
+                stereotype_content[base_id] = { ...temporal_content };
+            } else {
+                for (let io in temporal_content) {
+                    const io_base_key_name = extract_stereotype_base_name(temporal_content[io]);
+                    const save_obj = { ...temporal_content[io] };
+                    delete save_obj['xmi:id'];
+                    delete save_obj[io_base_key_name];
+                    stereotype_content[temporal_content[io][io_base_key_name]] = { ...save_obj };
+                }
+            }
+            stereotypes[k] = stereotype_content;
         }
     }
-    // console.log('stereotypes', stereotypes, '\n----------------------------------\n');
+    console.log('stereotypes', stereotypes, '\n----------------------------------\n');
     return stereotypes;
 };
 
@@ -35,7 +60,17 @@ const extract_app_model = (base_obj) => {
     return app_model;
 };
 
-// const add_stereotypes    // TODO
+const recursive_add_stereotypes = async (stereotype_list, modifiable_app_model) => {
+
+};
+
+const add_stereotypes = async (stereotype_list, app_model) => {
+    const base_app_keys = Object.keys(app_model);
+    let app_key = undefined;
+    for (app_key of base_app_keys) {
+
+    }
+};
 
 const parse_xmi_file = async (file_path) => {
     const base_obj = await extract_xmi_object(file_path);
