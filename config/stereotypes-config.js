@@ -1,0 +1,27 @@
+const stereotype_mapping = {
+    application: "IOTAM_PSM:A_PSM_IotApplication",
+    sinkNode: "IOTAM_PSM:A_PSM_SinkNode",
+    endNode: "IOTAM_PSM:A_PSM_SensorNode",
+    modesInterface: 'IOTAM_PSM:PSM_Modes',
+    measureContext: 'IOTAM_PSM:A_PSM_Measure_Context',
+    gatheredMeasure: 'IOTAM_PSM:A_PSM_GathredMeasure',
+    gatheredMeasureMode: 'IOTAM_PSM:PSM_GatheredMeasure_Mode',
+    deliveredMeasure: 'IOTAM_PSM:A_PSM_DeliveredMeasure',
+    deliveredMeasureMode: 'IOTAM_PSM:PSM_DeliveredMeasure_Mode',
+    unavailableData: 'IOTAM_PSM:A_PSM_Unavailable',
+    changeModeDefinition: 'IOTAM_PSM:PSM_ChangeMode',
+    gatherOperation: 'IOTAM_PSM:A_PSM_Gather',
+    variable: 'IOTAM_PSM:A_PSM_Variable',
+    availableData: 'IOTAM_PSM:A_PSM_Available',
+    gatheredAsAssociation: 'IOTAM_PSM:A_PSM_GatheredAs',
+    variableMode: 'IOTAM_PSM:A_PSM_Mode_Variable',
+    deviceVariable: 'IOTAM_PSM:A_PSM_DeviceVariable',
+    explicitTime: 'IOTAM_PSM:A_PSM_ExplicitTime',
+    sendOperation: 'IOTAM_PSM:PSM_Send',
+    listeningMeasure: 'IOTAM_PSM:Listening',
+    listenOperation: 'IOTAM_PSM:Listen',
+    joinOperation: 'IOTAM_PSM:A_PSM_Join',
+    deliveredVariable: 'IOTAM_PSM:A_Derived_PSM_Variable',
+};
+
+module.exports = stereotype_mapping
