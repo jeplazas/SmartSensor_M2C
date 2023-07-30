@@ -7,6 +7,7 @@
 */
 
 const fs = require('fs/promises');
+const { type } = require('os');
 const parser = require('xml2json');
 
 const extract_xmi_object = async (file_path) => {
@@ -23,7 +24,7 @@ const extract_stereotype_base_name = (stereotype_content) => {
         if (ck.includes('base_'))
             return ck;
     }
-    return false;
+    return null;
 };
 
 const extract_stereotypes_list = (base_obj) => {
@@ -50,34 +51,71 @@ const extract_stereotypes_list = (base_obj) => {
             stereotypes[k] = stereotype_content;
         }
     }
-    console.log('stereotypes', stereotypes, '\n----------------------------------\n');
+    // console.log('stereotypes', stereotypes, '\n----------------------------------\n');
     return stereotypes;
 };
 
 const extract_app_model = (base_obj) => {
     const app_model = base_obj['xmi:XMI']['uml:Model'];
-    console.log('app_model', app_model, '\n----------------------------------\n');
+    // console.log('app_model', app_model, '\n----------------------------------\n');
     return app_model;
 };
 
-const recursive_add_stereotypes = async (stereotype_list, modifiable_app_model) => {
+const find_stereotype_match = (xmi_id, stereotype_list) => {
+    for (let s in stereotype_list) {
+        const stereotyped_ids = Object.keys(stereotype_list[s]);
+        if (stereotyped_ids.includes(xmi_id)) {
+            return { ...stereotype_list[s][xmi_id], stereotype: s };
+        }
+    }
+};
 
+const recursive_add_stereotypes = async (stereotype_list, modifiable_packagedElement) => {
+    if (Array.isArray(modifiable_packagedElement)) {
+        for (let item of modifiable_packagedElement) {
+            let stereotype = find_stereotype_match(item['xmi:id'], stereotype_list);
+            if (stereotype) {
+                item['stereotype'] = stereotype;
+            }
+            for (let key in item) {
+                if (typeof item[key] === "object") {
+                    await recursive_add_stereotypes(stereotype_list, item[key]);
+                }
+            }
+        }
+    } else if (modifiable_packagedElement != null) {
+        let stereotype = find_stereotype_match(modifiable_packagedElement['xmi:id'], stereotype_list);
+        if (stereotype) {
+            modifiable_packagedElement['stereotype'] = stereotype;
+        }
+        for (let key in modifiable_packagedElement) {
+            if (typeof modifiable_packagedElement[key] === "object") {
+                await recursive_add_stereotypes(stereotype_list, modifiable_packagedElement[key]);
+            }
+        }
+    }
+    return null;
 };
 
 const add_stereotypes = async (stereotype_list, app_model) => {
-    const base_app_keys = Object.keys(app_model);
-    let app_key = undefined;
-    for (app_key of base_app_keys) {
-
+    const mod_app_model = JSON.parse(JSON.stringify(app_model));
+    let stereotype = find_stereotype_match(mod_app_model['xmi:id'], stereotype_list);
+    if (stereotype) {
+        mod_app_model['stereotype'] = stereotype;
     }
+    if (Object.keys(mod_app_model).includes('packagedElement')) {
+        await recursive_add_stereotypes(stereotype_list, mod_app_model.packagedElement);
+    }
+    // console.log('mod_app_model', mod_app_model, '\n----------------------------------\n');
+    return mod_app_model;
 };
 
 const parse_xmi_file = async (file_path) => {
     const base_obj = await extract_xmi_object(file_path);
     const app_model = extract_app_model(base_obj);
     const stereotypes = extract_stereotypes_list(base_obj);
-
-    return app_model;
+    const full_app_model = await add_stereotypes(stereotypes, app_model);
+    return full_app_model;
 };
 
 module.exports = parse_xmi_file;
