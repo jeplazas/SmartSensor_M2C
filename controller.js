@@ -35,7 +35,7 @@ const post_file = async (req, res, next) => {
         const outputZip = `output/${uniqueId}.zip`;
 
         // TODO: Perform XMI parsing and code generation here
-        const jsonObject = await xmi_parser(xmiFilePath);
+        const jsonObject = await xmi_parser(xmiFilePath, "IOTAM_PSM:");
         // TODO: Replace this section with your own logic to transform the XMI file into code
 
         // Create the output directory
