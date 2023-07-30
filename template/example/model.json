@@ -1,0 +1,792 @@
+{
+    "xmi:id": "_spzMgBiJEe2NtZnSc9IWqA",
+    "name": "PsmClass",
+    "packageImport": {
+        "xmi:type": "uml:PackageImport",
+        "xmi:id": "_sql2sBiJEe2NtZnSc9IWqA",
+        "importedPackage": {
+            "xmi:type": "uml:Model",
+            "href": "pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"
+        }
+    },
+    "packagedElement": [
+        {
+            "xmi:type": "uml:Package",
+            "xmi:id": "_YwJPkBiLEe2NtZnSc9IWqA",
+            "name": "TemperatureMonitoring",
+            "packagedElement": [
+                {
+                    "xmi:type": "uml:Package",
+                    "xmi:id": "_Bs6IABiMEe2NtZnSc9IWqA",
+                    "name": "EndNode",
+                    "packagedElement": [
+                        {
+                            "xmi:type": "uml:Package",
+                            "xmi:id": "_h-kcEBiNEe2NtZnSc9IWqA",
+                            "name": "EndNodeGathering",
+                            "packagedElement": [
+                                {
+                                    "xmi:type": "uml:Class",
+                                    "xmi:id": "_KTfjUBiMEe2NtZnSc9IWqA",
+                                    "name": "EndNodeInternalHigh",
+                                    "ownedAttribute": {
+                                        "xmi:type": "uml:Property",
+                                        "xmi:id": "_j8GYYBiQEe2NtZnSc9IWqA",
+                                        "name": "Air_Humidity",
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                        }
+                                    },
+                                    "interfaceRealization": {
+                                        "xmi:type": "uml:InterfaceRealization",
+                                        "xmi:id": "_Rf5NsBiOEe2NtZnSc9IWqA",
+                                        "client": "_KTfjUBiMEe2NtZnSc9IWqA",
+                                        "supplier": "_JRzc0BiMEe2NtZnSc9IWqA",
+                                        "contract": "_JRzc0BiMEe2NtZnSc9IWqA"
+                                    },
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_dpI3cBiOEe2NtZnSc9IWqA",
+                                        "name": "sense",
+                                        "visibility": "private",
+                                        "stereotype": {
+                                            "period": "1",
+                                            "stereotype": "IOTAM_PSM:A_PSM_Gather"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "stereotype": "IOTAM_PSM:PSM_GatheredMeasure_Mode"
+                                    }
+                                },
+                                {
+                                    "xmi:type": "uml:Interface",
+                                    "xmi:id": "_JRzc0BiMEe2NtZnSc9IWqA",
+                                    "name": "EndNode_Gather_Modes",
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_a-cLwBiOEe2NtZnSc9IWqA",
+                                        "name": "sense",
+                                        "visibility": "private",
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Gather"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "stereotype": "IOTAM_PSM:PSM_Modes"
+                                    }
+                                },
+                                {
+                                    "xmi:type": "uml:Class",
+                                    "xmi:id": "_IPRBwBiMEe2NtZnSc9IWqA",
+                                    "name": "EndNode_Internal",
+                                    "ownedAttribute": {
+                                        "xmi:type": "uml:Property",
+                                        "xmi:id": "_gmTzMBiOEe2NtZnSc9IWqA",
+                                        "name": "Temperature",
+                                        "type": "_QbA-YBiQEe2NtZnSc9IWqA",
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                        }
+                                    },
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_cNVAwBiOEe2NtZnSc9IWqA",
+                                        "name": "changemode",
+                                        "visibility": "private",
+                                        "ownedParameter": {
+                                            "xmi:type": "uml:Parameter",
+                                            "xmi:id": "_W8VHkBiWEe2NtZnSc9IWqA",
+                                            "name": "Temperature",
+                                            "type": {
+                                                "xmi:type": "uml:Class",
+                                                "href": "../Smart_Sensor/ClassDiagram.uml#_cPZFwP5BEeycALzWNPzx1Q"
+                                            }
+                                        },
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:PSM_ChangeMode"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "stereotype": "IOTAM_PSM:A_PSM_GathredMeasure"
+                                    }
+                                },
+                                {
+                                    "xmi:type": "uml:Class",
+                                    "xmi:id": "_K5ZswBiMEe2NtZnSc9IWqA",
+                                    "name": "EndNodeInternalLow",
+                                    "interfaceRealization": {
+                                        "xmi:type": "uml:InterfaceRealization",
+                                        "xmi:id": "_S1GtIBiOEe2NtZnSc9IWqA",
+                                        "client": "_K5ZswBiMEe2NtZnSc9IWqA",
+                                        "supplier": "_JRzc0BiMEe2NtZnSc9IWqA",
+                                        "contract": "_JRzc0BiMEe2NtZnSc9IWqA"
+                                    },
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_eo8HkBiOEe2NtZnSc9IWqA",
+                                        "name": "sense",
+                                        "visibility": "private",
+                                        "stereotype": {
+                                            "period": "30",
+                                            "stereotype": "IOTAM_PSM:A_PSM_Gather"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "Mode": "Low",
+                                        "stereotype": "IOTAM_PSM:PSM_GatheredMeasure_Mode"
+                                    }
+                                }
+                            ],
+                            "stereotype": {
+                                "stereotype": "IOTAM_PSM:A_PSM_Unavailable"
+                            }
+                        },
+                        {
+                            "xmi:type": "uml:Package",
+                            "xmi:id": "_dBDcYBiREe2NtZnSc9IWqA",
+                            "name": "EndNodeSending",
+                            "packagedElement": [
+                                {
+                                    "xmi:type": "uml:Interface",
+                                    "xmi:id": "_v1rZABiREe2NtZnSc9IWqA",
+                                    "name": "EndNode_Send_Modes",
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_DBG2oBiTEe2NtZnSc9IWqA",
+                                        "name": "send",
+                                        "visibility": "private",
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:PSM_Send"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "stereotype": "IOTAM_PSM:PSM_Modes"
+                                    }
+                                },
+                                {
+                                    "xmi:type": "uml:Class",
+                                    "xmi:id": "_xCyFUBiREe2NtZnSc9IWqA",
+                                    "name": "EndNodExternal",
+                                    "ownedAttribute": [
+                                        {
+                                            "xmi:type": "uml:Property",
+                                            "xmi:id": "_Tk5joBiUEe2NtZnSc9IWqA",
+                                            "name": "Temp_at30",
+                                            "type": "_QbA-YBiQEe2NtZnSc9IWqA",
+                                            "stereotype": {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                            }
+                                        },
+                                        {
+                                            "xmi:type": "uml:Property",
+                                            "xmi:id": "_ez39gBiUEe2NtZnSc9IWqA",
+                                            "name": "mode",
+                                            "type": {
+                                                "xmi:type": "uml:PrimitiveType",
+                                                "href": "pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"
+                                            },
+                                            "stereotype": {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Mode_Variable"
+                                            }
+                                        },
+                                        {
+                                            "xmi:type": "uml:Property",
+                                            "xmi:id": "_gDytQBiUEe2NtZnSc9IWqA",
+                                            "name": "timestamp",
+                                            "type": "_Dld2ABiVEe2NtZnSc9IWqA",
+                                            "stereotype": {
+                                                "stereotype": "IOTAM_PSM:A_PSM_ExplicitTime"
+                                            }
+                                        },
+                                        {
+                                            "xmi:type": "uml:Property",
+                                            "xmi:id": "_7isSYBiUEe2NtZnSc9IWqA",
+                                            "name": "battery",
+                                            "type": "_GYEggBiVEe2NtZnSc9IWqA",
+                                            "stereotype": {
+                                                "stereotype": "IOTAM_PSM:A_PSM_DeviceVariable"
+                                            }
+                                        }
+                                    ],
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_ACE5sBiTEe2NtZnSc9IWqA",
+                                        "name": "changemode",
+                                        "visibility": "private",
+                                        "ownedParameter": {
+                                            "xmi:type": "uml:Parameter",
+                                            "xmi:id": "_jl2z4BiWEe2NtZnSc9IWqA",
+                                            "name": "Temp_at30",
+                                            "type": {
+                                                "xmi:type": "uml:Class",
+                                                "href": "../Smart_Sensor/ClassDiagram.uml#_cPZFwP5BEeycALzWNPzx1Q"
+                                            }
+                                        },
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:PSM_ChangeMode"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "stereotype": "IOTAM_PSM:A_PSM_Measure_Context"
+                                    }
+                                },
+                                {
+                                    "xmi:type": "uml:Class",
+                                    "xmi:id": "_xmpnYBiREe2NtZnSc9IWqA",
+                                    "name": "EndNodeExternalHigh",
+                                    "ownedAttribute": {
+                                        "xmi:type": "uml:Property",
+                                        "xmi:id": "_Q_9FMBiVEe2NtZnSc9IWqA",
+                                        "name": "Air_H",
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                        }
+                                    },
+                                    "interfaceRealization": {
+                                        "xmi:type": "uml:InterfaceRealization",
+                                        "xmi:id": "_w4bSoBiVEe2NtZnSc9IWqA",
+                                        "client": "_xmpnYBiREe2NtZnSc9IWqA",
+                                        "supplier": "_v1rZABiREe2NtZnSc9IWqA",
+                                        "contract": "_v1rZABiREe2NtZnSc9IWqA"
+                                    },
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_D7lh4BiTEe2NtZnSc9IWqA",
+                                        "name": "send",
+                                        "visibility": "private",
+                                        "stereotype": {
+                                            "period": "5",
+                                            "stereotype": "IOTAM_PSM:PSM_Send"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                    }
+                                },
+                                {
+                                    "xmi:type": "uml:Class",
+                                    "xmi:id": "_yLINcBiREe2NtZnSc9IWqA",
+                                    "name": "EndNodeExternalLow",
+                                    "interfaceRealization": {
+                                        "xmi:type": "uml:InterfaceRealization",
+                                        "xmi:id": "_yCstYBiVEe2NtZnSc9IWqA",
+                                        "client": "_yLINcBiREe2NtZnSc9IWqA",
+                                        "supplier": "_v1rZABiREe2NtZnSc9IWqA",
+                                        "contract": "_v1rZABiREe2NtZnSc9IWqA"
+                                    },
+                                    "ownedOperation": {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_E6gBMBiTEe2NtZnSc9IWqA",
+                                        "name": "send",
+                                        "visibility": "private",
+                                        "stereotype": {
+                                            "period": "30",
+                                            "stereotype": "IOTAM_PSM:PSM_Send"
+                                        }
+                                    },
+                                    "stereotype": {
+                                        "Mode": "Low",
+                                        "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                    }
+                                }
+                            ],
+                            "stereotype": {
+                                "stereotype": "IOTAM_PSM:A_PSM_Available"
+                            }
+                        }
+                    ],
+                    "stereotype": {
+                        "stereotype": "IOTAM_PSM:A_PSM_SensorNode"
+                    }
+                },
+                {
+                    "xmi:type": "uml:Package",
+                    "xmi:id": "_tBWd8BiWEe2NtZnSc9IWqA",
+                    "name": "SinkNode",
+                    "packagedElement": {
+                        "xmi:type": "uml:Package",
+                        "xmi:id": "_33I7wBiWEe2NtZnSc9IWqA",
+                        "name": "SinkNodeSend",
+                        "packagedElement": [
+                            {
+                                "xmi:type": "uml:Interface",
+                                "xmi:id": "_CAFhsBiXEe2NtZnSc9IWqA",
+                                "name": "SinkNodeModes",
+                                "ownedOperation": {
+                                    "xmi:type": "uml:Operation",
+                                    "xmi:id": "_ydAY4BiXEe2NtZnSc9IWqA",
+                                    "name": "send",
+                                    "visibility": "private",
+                                    "stereotype": {
+                                        "stereotype": "IOTAM_PSM:PSM_Send"
+                                    }
+                                },
+                                "stereotype": {
+                                    "stereotype": "IOTAM_PSM:PSM_Modes"
+                                }
+                            },
+                            {
+                                "xmi:type": "uml:Class",
+                                "xmi:id": "_CxrWsBiXEe2NtZnSc9IWqA",
+                                "name": "SinkNodeHigh",
+                                "ownedAttribute": {
+                                    "xmi:type": "uml:Property",
+                                    "xmi:id": "_MQ0fwBiZEe2NtZnSc9IWqA",
+                                    "name": "Humidity",
+                                    "upperValue": {
+                                        "xmi:type": "uml:LiteralUnlimitedNatural",
+                                        "xmi:id": "_zOqeoMvpEe2j4cEQYwvToQ",
+                                        "value": "*"
+                                    },
+                                    "stereotype": {
+                                        "source": "_TT-9UBiVEe2NtZnSc9IWqA",
+                                        "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                    }
+                                },
+                                "interfaceRealization": {
+                                    "xmi:type": "uml:InterfaceRealization",
+                                    "xmi:id": "_wpXJoBiaEe2NtZnSc9IWqA",
+                                    "client": "_CxrWsBiXEe2NtZnSc9IWqA",
+                                    "supplier": "_CAFhsBiXEe2NtZnSc9IWqA",
+                                    "contract": "_CAFhsBiXEe2NtZnSc9IWqA"
+                                },
+                                "ownedOperation": {
+                                    "xmi:type": "uml:Operation",
+                                    "xmi:id": "_0XjaABiXEe2NtZnSc9IWqA",
+                                    "name": "send",
+                                    "visibility": "private",
+                                    "stereotype": {
+                                        "period": "5",
+                                        "stereotype": "IOTAM_PSM:PSM_Send"
+                                    }
+                                },
+                                "stereotype": {
+                                    "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                }
+                            },
+                            {
+                                "xmi:type": "uml:Class",
+                                "xmi:id": "_DS2KEBiXEe2NtZnSc9IWqA",
+                                "name": "SinkNodeLow",
+                                "interfaceRealization": {
+                                    "xmi:type": "uml:InterfaceRealization",
+                                    "xmi:id": "_yI_JUBiaEe2NtZnSc9IWqA",
+                                    "client": "_DS2KEBiXEe2NtZnSc9IWqA",
+                                    "supplier": "_CAFhsBiXEe2NtZnSc9IWqA",
+                                    "contract": "_CAFhsBiXEe2NtZnSc9IWqA"
+                                },
+                                "ownedOperation": {
+                                    "xmi:type": "uml:Operation",
+                                    "xmi:id": "_1S7dIBiXEe2NtZnSc9IWqA",
+                                    "name": "send",
+                                    "visibility": "private",
+                                    "stereotype": {
+                                        "period": "30",
+                                        "stereotype": "IOTAM_PSM:PSM_Send"
+                                    }
+                                },
+                                "stereotype": {
+                                    "Mode": "Low",
+                                    "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                }
+                            },
+                            {
+                                "xmi:type": "uml:Class",
+                                "xmi:id": "_Dt7jkBiXEe2NtZnSc9IWqA",
+                                "name": "SinkNode",
+                                "ownedAttribute": [
+                                    {
+                                        "xmi:type": "uml:Property",
+                                        "xmi:id": "_AieewBiYEe2NtZnSc9IWqA",
+                                        "name": "AirTemperature",
+                                        "type": "_QbA-YBiQEe2NtZnSc9IWqA",
+                                        "upperValue": {
+                                            "xmi:type": "uml:LiteralUnlimitedNatural",
+                                            "xmi:id": "_0UsnsMvrEe2j4cEQYwvToQ",
+                                            "value": "*"
+                                        },
+                                        "stereotype": {
+                                            "source": "_IjIC0BiVEe2NtZnSc9IWqA",
+                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                        }
+                                    },
+                                    {
+                                        "xmi:type": "uml:Property",
+                                        "xmi:id": "_FlwycBiYEe2NtZnSc9IWqA",
+                                        "name": "FrequencyMode",
+                                        "type": {
+                                            "xmi:type": "uml:PrimitiveType",
+                                            "href": "pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"
+                                        },
+                                        "upperValue": {
+                                            "xmi:type": "uml:LiteralUnlimitedNatural",
+                                            "xmi:id": "_wdE14MvrEe2j4cEQYwvToQ",
+                                            "value": "*"
+                                        },
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Mode_Variable"
+                                        }
+                                    },
+                                    {
+                                        "xmi:type": "uml:Property",
+                                        "xmi:id": "_Hi8Q0BiYEe2NtZnSc9IWqA",
+                                        "name": "FrequencyModes",
+                                        "type": {
+                                            "xmi:type": "uml:PrimitiveType",
+                                            "href": "pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"
+                                        },
+                                        "upperValue": {
+                                            "xmi:type": "uml:LiteralUnlimitedNatural",
+                                            "xmi:id": "_jdoj8MvrEe2j4cEQYwvToQ",
+                                            "value": "*"
+                                        },
+                                        "stereotype": {
+                                            "source": "_MidmMBiVEe2NtZnSc9IWqA",
+                                            "stereotype": "IOTAM_PSM:A_Derived_PSM_Variable"
+                                        }
+                                    },
+                                    {
+                                        "xmi:type": "uml:Property",
+                                        "xmi:id": "_I90TYBiYEe2NtZnSc9IWqA",
+                                        "name": "timestamp",
+                                        "type": "_Dld2ABiVEe2NtZnSc9IWqA",
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:A_PSM_ExplicitTime"
+                                        }
+                                    }
+                                ],
+                                "ownedOperation": [
+                                    {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_u8dqUBiXEe2NtZnSc9IWqA",
+                                        "name": "listen",
+                                        "ownedParameter": {
+                                            "xmi:type": "uml:Parameter",
+                                            "xmi:id": "_LQa9QBiaEe2NtZnSc9IWqA",
+                                            "name": "FrequencyModes",
+                                            "type": {
+                                                "xmi:type": "uml:PrimitiveType",
+                                                "href": "pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"
+                                            },
+                                            "upperValue": {
+                                                "xmi:type": "uml:LiteralUnlimitedNatural",
+                                                "xmi:id": "_PdrA0BiaEe2NtZnSc9IWqA",
+                                                "value": "*"
+                                            }
+                                        },
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:Listen"
+                                        }
+                                    },
+                                    {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_wK3XIBiXEe2NtZnSc9IWqA",
+                                        "name": "changemode",
+                                        "visibility": "private",
+                                        "ownedParameter": {
+                                            "xmi:type": "uml:Parameter",
+                                            "xmi:id": "_Y5RYkBiaEe2NtZnSc9IWqA",
+                                            "name": "FrequencyModes",
+                                            "type": {
+                                                "xmi:type": "uml:PrimitiveType",
+                                                "href": "pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"
+                                            },
+                                            "upperValue": {
+                                                "xmi:type": "uml:LiteralUnlimitedNatural",
+                                                "xmi:id": "_eU7wABiaEe2NtZnSc9IWqA",
+                                                "value": "*"
+                                            }
+                                        },
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:PSM_ChangeMode"
+                                        }
+                                    },
+                                    {
+                                        "xmi:type": "uml:Operation",
+                                        "xmi:id": "_xaxf0BiXEe2NtZnSc9IWqA",
+                                        "name": "join",
+                                        "visibility": "private",
+                                        "ownedParameter": {
+                                            "xmi:type": "uml:Parameter",
+                                            "xmi:id": "_mkpjcBiaEe2NtZnSc9IWqA",
+                                            "name": "timestamp",
+                                            "type": "_Dld2ABiVEe2NtZnSc9IWqA",
+                                            "upperValue": {
+                                                "xmi:type": "uml:LiteralUnlimitedNatural",
+                                                "xmi:id": "_qCpUUBiaEe2NtZnSc9IWqA",
+                                                "value": "*"
+                                            }
+                                        },
+                                        "stereotype": {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Join"
+                                        }
+                                    }
+                                ],
+                                "stereotype": {
+                                    "stereotype": "IOTAM_PSM:A_PSM_Measure_Context"
+                                }
+                            }
+                        ],
+                        "stereotype": {
+                            "stereotype": "IOTAM_PSM:A_PSM_Available"
+                        }
+                    },
+                    "stereotype": {
+                        "stereotype": "IOTAM_PSM:A_PSM_SinkNode"
+                    }
+                }
+            ],
+            "stereotype": {
+                "stereotype": "IOTAM_PSM:A_PSM_IotApplication"
+            }
+        },
+        {
+            "xmi:type": "uml:Association",
+            "xmi:id": "_Vu8BABiOEe2NtZnSc9IWqA",
+            "memberEnd": "_Vu8BAxiOEe2NtZnSc9IWqA _Vu8oEhiOEe2NtZnSc9IWqA",
+            "eAnnotations": {
+                "xmi:type": "ecore:EAnnotation",
+                "xmi:id": "_Vu8BARiOEe2NtZnSc9IWqA",
+                "source": "org.eclipse.papyrus",
+                "details": {
+                    "xmi:type": "ecore:EStringToStringMapEntry",
+                    "xmi:id": "_Vu8BAhiOEe2NtZnSc9IWqA",
+                    "key": "nature",
+                    "value": "UML_Nature"
+                }
+            },
+            "ownedEnd": [
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_Vu8oEhiOEe2NtZnSc9IWqA",
+                    "type": "_JRzc0BiMEe2NtZnSc9IWqA",
+                    "aggregation": "shared",
+                    "association": "_Vu8BABiOEe2NtZnSc9IWqA"
+                },
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_Vu8BAxiOEe2NtZnSc9IWqA",
+                    "type": "_IPRBwBiMEe2NtZnSc9IWqA",
+                    "association": "_Vu8BABiOEe2NtZnSc9IWqA"
+                }
+            ]
+        },
+        {
+            "xmi:type": "uml:DataType",
+            "xmi:id": "_QbA-YBiQEe2NtZnSc9IWqA",
+            "name": "Temperature_at30"
+        },
+        {
+            "xmi:type": "uml:Association",
+            "xmi:id": "_hAI2MBiTEe2NtZnSc9IWqA",
+            "memberEnd": "_hAJdQhiTEe2NtZnSc9IWqA _hAKEUBiTEe2NtZnSc9IWqA",
+            "eAnnotations": {
+                "xmi:type": "ecore:EAnnotation",
+                "xmi:id": "_hAJdQBiTEe2NtZnSc9IWqA",
+                "source": "org.eclipse.papyrus",
+                "details": {
+                    "xmi:type": "ecore:EStringToStringMapEntry",
+                    "xmi:id": "_hAJdQRiTEe2NtZnSc9IWqA",
+                    "key": "nature",
+                    "value": "UML_Nature"
+                }
+            },
+            "ownedEnd": [
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_hAJdQhiTEe2NtZnSc9IWqA",
+                    "name": "endnode_internal",
+                    "type": "_IPRBwBiMEe2NtZnSc9IWqA",
+                    "association": "_hAI2MBiTEe2NtZnSc9IWqA"
+                },
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_hAKEUBiTEe2NtZnSc9IWqA",
+                    "name": "endnodexternal",
+                    "type": "_xCyFUBiREe2NtZnSc9IWqA",
+                    "association": "_hAI2MBiTEe2NtZnSc9IWqA"
+                }
+            ],
+            "stereotype": {
+                "stereotype": "IOTAM_PSM:A_PSM_GatheredAs"
+            }
+        },
+        {
+            "xmi:type": "uml:Association",
+            "xmi:id": "_nF5TgBiTEe2NtZnSc9IWqA",
+            "memberEnd": "_nF5TgxiTEe2NtZnSc9IWqA _nF56kRiTEe2NtZnSc9IWqA",
+            "eAnnotations": {
+                "xmi:type": "ecore:EAnnotation",
+                "xmi:id": "_nF5TgRiTEe2NtZnSc9IWqA",
+                "source": "org.eclipse.papyrus",
+                "details": {
+                    "xmi:type": "ecore:EStringToStringMapEntry",
+                    "xmi:id": "_nF5TghiTEe2NtZnSc9IWqA",
+                    "key": "nature",
+                    "value": "UML_Nature"
+                }
+            },
+            "ownedEnd": [
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_nF56kRiTEe2NtZnSc9IWqA",
+                    "type": "_xCyFUBiREe2NtZnSc9IWqA",
+                    "association": "_nF5TgBiTEe2NtZnSc9IWqA"
+                },
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_nF5TgxiTEe2NtZnSc9IWqA",
+                    "type": "_v1rZABiREe2NtZnSc9IWqA",
+                    "aggregation": "shared",
+                    "association": "_nF5TgBiTEe2NtZnSc9IWqA"
+                }
+            ]
+        },
+        {
+            "xmi:type": "uml:DataType",
+            "xmi:id": "_Dld2ABiVEe2NtZnSc9IWqA",
+            "name": "TimeInstant"
+        },
+        {
+            "xmi:type": "uml:DataType",
+            "xmi:id": "_GYEggBiVEe2NtZnSc9IWqA",
+            "name": "Battery"
+        },
+        {
+            "xmi:type": "uml:Association",
+            "xmi:id": "_6A5LoBiYEe2NtZnSc9IWqA",
+            "memberEnd": "_6A5yshiYEe2NtZnSc9IWqA _6A6ZwBiYEe2NtZnSc9IWqA",
+            "eAnnotations": {
+                "xmi:type": "ecore:EAnnotation",
+                "xmi:id": "_6A5ysBiYEe2NtZnSc9IWqA",
+                "source": "org.eclipse.papyrus",
+                "details": {
+                    "xmi:type": "ecore:EStringToStringMapEntry",
+                    "xmi:id": "_6A5ysRiYEe2NtZnSc9IWqA",
+                    "key": "nature",
+                    "value": "UML_Nature"
+                }
+            },
+            "ownedEnd": [
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_6A5yshiYEe2NtZnSc9IWqA",
+                    "name": "sinknode",
+                    "type": "_Dt7jkBiXEe2NtZnSc9IWqA",
+                    "association": "_6A5LoBiYEe2NtZnSc9IWqA"
+                },
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "_6A6ZwBiYEe2NtZnSc9IWqA",
+                    "name": "endnodexternal",
+                    "type": "_xCyFUBiREe2NtZnSc9IWqA",
+                    "association": "_6A5LoBiYEe2NtZnSc9IWqA",
+                    "upperValue": {
+                        "xmi:type": "uml:LiteralUnlimitedNatural",
+                        "xmi:id": "_rzYG4MvrEe2j4cEQYwvToQ",
+                        "value": "*"
+                    }
+                }
+            ],
+            "stereotype": {
+                "stereotype": "IOTAM_PSM:A_PSM_GatheredAs"
+            }
+        },
+        {
+            "xmi:type": "uml:Association",
+            "xmi:id": "__hJvMBiYEe2NtZnSc9IWqA",
+            "memberEnd": "__hKWQhiYEe2NtZnSc9IWqA __hK9URiYEe2NtZnSc9IWqA",
+            "eAnnotations": {
+                "xmi:type": "ecore:EAnnotation",
+                "xmi:id": "__hKWQBiYEe2NtZnSc9IWqA",
+                "source": "org.eclipse.papyrus",
+                "details": {
+                    "xmi:type": "ecore:EStringToStringMapEntry",
+                    "xmi:id": "__hKWQRiYEe2NtZnSc9IWqA",
+                    "key": "nature",
+                    "value": "UML_Nature"
+                }
+            },
+            "ownedEnd": [
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "__hK9URiYEe2NtZnSc9IWqA",
+                    "type": "_CAFhsBiXEe2NtZnSc9IWqA",
+                    "aggregation": "shared",
+                    "association": "__hJvMBiYEe2NtZnSc9IWqA"
+                },
+                {
+                    "xmi:type": "uml:Property",
+                    "xmi:id": "__hKWQhiYEe2NtZnSc9IWqA",
+                    "type": "_Dt7jkBiXEe2NtZnSc9IWqA",
+                    "association": "__hJvMBiYEe2NtZnSc9IWqA",
+                    "lowerValue": {
+                        "xmi:type": "uml:LiteralInteger",
+                        "xmi:id": "__hKWQxiYEe2NtZnSc9IWqA"
+                    },
+                    "upperValue": {
+                        "xmi:type": "uml:LiteralUnlimitedNatural",
+                        "xmi:id": "__hK9UBiYEe2NtZnSc9IWqA",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    ],
+    "profileApplication": {
+        "xmi:type": "uml:ProfileApplication",
+        "xmi:id": "_HFGKIBiLEe2NtZnSc9IWqA",
+        "eAnnotations": [
+            {
+                "xmi:type": "ecore:EAnnotation",
+                "xmi:id": "_R_N6YMvtEe2j4cEQYwvToQ",
+                "source": "PapyrusVersion",
+                "details": [
+                    {
+                        "xmi:type": "ecore:EStringToStringMapEntry",
+                        "xmi:id": "_R_N6YcvtEe2j4cEQYwvToQ",
+                        "key": "Version",
+                        "value": "0.0.34"
+                    },
+                    {
+                        "xmi:type": "ecore:EStringToStringMapEntry",
+                        "xmi:id": "_R_N6YsvtEe2j4cEQYwvToQ",
+                        "key": "Comment",
+                        "value": ""
+                    },
+                    {
+                        "xmi:type": "ecore:EStringToStringMapEntry",
+                        "xmi:id": "_R_N6Y8vtEe2j4cEQYwvToQ",
+                        "key": "Copyright",
+                        "value": ""
+                    },
+                    {
+                        "xmi:type": "ecore:EStringToStringMapEntry",
+                        "xmi:id": "_R_N6ZMvtEe2j4cEQYwvToQ",
+                        "key": "Date",
+                        "value": "2023-03-26"
+                    },
+                    {
+                        "xmi:type": "ecore:EStringToStringMapEntry",
+                        "xmi:id": "_R_N6ZcvtEe2j4cEQYwvToQ",
+                        "key": "Author",
+                        "value": ""
+                    }
+                ]
+            },
+            {
+                "xmi:type": "ecore:EAnnotation",
+                "xmi:id": "_HFGxMBiLEe2NtZnSc9IWqA",
+                "source": "http://www.eclipse.org/uml2/2.0.0/UML",
+                "references": {
+                    "xmi:type": "ecore:EPackage",
+                    "href": "IOTAM_PSM.profile.uml#_P7lOsMvtEe2j4cEQYwvToQ"
+                }
+            }
+        ],
+        "appliedProfile": {
+            "xmi:type": "uml:Profile",
+            "href": "IOTAM_PSM.profile.uml#_AH3YwOioEeylvoJXDUYIwg"
+        }
+    }
+}
