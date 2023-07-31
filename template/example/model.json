@@ -33,9 +33,11 @@
                                         "xmi:type": "uml:Property",
                                         "xmi:id": "_j8GYYBiQEe2NtZnSc9IWqA",
                                         "name": "Air_Humidity",
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                            }
+                                        ]
                                     },
                                     "interfaceRealization": {
                                         "xmi:type": "uml:InterfaceRealization",
@@ -49,14 +51,18 @@
                                         "xmi:id": "_dpI3cBiOEe2NtZnSc9IWqA",
                                         "name": "sense",
                                         "visibility": "private",
-                                        "stereotype": {
-                                            "period": "1",
-                                            "stereotype": "IOTAM_PSM:A_PSM_Gather"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "period": "1",
+                                                "stereotype": "IOTAM_PSM:A_PSM_Gather"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "stereotype": "IOTAM_PSM:PSM_GatheredMeasure_Mode"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "stereotype": "IOTAM_PSM:PSM_GatheredMeasure_Mode"
+                                        }
+                                    ]
                                 },
                                 {
                                     "xmi:type": "uml:Interface",
@@ -67,13 +73,17 @@
                                         "xmi:id": "_a-cLwBiOEe2NtZnSc9IWqA",
                                         "name": "sense",
                                         "visibility": "private",
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:A_PSM_Gather"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Gather"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "stereotype": "IOTAM_PSM:PSM_Modes"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "stereotype": "IOTAM_PSM:PSM_Modes"
+                                        }
+                                    ]
                                 },
                                 {
                                     "xmi:type": "uml:Class",
@@ -84,9 +94,11 @@
                                         "xmi:id": "_gmTzMBiOEe2NtZnSc9IWqA",
                                         "name": "Temperature",
                                         "type": "_QbA-YBiQEe2NtZnSc9IWqA",
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                            }
+                                        ]
                                     },
                                     "ownedOperation": {
                                         "xmi:type": "uml:Operation",
@@ -102,13 +114,20 @@
                                                 "href": "../Smart_Sensor/ClassDiagram.uml#_cPZFwP5BEeycALzWNPzx1Q"
                                             }
                                         },
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:PSM_ChangeMode"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:PSM_ChangeMode"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "stereotype": "IOTAM_PSM:A_PSM_GathredMeasure"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "stereotype": "IOTAM_PSM:A_PSM_GathredMeasure"
+                                        },
+                                        {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Measure_Context"
+                                        }
+                                    ]
                                 },
                                 {
                                     "xmi:type": "uml:Class",
@@ -126,20 +145,26 @@
                                         "xmi:id": "_eo8HkBiOEe2NtZnSc9IWqA",
                                         "name": "sense",
                                         "visibility": "private",
-                                        "stereotype": {
-                                            "period": "30",
-                                            "stereotype": "IOTAM_PSM:A_PSM_Gather"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "period": "30",
+                                                "stereotype": "IOTAM_PSM:A_PSM_Gather"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "Mode": "Low",
-                                        "stereotype": "IOTAM_PSM:PSM_GatheredMeasure_Mode"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "Mode": "Low",
+                                            "stereotype": "IOTAM_PSM:PSM_GatheredMeasure_Mode"
+                                        }
+                                    ]
                                 }
                             ],
-                            "stereotype": {
-                                "stereotype": "IOTAM_PSM:A_PSM_Unavailable"
-                            }
+                            "stereotype": [
+                                {
+                                    "stereotype": "IOTAM_PSM:A_PSM_Unavailable"
+                                }
+                            ]
                         },
                         {
                             "xmi:type": "uml:Package",
@@ -155,13 +180,17 @@
                                         "xmi:id": "_DBG2oBiTEe2NtZnSc9IWqA",
                                         "name": "send",
                                         "visibility": "private",
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:PSM_Send"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:PSM_Send"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "stereotype": "IOTAM_PSM:PSM_Modes"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "stereotype": "IOTAM_PSM:PSM_Modes"
+                                        }
+                                    ]
                                 },
                                 {
                                     "xmi:type": "uml:Class",
@@ -173,9 +202,11 @@
                                             "xmi:id": "_Tk5joBiUEe2NtZnSc9IWqA",
                                             "name": "Temp_at30",
                                             "type": "_QbA-YBiQEe2NtZnSc9IWqA",
-                                            "stereotype": {
-                                                "stereotype": "IOTAM_PSM:A_PSM_Variable"
-                                            }
+                                            "stereotype": [
+                                                {
+                                                    "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                                }
+                                            ]
                                         },
                                         {
                                             "xmi:type": "uml:Property",
@@ -185,27 +216,33 @@
                                                 "xmi:type": "uml:PrimitiveType",
                                                 "href": "pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"
                                             },
-                                            "stereotype": {
-                                                "stereotype": "IOTAM_PSM:A_PSM_Mode_Variable"
-                                            }
+                                            "stereotype": [
+                                                {
+                                                    "stereotype": "IOTAM_PSM:A_PSM_Mode_Variable"
+                                                }
+                                            ]
                                         },
                                         {
                                             "xmi:type": "uml:Property",
                                             "xmi:id": "_gDytQBiUEe2NtZnSc9IWqA",
                                             "name": "timestamp",
                                             "type": "_Dld2ABiVEe2NtZnSc9IWqA",
-                                            "stereotype": {
-                                                "stereotype": "IOTAM_PSM:A_PSM_ExplicitTime"
-                                            }
+                                            "stereotype": [
+                                                {
+                                                    "stereotype": "IOTAM_PSM:A_PSM_ExplicitTime"
+                                                }
+                                            ]
                                         },
                                         {
                                             "xmi:type": "uml:Property",
                                             "xmi:id": "_7isSYBiUEe2NtZnSc9IWqA",
                                             "name": "battery",
                                             "type": "_GYEggBiVEe2NtZnSc9IWqA",
-                                            "stereotype": {
-                                                "stereotype": "IOTAM_PSM:A_PSM_DeviceVariable"
-                                            }
+                                            "stereotype": [
+                                                {
+                                                    "stereotype": "IOTAM_PSM:A_PSM_DeviceVariable"
+                                                }
+                                            ]
                                         }
                                     ],
                                     "ownedOperation": {
@@ -222,13 +259,20 @@
                                                 "href": "../Smart_Sensor/ClassDiagram.uml#_cPZFwP5BEeycALzWNPzx1Q"
                                             }
                                         },
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:PSM_ChangeMode"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:PSM_ChangeMode"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "stereotype": "IOTAM_PSM:A_PSM_Measure_Context"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "stereotype": "IOTAM_PSM:A_PSM_Measure_Context"
+                                        },
+                                        {
+                                            "stereotype": "IOTAM_PSM:A_PSM_DeliveredMeasure"
+                                        }
+                                    ]
                                 },
                                 {
                                     "xmi:type": "uml:Class",
@@ -238,9 +282,11 @@
                                         "xmi:type": "uml:Property",
                                         "xmi:id": "_Q_9FMBiVEe2NtZnSc9IWqA",
                                         "name": "Air_H",
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                            }
+                                        ]
                                     },
                                     "interfaceRealization": {
                                         "xmi:type": "uml:InterfaceRealization",
@@ -254,14 +300,18 @@
                                         "xmi:id": "_D7lh4BiTEe2NtZnSc9IWqA",
                                         "name": "send",
                                         "visibility": "private",
-                                        "stereotype": {
-                                            "period": "5",
-                                            "stereotype": "IOTAM_PSM:PSM_Send"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "period": "5",
+                                                "stereotype": "IOTAM_PSM:PSM_Send"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                        }
+                                    ]
                                 },
                                 {
                                     "xmi:type": "uml:Class",
@@ -279,25 +329,33 @@
                                         "xmi:id": "_E6gBMBiTEe2NtZnSc9IWqA",
                                         "name": "send",
                                         "visibility": "private",
-                                        "stereotype": {
-                                            "period": "30",
-                                            "stereotype": "IOTAM_PSM:PSM_Send"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "period": "30",
+                                                "stereotype": "IOTAM_PSM:PSM_Send"
+                                            }
+                                        ]
                                     },
-                                    "stereotype": {
-                                        "Mode": "Low",
-                                        "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "Mode": "Low",
+                                            "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                        }
+                                    ]
                                 }
                             ],
-                            "stereotype": {
-                                "stereotype": "IOTAM_PSM:A_PSM_Available"
-                            }
+                            "stereotype": [
+                                {
+                                    "stereotype": "IOTAM_PSM:A_PSM_Available"
+                                }
+                            ]
                         }
                     ],
-                    "stereotype": {
-                        "stereotype": "IOTAM_PSM:A_PSM_SensorNode"
-                    }
+                    "stereotype": [
+                        {
+                            "stereotype": "IOTAM_PSM:A_PSM_SensorNode"
+                        }
+                    ]
                 },
                 {
                     "xmi:type": "uml:Package",
@@ -317,13 +375,17 @@
                                     "xmi:id": "_ydAY4BiXEe2NtZnSc9IWqA",
                                     "name": "send",
                                     "visibility": "private",
-                                    "stereotype": {
-                                        "stereotype": "IOTAM_PSM:PSM_Send"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "stereotype": "IOTAM_PSM:PSM_Send"
+                                        }
+                                    ]
                                 },
-                                "stereotype": {
-                                    "stereotype": "IOTAM_PSM:PSM_Modes"
-                                }
+                                "stereotype": [
+                                    {
+                                        "stereotype": "IOTAM_PSM:PSM_Modes"
+                                    }
+                                ]
                             },
                             {
                                 "xmi:type": "uml:Class",
@@ -338,10 +400,12 @@
                                         "xmi:id": "_zOqeoMvpEe2j4cEQYwvToQ",
                                         "value": "*"
                                     },
-                                    "stereotype": {
-                                        "source": "_TT-9UBiVEe2NtZnSc9IWqA",
-                                        "stereotype": "IOTAM_PSM:A_PSM_Variable"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "source": "_TT-9UBiVEe2NtZnSc9IWqA",
+                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                        }
+                                    ]
                                 },
                                 "interfaceRealization": {
                                     "xmi:type": "uml:InterfaceRealization",
@@ -355,14 +419,18 @@
                                     "xmi:id": "_0XjaABiXEe2NtZnSc9IWqA",
                                     "name": "send",
                                     "visibility": "private",
-                                    "stereotype": {
-                                        "period": "5",
-                                        "stereotype": "IOTAM_PSM:PSM_Send"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "period": "5",
+                                            "stereotype": "IOTAM_PSM:PSM_Send"
+                                        }
+                                    ]
                                 },
-                                "stereotype": {
-                                    "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
-                                }
+                                "stereotype": [
+                                    {
+                                        "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                    }
+                                ]
                             },
                             {
                                 "xmi:type": "uml:Class",
@@ -380,15 +448,19 @@
                                     "xmi:id": "_1S7dIBiXEe2NtZnSc9IWqA",
                                     "name": "send",
                                     "visibility": "private",
-                                    "stereotype": {
-                                        "period": "30",
-                                        "stereotype": "IOTAM_PSM:PSM_Send"
-                                    }
+                                    "stereotype": [
+                                        {
+                                            "period": "30",
+                                            "stereotype": "IOTAM_PSM:PSM_Send"
+                                        }
+                                    ]
                                 },
-                                "stereotype": {
-                                    "Mode": "Low",
-                                    "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
-                                }
+                                "stereotype": [
+                                    {
+                                        "Mode": "Low",
+                                        "stereotype": "IOTAM_PSM:PSM_DeliveredMeasure_Mode"
+                                    }
+                                ]
                             },
                             {
                                 "xmi:type": "uml:Class",
@@ -405,10 +477,12 @@
                                             "xmi:id": "_0UsnsMvrEe2j4cEQYwvToQ",
                                             "value": "*"
                                         },
-                                        "stereotype": {
-                                            "source": "_IjIC0BiVEe2NtZnSc9IWqA",
-                                            "stereotype": "IOTAM_PSM:A_PSM_Variable"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "source": "_IjIC0BiVEe2NtZnSc9IWqA",
+                                                "stereotype": "IOTAM_PSM:A_PSM_Variable"
+                                            }
+                                        ]
                                     },
                                     {
                                         "xmi:type": "uml:Property",
@@ -423,9 +497,11 @@
                                             "xmi:id": "_wdE14MvrEe2j4cEQYwvToQ",
                                             "value": "*"
                                         },
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:A_PSM_Mode_Variable"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Mode_Variable"
+                                            }
+                                        ]
                                     },
                                     {
                                         "xmi:type": "uml:Property",
@@ -440,19 +516,23 @@
                                             "xmi:id": "_jdoj8MvrEe2j4cEQYwvToQ",
                                             "value": "*"
                                         },
-                                        "stereotype": {
-                                            "source": "_MidmMBiVEe2NtZnSc9IWqA",
-                                            "stereotype": "IOTAM_PSM:A_Derived_PSM_Variable"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "source": "_MidmMBiVEe2NtZnSc9IWqA",
+                                                "stereotype": "IOTAM_PSM:A_Derived_PSM_Variable"
+                                            }
+                                        ]
                                     },
                                     {
                                         "xmi:type": "uml:Property",
                                         "xmi:id": "_I90TYBiYEe2NtZnSc9IWqA",
                                         "name": "timestamp",
                                         "type": "_Dld2ABiVEe2NtZnSc9IWqA",
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:A_PSM_ExplicitTime"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:A_PSM_ExplicitTime"
+                                            }
+                                        ]
                                     }
                                 ],
                                 "ownedOperation": [
@@ -474,9 +554,11 @@
                                                 "value": "*"
                                             }
                                         },
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:Listen"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:Listen"
+                                            }
+                                        ]
                                     },
                                     {
                                         "xmi:type": "uml:Operation",
@@ -497,9 +579,11 @@
                                                 "value": "*"
                                             }
                                         },
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:PSM_ChangeMode"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:PSM_ChangeMode"
+                                            }
+                                        ]
                                     },
                                     {
                                         "xmi:type": "uml:Operation",
@@ -517,28 +601,44 @@
                                                 "value": "*"
                                             }
                                         },
-                                        "stereotype": {
-                                            "stereotype": "IOTAM_PSM:A_PSM_Join"
-                                        }
+                                        "stereotype": [
+                                            {
+                                                "stereotype": "IOTAM_PSM:A_PSM_Join"
+                                            }
+                                        ]
                                     }
                                 ],
-                                "stereotype": {
-                                    "stereotype": "IOTAM_PSM:A_PSM_Measure_Context"
-                                }
+                                "stereotype": [
+                                    {
+                                        "stereotype": "IOTAM_PSM:A_PSM_Measure_Context"
+                                    },
+                                    {
+                                        "stereotype": "IOTAM_PSM:A_PSM_DeliveredMeasure"
+                                    },
+                                    {
+                                        "stereotype": "IOTAM_PSM:Listening"
+                                    }
+                                ]
                             }
                         ],
-                        "stereotype": {
-                            "stereotype": "IOTAM_PSM:A_PSM_Available"
-                        }
+                        "stereotype": [
+                            {
+                                "stereotype": "IOTAM_PSM:A_PSM_Available"
+                            }
+                        ]
                     },
-                    "stereotype": {
-                        "stereotype": "IOTAM_PSM:A_PSM_SinkNode"
-                    }
+                    "stereotype": [
+                        {
+                            "stereotype": "IOTAM_PSM:A_PSM_SinkNode"
+                        }
+                    ]
                 }
             ],
-            "stereotype": {
-                "stereotype": "IOTAM_PSM:A_PSM_IotApplication"
-            }
+            "stereotype": [
+                {
+                    "stereotype": "IOTAM_PSM:A_PSM_IotApplication"
+                }
+            ]
         },
         {
             "xmi:type": "uml:Association",
@@ -607,9 +707,11 @@
                     "association": "_hAI2MBiTEe2NtZnSc9IWqA"
                 }
             ],
-            "stereotype": {
-                "stereotype": "IOTAM_PSM:A_PSM_GatheredAs"
-            }
+            "stereotype": [
+                {
+                    "stereotype": "IOTAM_PSM:A_PSM_GatheredAs"
+                }
+            ]
         },
         {
             "xmi:type": "uml:Association",
@@ -688,9 +790,11 @@
                     }
                 }
             ],
-            "stereotype": {
-                "stereotype": "IOTAM_PSM:A_PSM_GatheredAs"
-            }
+            "stereotype": [
+                {
+                    "stereotype": "IOTAM_PSM:A_PSM_GatheredAs"
+                }
+            ]
         },
         {
             "xmi:type": "uml:Association",

@@ -85,14 +85,18 @@ const extract_app_model = (base_obj) => {
  * Recursively searches for matches of the xmi_id in the stereotype_list.
  * @param {string} xmi_id 'xmi:id' attribute of the object.
  * @param {object} stereotype_list  Object containing all the Stereotypes in format as received from extract_stereotypes_list.
- * @returns The stereotype object for the 'xmi:id' if exists, null otherwise.
+ * @returns A list with the stereotype objects for the 'xmi:id' if exists, null otherwise.
  */
-const find_stereotype_match = (xmi_id, stereotype_list) => {
+const find_stereotypes_matches = (xmi_id, stereotype_list) => {
+    const stereotypes = [];
     for (let s in stereotype_list) {
         const stereotyped_ids = Object.keys(stereotype_list[s]);
         if (stereotyped_ids.includes(xmi_id)) {
-            return { ...stereotype_list[s][xmi_id], stereotype: s };
+            stereotypes.push({ ...stereotype_list[s][xmi_id], stereotype: s });
         }
+    }
+    if (stereotypes.length > 0) {
+        return stereotypes;
     }
     return null;
 };
@@ -106,7 +110,7 @@ const find_stereotype_match = (xmi_id, stereotype_list) => {
 const recursive_add_stereotypes = async (stereotype_list, modifiable_element) => {
     if (Array.isArray(modifiable_element)) {
         for (let item of modifiable_element) {
-            let stereotype = find_stereotype_match(item['xmi:id'], stereotype_list);
+            let stereotype = find_stereotypes_matches(item['xmi:id'], stereotype_list);
             if (stereotype) {
                 item['stereotype'] = stereotype;
             }
@@ -117,7 +121,7 @@ const recursive_add_stereotypes = async (stereotype_list, modifiable_element) =>
             }
         }
     } else if (modifiable_element != null) {
-        let stereotype = find_stereotype_match(modifiable_element['xmi:id'], stereotype_list);
+        let stereotype = find_stereotypes_matches(modifiable_element['xmi:id'], stereotype_list);
         if (stereotype) {
             modifiable_element['stereotype'] = stereotype;
         }
@@ -138,7 +142,7 @@ const recursive_add_stereotypes = async (stereotype_list, modifiable_element) =>
  */
 const add_stereotypes = async (stereotype_list, app_model) => {
     const mod_app_model = JSON.parse(JSON.stringify(app_model));
-    let stereotype = find_stereotype_match(mod_app_model['xmi:id'], stereotype_list);
+    let stereotype = find_stereotypes_matches(mod_app_model['xmi:id'], stereotype_list);
     if (stereotype) {
         mod_app_model['stereotype'] = stereotype;
     }
