@@ -15,6 +15,7 @@ const path = require('path');
 
 const fileCheck = require('./utils/file-check');
 const xmi_parser = require('./utils/xmi-parser');
+const model_formatter = require('./utils/app-model-formatter');
 
 const views_path = path.join(__dirname, 'views');
 
@@ -35,7 +36,8 @@ const post_file = async (req, res, next) => {
         const outputZip = `output/${uniqueId}.zip`;
 
         // TODO: Perform XMI parsing and code generation here
-        const jsonObject = await xmi_parser(xmiFilePath, "IOTAM_PSM:");
+        const parsedXmi = await xmi_parser(xmiFilePath, "IOTAM_PSM:");
+        const jsonObject = await model_formatter(parsedXmi.full_app_model, parsedXmi.stereotypes);
         // TODO: Replace this section with your own logic to transform the XMI file into code
 
         // Create the output directory
