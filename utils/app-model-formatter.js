@@ -69,6 +69,8 @@ const recursive_single_stereotype_searching = async (model_element, stereotype_n
  */
 const format_app_model = async (full_app_model, stereotypes) => {
     verify_stereotypes(Object.keys(stereotypes));
+    const application = {};
+    // todo: find sink and end nodes -- for each node find states & common data, GatherOps, and SendOps -- For each state find: GatherOps; DeliveryOps; data ->
     // Example----- TODO: delete
     const end_node = await recursive_single_stereotype_searching(full_app_model, config.endNode);
     const sink_node = await recursive_single_stereotype_searching(full_app_model, config.sinkNode);
