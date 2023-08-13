@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IOTAM_PSM="http:///schemas/IOTAM_PSM/_P7kAkMvtEe2j4cEQYwvToQ/33" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/IOTAM_PSM/_P7kAkMvtEe2j4cEQYwvToQ/33 IOTAM_PSM.profile.uml#_P7lOsMvtEe2j4cEQYwvToQ">
+  <uml:Model xmi:id="_spzMgBiJEe2NtZnSc9IWqA" name="PsmClass">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_sql2sBiJEe2NtZnSc9IWqA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_YwJPkBiLEe2NtZnSc9IWqA" name="TemperatureMonitoring">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Bs6IABiMEe2NtZnSc9IWqA" name="EndNode">
+        <packagedElement xmi:type="uml:Package" xmi:id="_h-kcEBiNEe2NtZnSc9IWqA" name="EndNodeGathering">
+          <packagedElement xmi:type="uml:Class" xmi:id="_KTfjUBiMEe2NtZnSc9IWqA" name="EndNodeInternalHigh">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_j8GYYBiQEe2NtZnSc9IWqA" name="Air_Humidity"/>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Rf5NsBiOEe2NtZnSc9IWqA" client="_KTfjUBiMEe2NtZnSc9IWqA" supplier="_JRzc0BiMEe2NtZnSc9IWqA" contract="_JRzc0BiMEe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_dpI3cBiOEe2NtZnSc9IWqA" name="sense" visibility="private"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_JRzc0BiMEe2NtZnSc9IWqA" name="EndNode_Gather_Modes">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_a-cLwBiOEe2NtZnSc9IWqA" name="sense" visibility="private"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_IPRBwBiMEe2NtZnSc9IWqA" name="EndNode_Internal">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_gmTzMBiOEe2NtZnSc9IWqA" name="Temperature" type="_QbA-YBiQEe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_cNVAwBiOEe2NtZnSc9IWqA" name="changemode" visibility="private">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_W8VHkBiWEe2NtZnSc9IWqA" name="Temperature">
+                <type xmi:type="uml:Class" href="../Smart_Sensor/ClassDiagram.uml#_cPZFwP5BEeycALzWNPzx1Q"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_K5ZswBiMEe2NtZnSc9IWqA" name="EndNodeInternalLow">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_S1GtIBiOEe2NtZnSc9IWqA" client="_K5ZswBiMEe2NtZnSc9IWqA" supplier="_JRzc0BiMEe2NtZnSc9IWqA" contract="_JRzc0BiMEe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_eo8HkBiOEe2NtZnSc9IWqA" name="sense" visibility="private"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_dBDcYBiREe2NtZnSc9IWqA" name="EndNodeSending">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_v1rZABiREe2NtZnSc9IWqA" name="EndNode_Send_Modes">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_DBG2oBiTEe2NtZnSc9IWqA" name="send" visibility="private"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_xCyFUBiREe2NtZnSc9IWqA" name="EndNodExternal">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Tk5joBiUEe2NtZnSc9IWqA" name="Temp_at30" type="_QbA-YBiQEe2NtZnSc9IWqA"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_ez39gBiUEe2NtZnSc9IWqA" name="mode">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_gDytQBiUEe2NtZnSc9IWqA" name="timestamp" type="_Dld2ABiVEe2NtZnSc9IWqA"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_7isSYBiUEe2NtZnSc9IWqA" name="battery" type="_GYEggBiVEe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_ACE5sBiTEe2NtZnSc9IWqA" name="changemode" visibility="private">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_jl2z4BiWEe2NtZnSc9IWqA" name="Temp_at30">
+                <type xmi:type="uml:Class" href="../Smart_Sensor/ClassDiagram.uml#_cPZFwP5BEeycALzWNPzx1Q"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_xmpnYBiREe2NtZnSc9IWqA" name="EndNodeExternalHigh">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Q_9FMBiVEe2NtZnSc9IWqA" name="Air_H"/>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_w4bSoBiVEe2NtZnSc9IWqA" client="_xmpnYBiREe2NtZnSc9IWqA" supplier="_v1rZABiREe2NtZnSc9IWqA" contract="_v1rZABiREe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_D7lh4BiTEe2NtZnSc9IWqA" name="send" visibility="private"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_yLINcBiREe2NtZnSc9IWqA" name="EndNodeExternalLow">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_yCstYBiVEe2NtZnSc9IWqA" client="_yLINcBiREe2NtZnSc9IWqA" supplier="_v1rZABiREe2NtZnSc9IWqA" contract="_v1rZABiREe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_E6gBMBiTEe2NtZnSc9IWqA" name="send" visibility="private"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_tBWd8BiWEe2NtZnSc9IWqA" name="SinkNode">
+        <packagedElement xmi:type="uml:Package" xmi:id="_33I7wBiWEe2NtZnSc9IWqA" name="SinkNodeSend">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_CAFhsBiXEe2NtZnSc9IWqA" name="SinkNodeModes">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_ydAY4BiXEe2NtZnSc9IWqA" name="send" visibility="private"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_CxrWsBiXEe2NtZnSc9IWqA" name="SinkNodeHigh">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_MQ0fwBiZEe2NtZnSc9IWqA" name="Humidity">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zOqeoMvpEe2j4cEQYwvToQ" value="*"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_wpXJoBiaEe2NtZnSc9IWqA" client="_CxrWsBiXEe2NtZnSc9IWqA" supplier="_CAFhsBiXEe2NtZnSc9IWqA" contract="_CAFhsBiXEe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_0XjaABiXEe2NtZnSc9IWqA" name="send" visibility="private"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_DS2KEBiXEe2NtZnSc9IWqA" name="SinkNodeLow">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_yI_JUBiaEe2NtZnSc9IWqA" client="_DS2KEBiXEe2NtZnSc9IWqA" supplier="_CAFhsBiXEe2NtZnSc9IWqA" contract="_CAFhsBiXEe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1S7dIBiXEe2NtZnSc9IWqA" name="send" visibility="private"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Dt7jkBiXEe2NtZnSc9IWqA" name="SinkNode">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_AieewBiYEe2NtZnSc9IWqA" name="AirTemperature" type="_QbA-YBiQEe2NtZnSc9IWqA">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0UsnsMvrEe2j4cEQYwvToQ" value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_FlwycBiYEe2NtZnSc9IWqA" name="FrequencyMode">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wdE14MvrEe2j4cEQYwvToQ" value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Hi8Q0BiYEe2NtZnSc9IWqA" name="FrequencyModes">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jdoj8MvrEe2j4cEQYwvToQ" value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_I90TYBiYEe2NtZnSc9IWqA" name="timestamp" type="_Dld2ABiVEe2NtZnSc9IWqA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_u8dqUBiXEe2NtZnSc9IWqA" name="listen">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_LQa9QBiaEe2NtZnSc9IWqA" name="FrequencyModes">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PdrA0BiaEe2NtZnSc9IWqA" value="*"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_wK3XIBiXEe2NtZnSc9IWqA" name="changemode" visibility="private">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y5RYkBiaEe2NtZnSc9IWqA" name="FrequencyModes">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eU7wABiaEe2NtZnSc9IWqA" value="*"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_xaxf0BiXEe2NtZnSc9IWqA" name="join" visibility="private">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_mkpjcBiaEe2NtZnSc9IWqA" name="timestamp" type="_Dld2ABiVEe2NtZnSc9IWqA">
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qCpUUBiaEe2NtZnSc9IWqA" value="*"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Vu8BABiOEe2NtZnSc9IWqA" memberEnd="_Vu8BAxiOEe2NtZnSc9IWqA _Vu8oEhiOEe2NtZnSc9IWqA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Vu8BARiOEe2NtZnSc9IWqA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Vu8BAhiOEe2NtZnSc9IWqA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Vu8oEhiOEe2NtZnSc9IWqA" type="_JRzc0BiMEe2NtZnSc9IWqA" aggregation="shared" association="_Vu8BABiOEe2NtZnSc9IWqA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Vu8BAxiOEe2NtZnSc9IWqA" type="_IPRBwBiMEe2NtZnSc9IWqA" association="_Vu8BABiOEe2NtZnSc9IWqA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_QbA-YBiQEe2NtZnSc9IWqA" name="Temperature_at30"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hAI2MBiTEe2NtZnSc9IWqA" memberEnd="_hAJdQhiTEe2NtZnSc9IWqA _hAKEUBiTEe2NtZnSc9IWqA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hAJdQBiTEe2NtZnSc9IWqA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hAJdQRiTEe2NtZnSc9IWqA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hAJdQhiTEe2NtZnSc9IWqA" name="endnode_internal" type="_IPRBwBiMEe2NtZnSc9IWqA" association="_hAI2MBiTEe2NtZnSc9IWqA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hAKEUBiTEe2NtZnSc9IWqA" name="endnodexternal" type="_xCyFUBiREe2NtZnSc9IWqA" association="_hAI2MBiTEe2NtZnSc9IWqA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_nF5TgBiTEe2NtZnSc9IWqA" memberEnd="_nF5TgxiTEe2NtZnSc9IWqA _nF56kRiTEe2NtZnSc9IWqA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nF5TgRiTEe2NtZnSc9IWqA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nF5TghiTEe2NtZnSc9IWqA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_nF56kRiTEe2NtZnSc9IWqA" type="_xCyFUBiREe2NtZnSc9IWqA" association="_nF5TgBiTEe2NtZnSc9IWqA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_nF5TgxiTEe2NtZnSc9IWqA" type="_v1rZABiREe2NtZnSc9IWqA" aggregation="shared" association="_nF5TgBiTEe2NtZnSc9IWqA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_Dld2ABiVEe2NtZnSc9IWqA" name="TimeInstant"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_GYEggBiVEe2NtZnSc9IWqA" name="Battery"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_6A5LoBiYEe2NtZnSc9IWqA" memberEnd="_6A5yshiYEe2NtZnSc9IWqA _6A6ZwBiYEe2NtZnSc9IWqA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6A5ysBiYEe2NtZnSc9IWqA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6A5ysRiYEe2NtZnSc9IWqA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_6A5yshiYEe2NtZnSc9IWqA" name="sinknode" type="_Dt7jkBiXEe2NtZnSc9IWqA" association="_6A5LoBiYEe2NtZnSc9IWqA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_6A6ZwBiYEe2NtZnSc9IWqA" name="endnodexternal" type="_xCyFUBiREe2NtZnSc9IWqA" association="_6A5LoBiYEe2NtZnSc9IWqA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rzYG4MvrEe2j4cEQYwvToQ" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="__hJvMBiYEe2NtZnSc9IWqA" memberEnd="__hKWQhiYEe2NtZnSc9IWqA __hK9URiYEe2NtZnSc9IWqA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__hKWQBiYEe2NtZnSc9IWqA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__hKWQRiYEe2NtZnSc9IWqA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="__hK9URiYEe2NtZnSc9IWqA" type="_CAFhsBiXEe2NtZnSc9IWqA" aggregation="shared" association="__hJvMBiYEe2NtZnSc9IWqA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="__hKWQhiYEe2NtZnSc9IWqA" type="_Dt7jkBiXEe2NtZnSc9IWqA" association="__hJvMBiYEe2NtZnSc9IWqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__hKWQxiYEe2NtZnSc9IWqA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__hK9UBiYEe2NtZnSc9IWqA" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HFGKIBiLEe2NtZnSc9IWqA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_R_N6YMvtEe2j4cEQYwvToQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R_N6YcvtEe2j4cEQYwvToQ" key="Version" value="0.0.34"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R_N6YsvtEe2j4cEQYwvToQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R_N6Y8vtEe2j4cEQYwvToQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R_N6ZMvtEe2j4cEQYwvToQ" key="Date" value="2023-03-26"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R_N6ZcvtEe2j4cEQYwvToQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HFGxMBiLEe2NtZnSc9IWqA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="IOTAM_PSM.profile.uml#_P7lOsMvtEe2j4cEQYwvToQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="IOTAM_PSM.profile.uml#_AH3YwOioEeylvoJXDUYIwg"/>
+    </profileApplication>
+  </uml:Model>
+  <IOTAM_PSM:A_PSM_IotApplication xmi:id="_aLl54BiLEe2NtZnSc9IWqA" base_Package="_YwJPkBiLEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_SensorNode xmi:id="_EvCcQBiMEe2NtZnSc9IWqA" base_Package="_Bs6IABiMEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_Modes xmi:id="_PnelcBiMEe2NtZnSc9IWqA" base_Interface="_JRzc0BiMEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_GatheredMeasure_Mode xmi:id="_Vi9FYBiMEe2NtZnSc9IWqA" base_Class="_KTfjUBiMEe2NtZnSc9IWqA" Mode="High"/>
+  <IOTAM_PSM:A_PSM_GathredMeasure xmi:id="_YPvmUBiNEe2NtZnSc9IWqA" base_Class="_IPRBwBiMEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Measure_Context xmi:id="_YP1s8BiNEe2NtZnSc9IWqA" base_Class="_IPRBwBiMEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Unavailable xmi:id="_jtv6sBiNEe2NtZnSc9IWqA" base_Package="_h-kcEBiNEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_GatheredMeasure_Mode xmi:id="_wB83QBiNEe2NtZnSc9IWqA" base_Class="_K5ZswBiMEe2NtZnSc9IWqA" Mode="Low"/>
+  <IOTAM_PSM:PSM_ChangeMode xmi:id="_frrsEBiQEe2NtZnSc9IWqA" base_Operation="_cNVAwBiOEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Gather xmi:id="_hG5F0BiQEe2NtZnSc9IWqA" base_Operation="_a-cLwBiOEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Gather xmi:id="_iQ_hcBiQEe2NtZnSc9IWqA" base_Operation="_dpI3cBiOEe2NtZnSc9IWqA" period="1"/>
+  <IOTAM_PSM:A_PSM_Gather xmi:id="_jUPuMBiQEe2NtZnSc9IWqA" base_Operation="_eo8HkBiOEe2NtZnSc9IWqA" period="30"/>
+  <IOTAM_PSM:A_PSM_Variable xmi:id="_nar_IBiQEe2NtZnSc9IWqA" base_Property="_j8GYYBiQEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Variable xmi:id="_pGNs0BiQEe2NtZnSc9IWqA" base_Property="_gmTzMBiOEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Available xmi:id="_eeecoBiREe2NtZnSc9IWqA" base_Package="_dBDcYBiREe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_DeliveredMeasure xmi:id="_jcxGIBiSEe2NtZnSc9IWqA" base_Class="_xCyFUBiREe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Measure_Context xmi:id="_jc3MwBiSEe2NtZnSc9IWqA" base_Class="_xCyFUBiREe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_Modes xmi:id="_3Y3BIBiSEe2NtZnSc9IWqA" base_Interface="_v1rZABiREe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_DeliveredMeasure_Mode xmi:id="_5MKKwBiSEe2NtZnSc9IWqA" base_Class="_xmpnYBiREe2NtZnSc9IWqA" Mode="High"/>
+  <IOTAM_PSM:PSM_DeliveredMeasure_Mode xmi:id="_6bOl8BiSEe2NtZnSc9IWqA" base_Class="_yLINcBiREe2NtZnSc9IWqA" Mode="Low"/>
+  <IOTAM_PSM:A_PSM_GatheredAs xmi:id="_kYiVYBiTEe2NtZnSc9IWqA" base_Association="_hAI2MBiTEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Variable xmi:id="_IjIC0BiVEe2NtZnSc9IWqA" base_Property="_Tk5joBiUEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Mode_Variable xmi:id="_MidmMBiVEe2NtZnSc9IWqA" base_Property="_ez39gBiUEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_DeviceVariable xmi:id="_NxHKoBiVEe2NtZnSc9IWqA" base_Property="_7isSYBiUEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_ExplicitTime xmi:id="_O7esABiVEe2NtZnSc9IWqA" base_Property="_gDytQBiUEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Variable xmi:id="_TT-9UBiVEe2NtZnSc9IWqA" base_Property="_Q_9FMBiVEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_Send xmi:id="_deV4gBiVEe2NtZnSc9IWqA" base_Operation="_D7lh4BiTEe2NtZnSc9IWqA" period="5"/>
+  <IOTAM_PSM:PSM_Send xmi:id="_fezUYBiVEe2NtZnSc9IWqA" base_Operation="_E6gBMBiTEe2NtZnSc9IWqA" period="30"/>
+  <IOTAM_PSM:PSM_ChangeMode xmi:id="_4yeYEBiVEe2NtZnSc9IWqA" base_Operation="_ACE5sBiTEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_Send xmi:id="_505eYBiVEe2NtZnSc9IWqA" base_Operation="_DBG2oBiTEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_SinkNode xmi:id="_vGjP4BiWEe2NtZnSc9IWqA" base_Package="_tBWd8BiWEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Available xmi:id="_5ec30BiWEe2NtZnSc9IWqA" base_Package="_33I7wBiWEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:Listening xmi:id="_HlPMUBiXEe2NtZnSc9IWqA" base_Class="_Dt7jkBiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_DeliveredMeasure xmi:id="_HlUr4BiXEe2NtZnSc9IWqA" base_Class="_Dt7jkBiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Measure_Context xmi:id="_HlaLcBiXEe2NtZnSc9IWqA" base_Class="_Dt7jkBiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_Modes xmi:id="_m6OSMBiXEe2NtZnSc9IWqA" base_Interface="_CAFhsBiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_DeliveredMeasure_Mode xmi:id="_oIxI8BiXEe2NtZnSc9IWqA" base_Class="_CxrWsBiXEe2NtZnSc9IWqA" Mode="High"/>
+  <IOTAM_PSM:PSM_DeliveredMeasure_Mode xmi:id="_pkVvEBiXEe2NtZnSc9IWqA" base_Class="_DS2KEBiXEe2NtZnSc9IWqA" Mode="Low"/>
+  <IOTAM_PSM:Listen xmi:id="_Lxf78BiYEe2NtZnSc9IWqA" base_Operation="_u8dqUBiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_ChangeMode xmi:id="_NBj1oBiYEe2NtZnSc9IWqA" base_Operation="_wK3XIBiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Join xmi:id="_OLAxABiYEe2NtZnSc9IWqA" base_Operation="_xaxf0BiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_Send xmi:id="_PdOm0BiYEe2NtZnSc9IWqA" base_Operation="_ydAY4BiXEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:PSM_Send xmi:id="_Qgv5UBiYEe2NtZnSc9IWqA" base_Operation="_1S7dIBiXEe2NtZnSc9IWqA" period="30"/>
+  <IOTAM_PSM:PSM_Send xmi:id="_RoUlYBiYEe2NtZnSc9IWqA" base_Operation="_0XjaABiXEe2NtZnSc9IWqA" period="5"/>
+  <IOTAM_PSM:A_PSM_GatheredAs xmi:id="_8308gBiYEe2NtZnSc9IWqA" base_Association="_6A5LoBiYEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_ExplicitTime xmi:id="_8hIeUBiZEe2NtZnSc9IWqA" base_Property="_I90TYBiYEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Mode_Variable xmi:id="_953L0BiZEe2NtZnSc9IWqA" base_Property="_FlwycBiYEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_Derived_PSM_Variable xmi:id="_AlbaMBiaEe2NtZnSc9IWqA" base_Property="_Hi8Q0BiYEe2NtZnSc9IWqA" source="_MidmMBiVEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Variable xmi:id="_CrVWwBiaEe2NtZnSc9IWqA" base_Property="_AieewBiYEe2NtZnSc9IWqA" source="_IjIC0BiVEe2NtZnSc9IWqA"/>
+  <IOTAM_PSM:A_PSM_Variable xmi:id="_OYQ3QMvsEe2j4cEQYwvToQ" base_Property="_MQ0fwBiZEe2NtZnSc9IWqA" source="_TT-9UBiVEe2NtZnSc9IWqA"/>
+</xmi:XMI>
