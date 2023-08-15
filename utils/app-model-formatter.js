@@ -96,12 +96,21 @@ const prepare_end_node = async full_endnode_model => {
  * @returns The node's stateless data.
  */
 const get_node_stateless_data = async full_node_model => {
-    const stateless_gathered_measure = await recursive_single_stereotype_searching(full_node_model, config.gatheredMeasure);
-    const stateless_delivered_measure = await recursive_single_stereotype_searching(full_node_model, config.deliveredMeasure);
-
+    const stateless_gathered_measures = await recursive_single_stereotype_searching(full_node_model, config.gatheredMeasure);
+    const stateless_delivered_measures = await recursive_single_stereotype_searching(full_node_model, config.deliveredMeasure);
+    const gm_variables = await recursive_single_stereotype_searching(stateless_gathered_measures, config.variable);
+    const dm_del_variables = await recursive_single_stereotype_searching(stateless_delivered_measures, config.deliveredVariable);
+    const dm_dev_variables = await recursive_single_stereotype_searching(stateless_delivered_measures, config.deviceVariable);
+    const gm_operations = await recursive_single_stereotype_searching(stateless_gathered_measures, config.gatherOperation);
+    const dm_operations = await recursive_single_stereotype_searching(stateless_delivered_measures, config.sendOperation);
+    console.log({ gm_variables });
+    console.log({ dm_del_variables });
+    console.log({ dm_dev_variables });
+    console.log({ gm_operations });
+    console.log({ dm_operations });
     const stateless_data = {
         variables: [],
-        operatiosn: [],
+        operations: [],
     };
     return stateless_data;
 };
