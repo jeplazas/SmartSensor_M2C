@@ -94,23 +94,49 @@ const prepare_end_node = async full_endnode_model => {
  * Obtains the data (variables and operations) for the node that are independent from the states. This should include the state change.
  * @param {object} full_node_model node model where the stateless data are.
  * @returns The node's stateless data.
+ * @throws An error if the node does not have one and only one delivered measure.
  */
 const get_node_stateless_data = async full_node_model => {
+    const sensed_variables = {};
+    const sending_data = {};
     const stateless_gathered_measures = await recursive_single_stereotype_searching(full_node_model, config.gatheredMeasure);
+    await stateless_gathered_measures.forEach(async gm => {
+        const variables = await recursive_single_stereotype_searching(gm, config.variable);
+        const operations = await recursive_single_stereotype_searching(gm, config.gatherOperation);
+        const change_mode = await recursive_single_stereotype_searching(gm, config.changeModeDefinition);
+        let stateless_sensing_op = null;
+        if (operations.length < 0) stateless_sensing_op = operations[0];
+        let change_mode_op = null;
+        if (change_mode.length < 0) change_mode_op = change_mode[0];
+        variables.forEach(v => {
+            sensed_variables[v.name] = { ...v, stateless_sensing_op, change_mode_op };
+        });
+    });
+
     const stateless_delivered_measures = await recursive_single_stereotype_searching(full_node_model, config.deliveredMeasure);
-    const gm_variables = await recursive_single_stereotype_searching(stateless_gathered_measures, config.variable);
-    const dm_del_variables = await recursive_single_stereotype_searching(stateless_delivered_measures, config.deliveredVariable);
-    const dm_dev_variables = await recursive_single_stereotype_searching(stateless_delivered_measures, config.deviceVariable);
-    const gm_operations = await recursive_single_stereotype_searching(stateless_gathered_measures, config.gatherOperation);
-    const dm_operations = await recursive_single_stereotype_searching(stateless_delivered_measures, config.sendOperation);
-    console.log({ gm_variables });
-    console.log({ dm_del_variables });
-    console.log({ dm_dev_variables });
-    console.log({ gm_operations });
-    console.log({ dm_operations });
+    if (stateless_delivered_measures.length !== 1)
+        throw new Error("Nodes can only have one, and must have one delivered measure.");
+    await stateless_delivered_measures.forEach(async dm => {
+        const device_vars = await recursive_single_stereotype_searching(dm, config.deviceVariable);
+        const time_vars = await recursive_single_stereotype_searching(dm, config.explicitTime);
+        const sensed_vars = await recursive_single_stereotype_searching(dm, config.deliveredVariable);
+        const operations = await recursive_single_stereotype_searching(dm, config.sendOperation);
+        const change_mode = await recursive_single_stereotype_searching(dm, config.changeModeDefinition);
+        let stateless_sending_op = null;
+        if (operations.length < 0) stateless_sending_op = operations[0];
+        let change_mode_op = null;
+        if (change_mode.length < 0) change_mode_op = change_mode[0];
+        const variables = { device_vars, time_vars, sensed_vars };
+        sending_data.stateless_sending_op = stateless_sending_op;
+        sending_data.change_mode_op = change_mode_op;
+        sending_data.variables = variables;
+    });
+
+    console.log({ sensed_variables });
+    console.log({ sending_data });
     const stateless_data = {
-        variables: [],
-        operations: [],
+        sensed_variables,
+        sending_data,
     };
     return stateless_data;
 };
