@@ -148,9 +148,11 @@ const get_node_stateless_data = async full_node_model => {
  * @returns an object containing the identified states in the node model, defining the data and operations for each state
  */
 const get_node_states = async (full_node_model, stateless_data) => {
-    const full_states_list = await recursive_single_stereotype_searching(full_node_model, config.mod);
+    const gm_states_list = await recursive_single_stereotype_searching(full_node_model, config.gatheredMeasureMode);
     const states = {};
-    full_states_list.forEach(sn => states[sn.stereotype.Mode])
+    gm_states_list.forEach(sn => {
+    states[sn.stereotype[0].Mode] = {};
+    });
     return states;
 };
 
@@ -176,7 +178,7 @@ const format_app_model = async (full_app_model, stereotypes) => {
     const sink_nodes = await recursive_single_stereotype_searching(app_model[0], config.sinkNode);
     application.sink_nodes = await Promise.all(sink_nodes.map(async sk => prepare_sink_node(sk)));
     application.end_nodes = await Promise.all(end_nodes.map(async en => prepare_end_node(en)));
-    console.log("application", application);
+    console.log("application\n", JSON.stringify(application));
     return application;
 };
 
