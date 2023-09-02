@@ -148,11 +148,38 @@ const get_node_stateless_data = async full_node_model => {
  * @returns an object containing the identified states in the node model, defining the data and operations for each state
  */
 const get_node_states = async (full_node_model, stateless_data) => {
-    const gm_states_list = await recursive_single_stereotype_searching(full_node_model, config.gatheredMeasureMode);
     const states = {};
-    gm_states_list.forEach(sn => {
-    states[sn.stereotype[0].Mode] = {};
-    });
+    const gm_states_list = await recursive_single_stereotype_searching(full_node_model, config.gatheredMeasureMode);
+    // TODO: What happends to those variables that only the sense operation changes?!?!?!?!
+    for (let gms of gm_states_list) {
+        if (states[gms.stereotype[0].Mode] == null) states[gms.stereotype[0].Mode] = {};
+        if (states[gms.stereotype[0].Mode].sensed_variables == null) states[gms.stereotype[0].Mode].sensed_variables = {};
+        const sensed_variables = {};
+        const variables = await recursive_single_stereotype_searching(gms, config.variable);
+        const operations = await recursive_single_stereotype_searching(gms, config.gatherOperation);
+        let sensing_op = null;
+        if (operations.length < 0) sensing_op = operations[0];
+        variables.forEach(v => {
+            sensed_variables[v.name] = { ...v, sensing_op };
+        });
+        states[gms.stereotype[0].Mode].sensed_variables = { ...states[gms.stereotype[0].Mode].sensed_variables, sensed_variables };
+    }
+    const dm_states_list = await recursive_single_stereotype_searching(full_node_model, config.deliveredMeasureMode);
+    for (let dms of dm_states_list) {
+        if (states[dms.stereotype[0].Mode] == null) states[dms.stereotype[0].Mode] = {};
+        if (states[dms.stereotype[0].Mode].sending_data == null) states[dms.stereotype[0].Mode].sending_data = {};
+        const sending_data = {};
+        const device_vars = await recursive_single_stereotype_searching(dms, config.deviceVariable);
+        const time_vars = await recursive_single_stereotype_searching(dms, config.explicitTime);
+        const sensed_vars = await recursive_single_stereotype_searching(dms, config.deliveredVariable);
+        const operations = await recursive_single_stereotype_searching(dms, config.sendOperation);
+        let sending_op = null;
+        if (operations.length < 0) sending_op = operations[0];
+        const variables = { device_vars, time_vars, sensed_vars };
+        sending_data.sending_op = sending_op;
+        sending_data.variables = variables;
+        states[dms.stereotype[0].Mode].sending_data = { ...states[dms.stereotype[0].Mode].sending_data, sending_data };
+    }
     return states;
 };
 
