@@ -70,7 +70,7 @@ const prepare_sink_node = async full_sinknode_model => {
         stereotype: full_sinknode_model.stereotype,
     };
     sink_node.stateless_data = await get_node_stateless_data(full_sinknode_model);
-    sink_node.states = await get_node_states(full_sinknode_model);
+    sink_node.states = await get_node_states(full_sinknode_model, sink_node.stateless_data);
     return sink_node;
 };
 
@@ -86,7 +86,7 @@ const prepare_end_node = async full_endnode_model => {
         stereotype: full_endnode_model.stereotype,
     };
     end_node.stateless_data = await get_node_stateless_data(full_endnode_model);
-    end_node.states = await get_node_states(full_endnode_model);
+    end_node.states = await get_node_states(full_endnode_model, end_node.stateless_data);
     return end_node;
 };
 
@@ -108,9 +108,12 @@ const get_node_stateless_data = async full_node_model => {
         if (operations.length < 0) stateless_sensing_op = operations[0];
         let change_mode_op = null;
         if (change_mode.length < 0) change_mode_op = change_mode[0];
-        variables.forEach(v => {
-            sensed_variables[v.name] = { ...v, stateless_sensing_op, change_mode_op };
-        });
+        if (variables.length < 0)
+            sensed_variables["__NO_STATELESS_VARS__"] = { stateless_sensing_op, change_mode_op };
+        else
+            variables.forEach(v => {
+                sensed_variables[v.name] = { ...v, stateless_sensing_op, change_mode_op };
+            });
     });
 
     const stateless_delivered_measures = await recursive_single_stereotype_searching(full_node_model, config.deliveredMeasure);
@@ -160,8 +163,31 @@ const get_node_states = async (full_node_model, stateless_data) => {
         let sensing_op = null;
         if (operations.length < 0) sensing_op = operations[0];
         variables.forEach(v => {
+            if (sensing_op == null && stateless_data.sensed_variables != null && stateless_data.sensed_variables[v.name] != null && stateless_data.sensed_variables[v.name].stateless_sensing_op != null)
+                sensing_op = stateless_data.sensed_variables[v.name].stateless_sensing_op;
+            else if (sensing_op == null && stateless_data.sensed_variables != null && stateless_data.sensed_variables["__NO_STATELESS_VARS__"] != null && stateless_data.sensed_variables["__NO_STATELESS_VARS__"].stateless_sensing_op != null)
+                sensing_op = stateless_data.sensed_variables["__NO_STATELESS_VARS__"].stateless_sensing_op;
             sensed_variables[v.name] = { ...v, sensing_op };
         });
+        const sensed_variables_keys = Object.keys(sensed_variables);
+        if (stateless_data.sensed_variables != null)
+            Object.keys(stateless_data.sensed_variables).forEach(key => {
+                if (key != "__NO_STATELESS_VARS__" && !sensed_variables_keys.includes(key)) {
+                    if (sensing_op != null && stateless_data.sensed_variables[key].stateless_sensing_op == null) {
+                        sensed_variables[key] = {
+                            ...stateless_data.sensed_variables[key],
+                            sensing_op,
+                            stateless_sensing_op: undefined,
+                        }
+                    } else if (sensing_op == null && stateless_data.sensed_variables[key].stateless_sensing_op != null) {
+                        sensed_variables[key] = {
+                            ...stateless_data.sensed_variables[key],
+                            sensing_op: stateless_data.sensed_variables[key].stateless_sensing_op,
+                            stateless_sensing_op: undefined,
+                        }
+                    }
+                }
+            });
         states[gms.stereotype[0].Mode].sensed_variables = { ...states[gms.stereotype[0].Mode].sensed_variables, sensed_variables };
     }
     const dm_states_list = await recursive_single_stereotype_searching(full_node_model, config.deliveredMeasureMode);
