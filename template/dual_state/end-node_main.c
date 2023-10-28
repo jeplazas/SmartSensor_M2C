@@ -1,8 +1,8 @@
 /*!
- * \file 'main.c' generated with 	RIOT_ModelToCode_v1_updating.py by @jeplazas
+ * \file 'main.c' generated with RIOT_ModelToCode_Tool by @jeplazas
  * \brief MDA-generated application running on RIOT
- * \author Julián E. Plazas P.
- * \date 2022-07-19
+ * \author -___author___-
+ * \date -___date___-
  * \
  */
 
@@ -88,11 +88,11 @@ int load_network_configuration(void){
 
 
 /* Delivery thread */
-/* Code for thread 'PlotAvgTemperatureDeliveryThread' */
-/* Stack of memory for thread 'PlotAvgTemperatureDeliveryThread' */
+/* Code for thread 'MainNodeDeliveryThread' */
+/* Stack of memory for thread 'MainNodeDeliveryThread' */
 static char MainNodeDeliveryThread_memstack[THREAD_STACKSIZE_MAIN];
 
-/* Thread 'PlotAvgTemperatureDeliveryThread' */
+/* Thread 'MainNodeDeliveryThread' */
 /* Thread to deliver the sensed and transformed variables */
 static void *MainNodeDeliveryThread(void *arg)
 {
@@ -133,7 +133,9 @@ int main(void)
 	transitionToLow(&state);
 
 	/* Init the threads */
-	-___create_all_threads___-
-
+	-___create_all_sensing_threads___-
+	thread_create(MainNodeDeliveryThread_memstack, sizeof(MainNodeDeliveryThread_memstack),
+				THREAD_PRIORITY_MAIN + 1, 0, MainNodeDeliveryThread, NULL,
+				"MainNodeDeliveryThread_thread1");
 	return 0;
 }

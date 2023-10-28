@@ -1,3 +1,11 @@
+/*!
+ * \file 'State.c' generated with RIOT_ModelToCode_Tool by @jeplazas
+ * \brief MDA-generated application running on RIOT
+ * \author -___author___-
+ * \date -___date___-
+ * \
+ */
+
 #include "State.h"
 
 // Let's define default implementation so that we don't have to define what is each state doing on every state

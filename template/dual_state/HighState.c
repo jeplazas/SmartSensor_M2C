@@ -1,3 +1,11 @@
+/*!
+ * \file 'HighState.c' generated with RIOT_ModelToCode_Tool by @jeplazas
+ * \brief MDA-generated application running on RIOT
+ * \author -___author___-
+ * \date -___date___-
+ * \
+ */
+
 #include "HighState.h"
 #include "LowState.h"
 

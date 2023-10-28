@@ -1,7 +1,7 @@
-# file 'Makefile' generated with 	RIOT_ModelToCode_v1_updating.py by @jeplazas
+# file 'Makefile' generated with 	RIOT_ModelToCode_Tool by @jeplazas
 # brief MDA-generated Makefile for an application running on RIOT
-# author Julián E. Plazas P.
-# date 2022-07-19
+# author -___author___-
+# date -___date___-
 # 
 
 

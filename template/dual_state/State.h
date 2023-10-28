@@ -1,3 +1,11 @@
+/*!
+ * \file 'State.h' generated with RIOT_ModelToCode_Tool by @jeplazas
+ * \brief MDA-generated application running on RIOT
+ * \author -___author___-
+ * \date -___date___-
+ * \
+ */
+
 -___all_sensors_includes___-
 #include "timex.h"
 #include "xtimer.h"
