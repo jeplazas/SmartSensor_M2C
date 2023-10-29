@@ -149,10 +149,10 @@ const end_node_code_extractor_faker = async (end_node_model) => {
         sum += avgTemp_src[i];
     }
     *temperature = sum / (avgTemp_src_lastplace + 1);`;
-    end_node_replace_obj.high_sending_sleeptime = `xtimer_sleep(300);`;
+    end_node_replace_obj.high_sending_sleeptime = `300`;
     end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(1800);
     at30tse75x_get_temperature(probe, temperature);`;
-    end_node_replace_obj.low_sending_sleeptime = `xtimer_sleep(1800);`;
+    end_node_replace_obj.low_sending_sleeptime = `1800`;
     end_node_replace_obj.all_usemodule_sensors_list = `at30tse75x`;
     end_node_replace_obj.all_sensors_mainvars_definitions = `static at30tse75x_t at30tse75x;`;
     end_node_replace_obj.all_sensing_structs = `// Private struct for AirTemperature_avg:
@@ -206,7 +206,7 @@ const end_node_code_extractor_faker = async (end_node_model) => {
             (int) AirTemperature_avg_data.avgTemp_src[0], AirTemperature_avg_data.avgTemp_src_lastplace, state.status, (int32_t) ftime);`;
     end_node_replace_obj.init_all_sensors = `/* Start the RTC */
     // rtc_init();
-    time_t itime = 1659484800;
+    time_t itime = ${Date.now()};
     rtc_set_time(gmtime(&itime));
     at30tse75x_init(&at30tse75x, 0, 0x4f); // TODO: Check the correct I2C device and address. 0, 0x4f are default for SAMR21 nodes.
     
@@ -244,22 +244,91 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
 
     /* Fake part */
     sink_node_replace_obj.all_sensors_includes = ``;
-    sink_node_replace_obj.all_probes_types_pointers = ``;
-    sink_node_replace_obj.all_save_values_types_pointers = ``;
-    sink_node_replace_obj.all_probes_chain = ``;
-    sink_node_replace_obj.all_save_values_chain = ``;
-    sink_node_replace_obj.high_sensing_and_aggregation_code = ``;
-    sink_node_replace_obj.high_sending_sleeptime = ``;
-    sink_node_replace_obj.low_sensing_and_aggregation_code = ``;
-    sink_node_replace_obj.low_sending_sleeptime = ``;
+    sink_node_replace_obj.all_probes_types_pointers = `char*`;
+    sink_node_replace_obj.all_save_values_types_pointers = `char*`;
+    sink_node_replace_obj.all_probes_chain = `null`;
+    sink_node_replace_obj.all_save_values_chain = `null`;
+    sink_node_replace_obj.high_sensing_and_aggregation_code = `xtimer_sleep(300);`;
+    sink_node_replace_obj.high_sending_sleeptime = `300`;
+    sink_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(1800);`;
+    sink_node_replace_obj.low_sending_sleeptime = `1800`;
     sink_node_replace_obj.all_usemodule_sensors_list = ``;
     sink_node_replace_obj.all_sensors_mainvars_definitions = ``;
     sink_node_replace_obj.all_sensing_structs = ``;
-    sink_node_replace_obj.all_transforming_structs = ``;
-    sink_node_replace_obj.all_receiving_structs = ``;
-    sink_node_replace_obj.reception_code = ``;
+    sink_node_replace_obj.all_transforming_structs = `// Private struct for Final_Status:
+    typedef struct Final_Status_dataStruct {
+        int16_t status_src[1];
+        int8_t status_src_lastplace;
+    } Final_Status_dataStruct;
+    // Public struct for Final_Status:
+    typedef struct Final_Status_publicDataStruct {
+        Final_Status_dataStruct data;
+        mutex_t lock;
+    } Final_Status_publicDataStruct;
+    static Final_Status_publicDataStruct public_Final_Status;`;
+    sink_node_replace_obj.all_receiving_structs = `// From Node 0:
+    // --Private struct for PlotAvgTemperature:
+    typedef struct PlotAvgTemperature_r0_dataStruct {
+        int16_t avgTemp[1] ;
+        int8_t avgTemp_lastplace;
+        int16_t state[1];
+        int8_t state_lastplace;
+        time_t rec_time;
+    } PlotAvgTemperature_r0_dataStruct;
+    //static PlotAvgTemperature_r0_dataStruct clear_PlotAvgTemperature_r0_dataStruct;	// Uncomment this line if you want to clear the received data after its first use.
+    // --Public struct for PlotAvgTemperature:
+    typedef struct PlotAvgTemperature_r0_publicDataStruct {
+        PlotAvgTemperature_r0_dataStruct data;
+        mutex_t lock;
+    } PlotAvgTemperature_r0_publicDataStruct;
+    static PlotAvgTemperature_r0_publicDataStruct public_r0_PlotAvgTemperature;`;
+    sink_node_replace_obj.reception_code = `rtc_get_time(&curtime);
+    // Not a header!
+    if (node_id == 0){
+        //if (node_class == PlotAvgTemperature){... // Not implemented
+        PlotAvgTemperature_r0_dataStruct PlotAvgTemperature_r0_data;		// Received from PlotAvgTemperature_0
+        sscanf(msg_str,
+                "%i, %hi, %hi, %hi, %hi, %ld",
+                &node_id, &PlotAvgTemperature_r0_data.avgTemp[0], (int16_t*) &PlotAvgTemperature_r0_data.avgTemp_lastplace,
+                &PlotAvgTemperature_r0_data.state[0], (int16_t*) &PlotAvgTemperature_r0_data.state_lastplace,
+               (int32_t*) &PlotAvgTemperature_r0_data.rec_time);
+        //Save received data from PlotAvgTemperature_0:
+        mutex_lock(&public_r0_PlotAvgTemperature.lock);
+        public_r0_PlotAvgTemperature.data = PlotAvgTemperature_r0_data;
+        mutex_unlock(&public_r0_PlotAvgTemperature.lock);
+        //...} // Not implemented
+    }`;
     sink_node_replace_obj.all_sensing_threads_funcitons_definition = ``;
-    sink_node_replace_obj.prepare_output_string_and_change_to_high_state_condition = ``;
+    sink_node_replace_obj.prepare_output_string_and_change_to_high_state_condition = `//Data from sources:
+    //Final_Status data:
+    mutex_lock(&public_Final_Status.lock);
+    Final_Status_dataStruct Final_Status_data = public_Final_Status.data;
+    mutex_unlock(&public_Final_Status.lock);
+    //Received data from PlotAvgTemperature_0:
+    mutex_lock(&public_r0_PlotAvgTemperature.lock);
+    PlotAvgTemperature_r0_dataStruct PlotAvgTemperature_r0_data = public_r0_PlotAvgTemperature.data;
+//		public_r0_PlotAvgTemperature.data = clear_PlotAvgTemperature_r0_dataStruct;	// Uncomment this line to clear the received data here!
+    mutex_unlock(&public_r0_PlotAvgTemperature.lock);
+    //Received data from PlotAvgTemperature_2:
+    mutex_lock(&public_r2_PlotAvgTemperature.lock);
+    PlotAvgTemperature_r2_dataStruct PlotAvgTemperature_r2_data = public_r2_PlotAvgTemperature.data;
+//		public_r2_PlotAvgTemperature.data = clear_PlotAvgTemperature_r2_dataStruct;	// Uncomment this line to clear the received data here!
+    mutex_unlock(&public_r2_PlotAvgTemperature.lock);
+    //Received data from PlotAvgTemperature_3:
+    mutex_lock(&public_r3_PlotAvgTemperature.lock);
+    PlotAvgTemperature_r3_dataStruct PlotAvgTemperature_r3_data = public_r3_PlotAvgTemperature.data;
+//		public_r3_PlotAvgTemperature.data = clear_PlotAvgTemperature_r3_dataStruct;	// Uncomment this line to clear the received data here!
+    mutex_unlock(&public_r3_PlotAvgTemperature.lock);
+    //Prepare the data string to be sent:
+    char output[254];
+    sprintf(output,
+            "SinkNode Result:\t Temp_0: %hi, Temp_1: %hi, Temp_2: %hi, State: %hi, Time: %s",
+            PlotAvgTemperature_r0_data.avgTemp[0], PlotAvgTemperature_r2_data.avgTemp[0], PlotAvgTemperature_r3_data.avgTemp[0], Final_Status_data.status_src[0],
+           asctime(&curtime));
+    int change_to_high_state = 0;
+    if (public_r0_PlotAvgTemperature.data.state[0]){
+        change_to_high_state = 1
+    }`;
     sink_node_replace_obj.init_all_sensors = ``;
     sink_node_replace_obj.create_all_sensing_and_transformation_threads = ``;
     /* ********* */
