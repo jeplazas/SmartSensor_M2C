@@ -109,17 +109,22 @@ const generate_sink_node = async (
     default_network_id, all_usemodule_sensors_list, all_sensors_mainvars_definitions, all_sensing_structs,
     all_transforming_structs, all_receiving_structs, reception_code, all_sensing_threads_funcitons_definition,
     prepare_output_string_and_change_to_high_state_condition, init_all_sensors, create_all_sensing_and_transformation_threads) => {
-    const save_dir = path.join(output_dir, "sink_node");
-    await fs.mkdir(save_dir);
-    await copy_replace_State_files(author, save_dir, all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers,
-        all_probes_chain, all_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
-        low_sensing_and_aggregation_code, low_sending_sleeptime);
-    await copy_replace_Makefile(author, save_dir, app_name, target_board, default_network_channel, default_network_id,
-        all_usemodule_sensors_list);
-    await copy_replace_Main_file(author, save_dir, all_sensors_includes, all_sensors_mainvars_definitions, all_sensing_structs,
-        all_transforming_structs, all_receiving_structs, reception_code, all_sensing_threads_funcitons_definition,
-        prepare_output_string_and_change_to_high_state_condition, init_all_sensors, create_all_sensing_and_transformation_threads);
-    return true;
+    try {
+        const save_dir = path.join(output_dir, "sink_node");
+        await fs.mkdir(save_dir);
+        await copy_replace_State_files(author, save_dir, all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers,
+            all_probes_chain, all_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
+            low_sensing_and_aggregation_code, low_sending_sleeptime);
+        await copy_replace_Makefile(author, save_dir, app_name, target_board, default_network_channel, default_network_id,
+            all_usemodule_sensors_list);
+        await copy_replace_Main_file(author, save_dir, all_sensors_includes, all_sensors_mainvars_definitions, all_sensing_structs,
+            all_transforming_structs, all_receiving_structs, reception_code, all_sensing_threads_funcitons_definition,
+            prepare_output_string_and_change_to_high_state_condition, init_all_sensors, create_all_sensing_and_transformation_threads);
+        return null;
+    } catch (error) {
+        console.error(error);
+        return error;
+    }
 };
 
 module.exports = generate_sink_node;
