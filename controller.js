@@ -16,6 +16,7 @@ const path = require('path');
 const fileCheck = require('./utils/file-check');
 const xmi_parser = require('./utils/xmi-parser');
 const model_formatter = require('./utils/app-model-formatter');
+const { generate_application_code } = require('./utils/app-code-generator');
 
 const views_path = path.join(__dirname, 'views');
 
@@ -38,8 +39,6 @@ const post_file = async (req, res, next) => {
                 author = "invalid author name"
         }
 
-        console.log("author", author);
-
         xmiFilePath = req.file.path;
         const uniqueId = uuidv4();
         const outputDir = `output/${uniqueId}`;
@@ -48,14 +47,16 @@ const post_file = async (req, res, next) => {
         // TODO: Perform XMI parsing and code generation here
         const parsedXmi = await xmi_parser(xmiFilePath, "IOTAM_PSM:");
         const jsonObject = await model_formatter(parsedXmi.full_app_model, parsedXmi.stereotypes);
-        // TODO: Replace this section with your own logic to transform the XMI file into code
-
         // Create the output directory
         fs.mkdirSync(outputDir);
-
-        // Save the JSON object as a file
-        // const jsonObject = { example: 'data' };
-        fs.writeFileSync(`${outputDir}/model.json`, JSON.stringify(jsonObject));
+        // Generate and save the code
+        const errors = await generate_application_code(author, outputDir, jsonObject);
+        if (errors.length > 0) {
+            throw {
+                message: `Error generating application code.`,
+                errors,
+            };
+        }
 
         // Create a zip archive of the output directory
         const output = fs.createWriteStream(outputZip);
@@ -95,7 +96,7 @@ const error_handler = (error, req, res, next) => {
         statuscode = error.code;
     if (error.error)
         error = error.error;
-    return res.status(statuscode).json({ "error message": error.message });
+    return res.status(statuscode).json({ "error message": error.message, "errors": error.errors });
 
 }
 
