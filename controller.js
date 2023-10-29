@@ -29,6 +29,16 @@ const post_file = async (req, res, next) => {
     try {
         // Check that the uploaded file exists, has .xmi or .uml extension, and has 'application/xmi+xml' MIME type
         fileCheck.check_xmi_file(req.file, 'uml');
+        // Check if the author name is valid:
+        let author = "anonymous author"
+        if (req.body != null && req.body.authorName != null && typeof req.body.authorName === "string" && req.body.authorName.length > 0) {
+            if (/^([A-Za-zÀ-ÖØ-öø-ÿ_@.\s])+$/.test(req.body.authorName))
+                author = req.body.authorName.trim()
+            else
+                author = "invalid author name"
+        }
+
+        console.log("author", author);
 
         xmiFilePath = req.file.path;
         const uniqueId = uuidv4();

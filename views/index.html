@@ -64,6 +64,10 @@
     <h1>Model to Code Transformation Tool</h1>
     <form action="/file" method="post" enctype="multipart/form-data">
       <div class="form-group">
+        <label for="authorName" class="file-input">
+          Insert your name
+          <input type="text" name="authorName" id="authorName">
+        </label>
         <label for="xmiFile" class="file-input">
           Select your XMI File
           <input type="file" name="xmiFile" id="xmiFile" accept=".xmi,.uml" required>

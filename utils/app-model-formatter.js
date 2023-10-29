@@ -232,6 +232,8 @@ const format_app_model = async (full_app_model, stereotypes) => {
     application.sink_nodes = await Promise.all(sink_nodes.map(async sk => prepare_sink_node(sk)));
     application.end_nodes = await Promise.all(end_nodes.map(async en => prepare_end_node(en)));
     console.log("application\n", JSON.stringify(application));
+    const operations = await recursive_single_stereotype_searching(app_model[0], config.gatherOperation);
+    console.log(operations);
     return application;
 };
 
