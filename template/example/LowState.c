@@ -5,15 +5,15 @@ static void toHighSensing(StatePtr state) {
     transitionToHigh(state);
 }
 
-static void lowSensing(at30tse75x_t* probe, float* temperature) {
+static void lowSensing(float* temperature) {
     puts("DEBUG_LOW: Started sensing");
-    xtimer_sleep(1800);
-    at30tse75x_get_temperature(probe, temperature);
+    xtimer_sleep(180);
+    *temperature = 30;
     puts("DEBUG_LOW: Finished sensing");
 }
 static void lowSending(void) {
     puts("DEBUG_LOW: Waiting to send");
-    xtimer_sleep(1800);
+    xtimer_sleep(180);
 }
 
 void transitionToLow(StatePtr state) {

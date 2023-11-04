@@ -1,4 +1,4 @@
-#include "at30tse75x.h"
+// #include "at30tse75x.h"
 #include "timex.h"
 #include "xtimer.h"
 
@@ -10,7 +10,7 @@ typedef void (*EventToHighFunc) (StatePtr);
 typedef void (*EventToLowFunc) (StatePtr);
 
 // Pointers to sense and send functions:
-typedef void (*SenseFunc)(at30tse75x_t*, float*);
+typedef void (*SenseFunc)(float*);
 typedef void (*SendSleepFunc)(void);
 
 #ifndef StateDefined

@@ -5,14 +5,15 @@ static void toLowSensing(StatePtr state) {
     transitionToLow(state);
 }
 
-static void highSensing(at30tse75x_t* probe, float* temperature) {
+static void highSensing(float* temperature) {
     puts("DEBUG_HIGH: Started sensing");
     float avgTemp_src[5];
     int16_t avgTemp_src_lastplace = 0;
     for (int16_t w=0; w< 5; w++) {
-        at30tse75x_get_temperature(probe, &avgTemp_src[w]);
+        // at30tse75x_get_temperature(probe, &avgTemp_src[w]);
+        avgTemp_src[w] = 25;
         avgTemp_src_lastplace = w;
-        xtimer_sleep(60);
+        xtimer_sleep(6);
     }
     double sum = 0;
     for (int8_t  i=0; i<=avgTemp_src_lastplace; i++){
@@ -23,7 +24,7 @@ static void highSensing(at30tse75x_t* probe, float* temperature) {
 }
 static void highSending(void) {
     puts("DEBUG_HIGH: Waiting to send");
-    xtimer_sleep(300);
+    xtimer_sleep(30);
 }
 
 void transitionToHigh(StatePtr state) {

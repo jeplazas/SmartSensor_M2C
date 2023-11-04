@@ -24,10 +24,10 @@ SERVER_ADDR ?= fe80::1
 SERVER_PORT ?= 8888
 
 # Include 'gnrc_netdev_default' and 'auto_init_gnrc_netif' radio drivers:
-USEMODULE += gnrc_netdev_default auto_init_gnrc_netif
+# USEMODULE += gnrc_netdev_default auto_init_gnrc_netif
 
 # Include 'gnrc_ipv6_default' and 'sock_udp' network modules:
-USEMODULE += gnrc_ipv6_default sock_udp
+# USEMODULE += gnrc_ipv6_default sock_udp
 
 # Check if the board uses 'XBee' module for network communications. Please add your board to the list if it uses 'XBee' (just space BOARD):
 BOARDS_USE_XBEE := arduino-zero
@@ -38,10 +38,10 @@ endif
 
 
 # Sensors modules:
-USEMODULE += at30tse75x
+# USEMODULE += at30tse75x
 
 # RTC:
-USEMODULE += periph_rtc
+# USEMODULE += periph_rtc
 
 CFLAGS += -DSERVER_ADDR=\"$(SERVER_ADDR)\"
 CFLAGS += -DSERVER_PORT=$(SERVER_PORT)
