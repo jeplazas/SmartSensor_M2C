@@ -22,9 +22,10 @@ const generate_application_code = async (author, output_dir, formated_app_model)
             author, output_dir, code_replace.end_node_name,
             code_replace.all_sensors_includes, code_replace.all_probes_types_and_save_values_pointers,
             code_replace.all_probes_and_save_values_chain,
+            code_replace.output_values_types_chain, code_replace.output_values_chain,
             code_replace.high_sensing_and_aggregation_code,
-            code_replace.high_sending_sleeptime, code_replace.low_sensing_and_aggregation_code,
-            code_replace.low_sending_sleeptime, app_name, target_board, default_network_channel,
+            code_replace.high_sending_sleeptime_and_output_building, code_replace.low_sensing_and_aggregation_code,
+            code_replace.low_sending_sleeptime_and_output_building, app_name, target_board, default_network_channel,
             default_network_id, code_replace.all_usemodule_sensors_list, code_replace.all_sensors_mainvars_definitions,
             code_replace.all_sensing_structs, code_replace.all_transforming_structs,
             code_replace.all_sensing_threads_funcitons_definition, code_replace.prepare_output_string,
@@ -40,9 +41,10 @@ const generate_application_code = async (author, output_dir, formated_app_model)
             author, output_dir,
             code_replace.all_sensors_includes, code_replace.all_probes_types_and_save_values_pointers,
             code_replace.all_probes_and_save_values_chain,
+            code_replace.output_values_types_chain, code_replace.output_values_chain,
             code_replace.high_sensing_and_aggregation_code,
-            code_replace.high_sending_sleeptime, code_replace.low_sensing_and_aggregation_code,
-            code_replace.low_sending_sleeptime, app_name, target_board, default_network_channel,
+            code_replace.high_sending_sleeptime_and_output_building, code_replace.low_sensing_and_aggregation_code,
+            code_replace.low_sending_sleeptime_and_output_building, app_name, target_board, default_network_channel,
             default_network_id, code_replace.all_usemodule_sensors_list, code_replace.all_sensors_mainvars_definitions,
             code_replace.all_sensing_structs, code_replace.all_transforming_structs,
             code_replace.all_receiving_structs, code_replace.reception_code,
@@ -62,10 +64,12 @@ const end_node_code_extractor = async (end_node_model) => {
         all_sensors_includes: "/* No Generated all_sensors_includes */",
         all_probes_types_and_save_values_pointers: "/* No Generated all_probes_types_and_save_values_pointers */",
         all_probes_and_save_values_chain: "/* No Generated all_probes_and_save_values_chain */",
+        output_values_types_chain: "/* No Generated output_values_types_chain */",
+        output_values_chain: "/* No Generated output_values_chain */",
         high_sensing_and_aggregation_code: "/* No Generated high_sensing_and_aggregation_code */",
-        high_sending_sleeptime: "/* No Generated high_sending_sleeptime */",
+        high_sending_sleeptime_and_output_building: "/* No Generated high_sending_sleeptime_and_output_building */",
         low_sensing_and_aggregation_code: "/* No Generated low_sensing_and_aggregation_code */",
-        low_sending_sleeptime: "/* No Generated low_sending_sleeptime */",
+        low_sending_sleeptime_and_output_building: "/* No Generated low_sending_sleeptime_and_output_building */",
         all_usemodule_sensors_list: "/* No Generated all_usemodule_sensors_list */",
         all_sensors_mainvars_definitions: "/* No Generated all_sensors_mainvars_definitions */",
         all_sensing_structs: "/* No Generated all_sensing_structs */",
@@ -84,10 +88,12 @@ const sink_node_code_extractor = async (sink_node_model) => {
         all_sensors_includes: "/* No Generated all_sensors_includes */",
         all_probes_types_and_save_values_pointers: "/* No Generated all_probes_types_and_save_values_pointers */",
         all_probes_and_save_values_chain: "/* No Generated all_probes_and_save_values_chain */",
+        output_values_types_chain: "/* No Generated output_values_types_chain */",
+        output_values_chain: "/* No Generated output_values_chain */",
         high_sensing_and_aggregation_code: "/* No Generated high_sensing_and_aggregation_code */",
-        high_sending_sleeptime: "/* No Generated high_sending_sleeptime */",
+        high_sending_sleeptime_and_output_building: "/* No Generated high_sending_sleeptime_and_output_building */",
         low_sensing_and_aggregation_code: "/* No Generated low_sensing_and_aggregation_code */",
-        low_sending_sleeptime: "/* No Generated low_sending_sleeptime */",
+        low_sending_sleeptime_and_output_building: "/* No Generated low_sending_sleeptime_and_output_building */",
         all_usemodule_sensors_list: "/* No Generated all_usemodule_sensors_list */",
         all_sensors_mainvars_definitions: "/* No Generated all_sensors_mainvars_definitions */",
         all_sensing_structs: "/* No Generated all_sensing_structs */",
@@ -110,10 +116,12 @@ const end_node_code_extractor_faker = async (end_node_model) => {
         all_sensors_includes: null,
         all_probes_types_and_save_values_pointers: null,
         all_probes_and_save_values_chain: null,
+        output_values_types_chain: "/* No Generated output_values_types_chain */",
+        output_values_chain: "/* No Generated output_values_chain */",
         high_sensing_and_aggregation_code: null,
-        high_sending_sleeptime: null,
+        high_sending_sleeptime_and_output_building: null,
         low_sensing_and_aggregation_code: null,
-        low_sending_sleeptime: null,
+        low_sending_sleeptime_and_output_building: null,
         all_usemodule_sensors_list: null,
         all_sensors_mainvars_definitions: null,
         all_sensing_structs: null,
@@ -126,9 +134,12 @@ const end_node_code_extractor_faker = async (end_node_model) => {
 
     /* Fake part */
     end_node_replace_obj.end_node_name = `TestTemp0`;
-    end_node_replace_obj.all_sensors_includes = `#include "at30tse75x.h"`;
-    end_node_replace_obj.all_probes_types_and_save_values_pointers = `at30tse75x_t*, float*`;
-    end_node_replace_obj.all_probes_and_save_values_chain = `at30tse75x_t* probe, float* temperature`;
+    end_node_replace_obj.all_sensors_includes = `#include "lpsxxx.h"
+    #include "lpsxxx_params.h"
+    #include "isl29020.h"
+    #include "isl29020_params.h"`;
+    end_node_replace_obj.all_probes_types_and_save_values_pointers = `lpsxxx_t*, int16_t*, `;
+    end_node_replace_obj.all_probes_and_save_values_chain = `lpsxxx_t* lpsx_probe, int16_t* temperature`;
     end_node_replace_obj.high_sensing_and_aggregation_code = `float avgTemp_src[5];
     int16_t avgTemp_src_lastplace = 0;
     for (int16_t w=0; w< 5; w++) {
@@ -141,12 +152,13 @@ const end_node_code_extractor_faker = async (end_node_model) => {
         sum += avgTemp_src[i];
     }
     *temperature = sum / (avgTemp_src_lastplace + 1);`;
-    end_node_replace_obj.high_sending_sleeptime = `300`;
+    end_node_replace_obj.high_sending_sleeptime_and_output_building = `300`;
     end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(1800);
     at30tse75x_get_temperature(probe, temperature);`;
-    end_node_replace_obj.low_sending_sleeptime = `1800`;
-    end_node_replace_obj.all_usemodule_sensors_list = `at30tse75x`;
-    end_node_replace_obj.all_sensors_mainvars_definitions = `static at30tse75x_t at30tse75x;`;
+    end_node_replace_obj.low_sending_sleeptime_and_output_building = `1800`;
+    end_node_replace_obj.all_usemodule_sensors_list = `lps331ap isl29020`;
+    end_node_replace_obj.all_sensors_mainvars_definitions = `static lpsxxx_t lpsxxx;
+    static isl29020_t isl29020;`;
     end_node_replace_obj.all_sensing_structs = `// Private struct for AirTemperature_avg:
     typedef struct AirTemperature_avg_dataStruct {
         float avgTemp_src[5];
@@ -216,10 +228,12 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
         all_sensors_includes: null,
         all_probes_types_and_save_values_pointers: null,
         all_probes_and_save_values_chain: null,
+        output_values_types_chain: "/* No Generated output_values_types_chain */",
+        output_values_chain: "/* No Generated output_values_chain */",
         high_sensing_and_aggregation_code: null,
-        high_sending_sleeptime: null,
+        high_sending_sleeptime_and_output_building: null,
         low_sensing_and_aggregation_code: null,
-        low_sending_sleeptime: null,
+        low_sending_sleeptime_and_output_building: null,
         all_usemodule_sensors_list: null,
         all_sensors_mainvars_definitions: null,
         all_sensing_structs: null,
@@ -237,9 +251,9 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
     sink_node_replace_obj.all_probes_types_and_save_values_pointers = `void`;
     sink_node_replace_obj.all_probes_and_save_values_chain = `void`;
     sink_node_replace_obj.high_sensing_and_aggregation_code = `xtimer_sleep(300);`;
-    sink_node_replace_obj.high_sending_sleeptime = `300`;
+    sink_node_replace_obj.high_sending_sleeptime_and_output_building = `300`;
     sink_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(1800);`;
-    sink_node_replace_obj.low_sending_sleeptime = `1800`;
+    sink_node_replace_obj.low_sending_sleeptime_and_output_building = `1800`;
     sink_node_replace_obj.all_usemodule_sensors_list = ``;
     sink_node_replace_obj.all_sensors_mainvars_definitions = ``;
     sink_node_replace_obj.all_sensing_structs = ``;

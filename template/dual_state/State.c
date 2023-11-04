@@ -16,9 +16,10 @@ static void defaultHighSensing(-___all_probes_and_save_values_chain___-) {
     -___high_sensing_and_aggregation_code___-
     puts("DEBUG_def_HIGH: Finished sensing");
 }
-static void defaultHighSending(void) {
-    xtimer_sleep(-___high_sending_sleeptime___-);    
+static void defaultHighSending(char* output, -___output_values_chain___-) {
     puts("DEBUG_def_HIGH: Waiting to send");
+    -___high_sending_sleeptime_and_output_building___-   
+    puts("DEBUG_def_HIGH: Output built");
 }
 
 /*	Low State	*/
@@ -27,9 +28,10 @@ static void defaultLowSensing(-___all_probes_and_save_values_chain___-) {
     -___low_sensing_and_aggregation_code___-
     puts("DEBUG_def_LOW: Finished sensing");
 }
-static void defaultLowSending(void) {
+static void defaultLowSending(char* output, -___output_values_chain___-) {
     puts("DEBUG_def_LOW: Waiting to send");
-    xtimer_sleep(-___low_sending_sleeptime___-);
+    -___low_sending_sleeptime_and_output_building___-
+    puts("DEBUG_def_LOW: Output built");
 }
 
 /*	High State	*/

@@ -18,9 +18,10 @@ static void lowSensing(-___all_probes_and_save_values_chain___-) {
     -___low_sensing_and_aggregation_code___-
     puts("DEBUG_LOW: Finished sensing");
 }
-static void lowSending(void) {
+static void lowSending(char* output, -___output_values_chain___-) {
     puts("DEBUG_LOW: Waiting to send");
-    xtimer_sleep(-___low_sending_sleeptime___-);
+    -___low_sending_sleeptime_and_output_building___-
+    puts("DEBUG_LOW: Output built");
 }
 
 void transitionToLow(StatePtr state) {

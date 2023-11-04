@@ -18,9 +18,10 @@ static void highSensing(-___all_probes_and_save_values_chain___-) {
     -___high_sensing_and_aggregation_code___-
     puts("DEBUG_HIGH: Finished sensing");
 }
-static void highSending(void) {
+static void highSending(char* output, -___output_values_chain___-) {
     puts("DEBUG_HIGH: Waiting to send");
-    xtimer_sleep(-___high_sending_sleeptime___-);
+    -___high_sending_sleeptime_and_output_building___-
+    puts("DEBUG_HIGH: Output built");
 }
 
 void transitionToHigh(StatePtr state) {
