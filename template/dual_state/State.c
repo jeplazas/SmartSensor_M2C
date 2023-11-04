@@ -34,14 +34,12 @@ static void defaultLowSending(void) {
 
 /*	High State	*/
 static void defaultHigh(StatePtr state) {
-    state->toLow = defaultLow;
     state->sense = defaultHighSensing;
     state->sendSleep = defaultHighSending;
     state->status = 1;
 }
 /*	Low State	*/
 static void defaultLow(StatePtr state) {
-    state->toHigh = defaultHigh;
     state->sense = defaultLowSensing;
     state->sendSleep = defaultLowSending;
     state->status = 0;
