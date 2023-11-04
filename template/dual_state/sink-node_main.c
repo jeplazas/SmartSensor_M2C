@@ -17,6 +17,9 @@
 #include "timex.h"
 #include "xtimer.h"
 
+#include "msg.h"
+#include "shell.h"
+
 #include "net/af.h"
 #include "net/protnum.h"
 #include "net/netif.h"

@@ -59,7 +59,7 @@ const copy_replace_Makefile = async (
     author, save_dir,
     app_name, target_board, default_network_channel, default_network_id, all_usemodule_sensors_list) => {
     const date_str = new Date().toDateString();
-    const makefile = await fs.readFile(path.join(templates_dir, 'Makefile'));
+    const makefile = await fs.readFile(path.join(templates_dir, 'Makefile_endnode'));
     let new_makefile = makefile.toString().replaceAll("-___author___-", author)
         .replaceAll("-___date___-", date_str)
         .replaceAll("-___app_name___-", app_name)
