@@ -98,8 +98,7 @@ static void *MainNodeDeliveryThread(void *arg)
 {
 	(void)arg;
 	while (1) {
-		// Use the state to sleep:
-		state.sendSleep();
+		char output[254];
 		-___prepare_output_string___-
 		//Send data through Transceiver:
 		if (sock_udp_send(&sock, output, sizeof(output), &server) < 0) {

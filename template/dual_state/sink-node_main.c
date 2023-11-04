@@ -157,8 +157,7 @@ static void *MainNodeDeliveryThread(void *arg)
 {
 	(void)arg;
 	while (1) {
-		// Use the state to sleep:
-		state.sendSleep();
+		char output[254];
 		-___prepare_output_string_and_change_to_high_state_condition___-
 		//Send data through UART_0:
 		puts(output);
