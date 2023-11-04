@@ -11,8 +11,8 @@ const save_sinknode_code = require('./sink-node-coder');
  * @returns {Promise<object[]>} List of errors which should be empty if everything went ok.
  */
 const generate_application_code = async (author, output_dir, formated_app_model) => {
-    const app_name = formated_app_model.name | "IoT_Application";
-    const target_board = formated_app_model.board | "iotlab-m3";
+    const app_name = formated_app_model.name ?? "IoT_Application";
+    const target_board = formated_app_model.board ?? "iotlab-m3";
     const default_network_channel = Math.floor(Math.random() * 12 + 1); // Math.floor(Math.random() * (max - min + 1) + min);
     const default_network_id = crypto.randomBytes(2).toString('hex');
     const errors = [];
@@ -20,8 +20,8 @@ const generate_application_code = async (author, output_dir, formated_app_model)
         const code_replace = await end_node_code_extractor_faker(end_node_model);
         const error = await save_endnode_code(
             author, output_dir, code_replace.end_node_name,
-            code_replace.all_sensors_includes, code_replace.all_probes_types_pointers,
-            code_replace.all_save_values_types_pointers, code_replace.all_probes_and_save_values_chain,
+            code_replace.all_sensors_includes, code_replace.all_probes_types_and_save_values_pointers,
+            code_replace.all_probes_and_save_values_chain,
             code_replace.high_sensing_and_aggregation_code,
             code_replace.high_sending_sleeptime, code_replace.low_sensing_and_aggregation_code,
             code_replace.low_sending_sleeptime, app_name, target_board, default_network_channel,
@@ -38,8 +38,8 @@ const generate_application_code = async (author, output_dir, formated_app_model)
         const code_replace = await sink_node_code_extractor_faker(sink_node_model);
         const error = await save_sinknode_code(
             author, output_dir,
-            code_replace.all_sensors_includes, code_replace.all_probes_types_pointers,
-            code_replace.all_save_values_types_pointers, code_replace.all_probes_and_save_values_chain,
+            code_replace.all_sensors_includes, code_replace.all_probes_types_and_save_values_pointers,
+            code_replace.all_probes_and_save_values_chain,
             code_replace.high_sensing_and_aggregation_code,
             code_replace.high_sending_sleeptime, code_replace.low_sensing_and_aggregation_code,
             code_replace.low_sending_sleeptime, app_name, target_board, default_network_channel,
@@ -60,8 +60,7 @@ const end_node_code_extractor = async (end_node_model) => {
     const end_node_replace_obj = {
         end_node_name: "/* No Generated end_node_name */",
         all_sensors_includes: "/* No Generated all_sensors_includes */",
-        all_probes_types_pointers: "/* No Generated all_probes_types_pointers */",
-        all_save_values_types_pointers: "/* No Generated all_save_values_types_pointers */",
+        all_probes_types_and_save_values_pointers: "/* No Generated all_probes_types_and_save_values_pointers */",
         all_probes_and_save_values_chain: "/* No Generated all_probes_and_save_values_chain */",
         high_sensing_and_aggregation_code: "/* No Generated high_sensing_and_aggregation_code */",
         high_sending_sleeptime: "/* No Generated high_sending_sleeptime */",
@@ -83,8 +82,7 @@ const end_node_code_extractor = async (end_node_model) => {
 const sink_node_code_extractor = async (sink_node_model) => {
     const sink_node_replace_obj = {
         all_sensors_includes: "/* No Generated all_sensors_includes */",
-        all_probes_types_pointers: "/* No Generated all_probes_types_pointers */",
-        all_save_values_types_pointers: "/* No Generated all_save_values_types_pointers */",
+        all_probes_types_and_save_values_pointers: "/* No Generated all_probes_types_and_save_values_pointers */",
         all_probes_and_save_values_chain: "/* No Generated all_probes_and_save_values_chain */",
         high_sensing_and_aggregation_code: "/* No Generated high_sensing_and_aggregation_code */",
         high_sending_sleeptime: "/* No Generated high_sending_sleeptime */",
@@ -110,8 +108,7 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     const end_node_replace_obj = {
         end_node_name: null,
         all_sensors_includes: null,
-        all_probes_types_pointers: null,
-        all_save_values_types_pointers: null,
+        all_probes_types_and_save_values_pointers: null,
         all_probes_and_save_values_chain: null,
         high_sensing_and_aggregation_code: null,
         high_sending_sleeptime: null,
@@ -130,8 +127,7 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     /* Fake part */
     end_node_replace_obj.end_node_name = `TestTemp0`;
     end_node_replace_obj.all_sensors_includes = `#include "at30tse75x.h"`;
-    end_node_replace_obj.all_probes_types_pointers = `at30tse75x_t*`;
-    end_node_replace_obj.all_save_values_types_pointers = `float*`;
+    end_node_replace_obj.all_probes_types_and_save_values_pointers = `at30tse75x_t*, float*`;
     end_node_replace_obj.all_probes_and_save_values_chain = `at30tse75x_t* probe, float* temperature`;
     end_node_replace_obj.high_sensing_and_aggregation_code = `float avgTemp_src[5];
     int16_t avgTemp_src_lastplace = 0;
@@ -218,8 +214,7 @@ const end_node_code_extractor_faker = async (end_node_model) => {
 const sink_node_code_extractor_faker = async (sink_node_model) => {
     const sink_node_replace_obj = {
         all_sensors_includes: null,
-        all_probes_types_pointers: null,
-        all_save_values_types_pointers: null,
+        all_probes_types_and_save_values_pointers: null,
         all_probes_and_save_values_chain: null,
         high_sensing_and_aggregation_code: null,
         high_sending_sleeptime: null,
@@ -239,8 +234,7 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
 
     /* Fake part */
     sink_node_replace_obj.all_sensors_includes = ``;
-    sink_node_replace_obj.all_probes_types_pointers = `char*`;
-    sink_node_replace_obj.all_save_values_types_pointers = `char*`;
+    sink_node_replace_obj.all_probes_types_and_save_values_pointers = `void`;
     sink_node_replace_obj.all_probes_and_save_values_chain = `void`;
     sink_node_replace_obj.high_sensing_and_aggregation_code = `xtimer_sleep(300);`;
     sink_node_replace_obj.high_sending_sleeptime = `300`;
@@ -311,7 +305,7 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
             PlotAvgTemperature_r0_data.avgTemp[0], Final_Status_data.status_src[0], asctime(&curtime));
     int change_to_high_state = 0;
     if (public_r0_PlotAvgTemperature.data.state[0]){
-        change_to_high_state = 1
+        change_to_high_state = 1;
     }`;
     sink_node_replace_obj.init_all_sensors = ``;
     sink_node_replace_obj.create_all_sensing_and_transformation_threads = ``;

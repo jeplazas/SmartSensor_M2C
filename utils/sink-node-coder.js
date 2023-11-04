@@ -5,7 +5,7 @@ const templates_dir = path.join('template', 'dual_state');
 
 const copy_replace_State_files = async (
     author, save_dir,
-    all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers, all_probes_and_save_values_chain,
+    all_sensors_includes, all_probes_types_and_save_values_pointers, all_probes_and_save_values_chain,
     high_sensing_and_aggregation_code, high_sending_sleeptime, low_sensing_and_aggregation_code,
     low_sending_sleeptime) => {
     const date_str = new Date().toDateString();
@@ -13,8 +13,7 @@ const copy_replace_State_files = async (
     let new_state_h = state_h.toString().replaceAll("-___author___-", author)
         .replaceAll("-___date___-", date_str)
         .replaceAll("-___all_sensors_includes___-", all_sensors_includes)
-        .replaceAll("-___all_probes_types_and_save_values_pointers___-", all_probes_types_pointers)
-        .replaceAll("-___all_save_values_types_pointers___-", all_save_values_types_pointers);
+        .replaceAll("-___all_probes_types_and_save_values_pointers___-", all_probes_types_and_save_values_pointers);
     await fs.writeFile(path.join(save_dir, 'State.h'), new_state_h);
 
     const state_c = await fs.readFile(path.join(templates_dir, 'State.c'));
@@ -100,7 +99,7 @@ const copy_replace_Main_file = async (
 
 const generate_sink_node = async (
     author = "Julian E. Plazas P.", output_dir,
-    all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers,
+    all_sensors_includes, all_probes_types_and_save_values_pointers, 
     all_probes_and_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
     low_sensing_and_aggregation_code, low_sending_sleeptime, app_name, target_board, default_network_channel,
     default_network_id, all_usemodule_sensors_list, all_sensors_mainvars_definitions, all_sensing_structs,
@@ -109,7 +108,7 @@ const generate_sink_node = async (
     try {
         const save_dir = path.join(output_dir, "sink_node");
         await fs.mkdir(save_dir, { recursive: true });
-        await copy_replace_State_files(author, save_dir, all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers,
+        await copy_replace_State_files(author, save_dir, all_sensors_includes, all_probes_types_and_save_values_pointers,
             all_probes_and_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
             low_sensing_and_aggregation_code, low_sending_sleeptime);
         await copy_replace_Makefile(author, save_dir, app_name, target_board, default_network_channel, default_network_id,
