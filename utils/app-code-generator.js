@@ -310,21 +310,11 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
 //		public_r0_PlotAvgTemperature.data = clear_PlotAvgTemperature_r0_dataStruct;	// Uncomment this line to clear the received data here!
     mutex_unlock(&public_r0_PlotAvgTemperature.lock);
     //Received data from PlotAvgTemperature_2:
-    mutex_lock(&public_r2_PlotAvgTemperature.lock);
-    PlotAvgTemperature_r2_dataStruct PlotAvgTemperature_r2_data = public_r2_PlotAvgTemperature.data;
-//		public_r2_PlotAvgTemperature.data = clear_PlotAvgTemperature_r2_dataStruct;	// Uncomment this line to clear the received data here!
-    mutex_unlock(&public_r2_PlotAvgTemperature.lock);
-    //Received data from PlotAvgTemperature_3:
-    mutex_lock(&public_r3_PlotAvgTemperature.lock);
-    PlotAvgTemperature_r3_dataStruct PlotAvgTemperature_r3_data = public_r3_PlotAvgTemperature.data;
-//		public_r3_PlotAvgTemperature.data = clear_PlotAvgTemperature_r3_dataStruct;	// Uncomment this line to clear the received data here!
-    mutex_unlock(&public_r3_PlotAvgTemperature.lock);
     //Prepare the data string to be sent:
     char output[254];
     sprintf(output,
-            "SinkNode Result:\t Temp_0: %hi, Temp_1: %hi, Temp_2: %hi, State: %hi, Time: %s",
-            PlotAvgTemperature_r0_data.avgTemp[0], PlotAvgTemperature_r2_data.avgTemp[0], PlotAvgTemperature_r3_data.avgTemp[0], Final_Status_data.status_src[0],
-           asctime(&curtime));
+            "SinkNode Result:\t Temp_0: %hi, State: %hi, Time: %s",
+            PlotAvgTemperature_r0_data.avgTemp[0], Final_Status_data.status_src[0], asctime(&curtime));
     int change_to_high_state = 0;
     if (public_r0_PlotAvgTemperature.data.state[0]){
         change_to_high_state = 1
