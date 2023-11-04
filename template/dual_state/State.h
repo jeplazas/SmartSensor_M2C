@@ -18,7 +18,7 @@ typedef void (*EventToHighFunc) (StatePtr);
 typedef void (*EventToLowFunc) (StatePtr);
 
 // Pointers to sense and send functions:
-typedef void (*SenseFunc)(-___all_probes_types_pointers___-, -___all_save_values_types_pointers___-);
+typedef void (*SenseFunc)(-___all_probes_types_and_save_values_pointers___-);
 typedef void (*SendSleepFunc)(void);
 
 #ifndef StateDefined

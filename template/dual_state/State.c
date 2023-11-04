@@ -11,7 +11,7 @@
 // Let's define default implementation so that we don't have to define what is each state doing on every state
 
 /*	High State	*/
-static void defaultHighSensing(-___all_probes_chain___-, -___all_save_values_chain___-) {
+static void defaultHighSensing(-___all_probes_and_save_values_chain___-) {
     puts("DEBUG_def_HIGH: Started sensing");
     -___high_sensing_and_aggregation_code___-
     puts("DEBUG_def_HIGH: Finished sensing");
@@ -22,7 +22,7 @@ static void defaultHighSending(void) {
 }
 
 /*	Low State	*/
-static void defaultLowSensing(-___all_probes_chain___-, -___all_save_values_chain___-) {
+static void defaultLowSensing(-___all_probes_and_save_values_chain___-) {
     puts("DEBUG_def_LOW: Started sensing");
     -___low_sensing_and_aggregation_code___-
     puts("DEBUG_def_LOW: Finished sensing");

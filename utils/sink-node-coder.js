@@ -5,23 +5,22 @@ const templates_dir = path.join('template', 'dual_state');
 
 const copy_replace_State_files = async (
     author, save_dir,
-    all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers, all_probes_chain,
-    all_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime, low_sensing_and_aggregation_code,
+    all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers, all_probes_and_save_values_chain,
+    high_sensing_and_aggregation_code, high_sending_sleeptime, low_sensing_and_aggregation_code,
     low_sending_sleeptime) => {
     const date_str = new Date().toDateString();
     const state_h = await fs.readFile(path.join(templates_dir, 'State.h'));
     let new_state_h = state_h.toString().replaceAll("-___author___-", author)
         .replaceAll("-___date___-", date_str)
         .replaceAll("-___all_sensors_includes___-", all_sensors_includes)
-        .replaceAll("-___all_probes_types_pointers___-", all_probes_types_pointers)
+        .replaceAll("-___all_probes_types_and_save_values_pointers___-", all_probes_types_pointers)
         .replaceAll("-___all_save_values_types_pointers___-", all_save_values_types_pointers);
     await fs.writeFile(path.join(save_dir, 'State.h'), new_state_h);
 
     const state_c = await fs.readFile(path.join(templates_dir, 'State.c'));
     let new_state_c = state_c.toString().replaceAll("-___author___-", author)
         .replaceAll("-___date___-", date_str)
-        .replaceAll("-___all_probes_chain___-", all_probes_chain)
-        .replaceAll("-___all_save_values_chain___-", all_save_values_chain)
+        .replaceAll("-___all_probes_and_save_values_chain___-", all_probes_and_save_values_chain)
         .replaceAll("-___high_sensing_and_aggregation_code___-", high_sensing_and_aggregation_code)
         .replaceAll("-___high_sending_sleeptime___-", high_sending_sleeptime)
         .replaceAll("-___low_sensing_and_aggregation_code___-", low_sensing_and_aggregation_code)
@@ -31,8 +30,7 @@ const copy_replace_State_files = async (
     const highstate_c = await fs.readFile(path.join(templates_dir, 'HighState.c'));
     let new_highstate_c = highstate_c.toString().replaceAll("-___author___-", author)
         .replaceAll("-___date___-", date_str)
-        .replaceAll("-___all_probes_chain___-", all_probes_chain)
-        .replaceAll("-___all_save_values_chain___-", all_save_values_chain)
+        .replaceAll("-___all_probes_and_save_values_chain___-", all_probes_and_save_values_chain)
         .replaceAll("-___high_sensing_and_aggregation_code___-", high_sensing_and_aggregation_code)
         .replaceAll("-___high_sending_sleeptime___-", high_sending_sleeptime);
     await fs.writeFile(path.join(save_dir, 'HighState.c'), new_highstate_c);
@@ -45,8 +43,7 @@ const copy_replace_State_files = async (
     const lowstate_c = await fs.readFile(path.join(templates_dir, 'LowState.c'));
     let new_lowstate_c = lowstate_c.toString().replaceAll("-___author___-", author)
         .replaceAll("-___date___-", date_str)
-        .replaceAll("-___all_probes_chain___-", all_probes_chain)
-        .replaceAll("-___all_save_values_chain___-", all_save_values_chain)
+        .replaceAll("-___all_probes_and_save_values_chain___-", all_probes_and_save_values_chain)
         .replaceAll("-___low_sensing_and_aggregation_code___-", low_sensing_and_aggregation_code)
         .replaceAll("-___low_sending_sleeptime___-", low_sending_sleeptime);
     await fs.writeFile(path.join(save_dir, 'LowState.c'), new_lowstate_c);
@@ -104,7 +101,7 @@ const copy_replace_Main_file = async (
 const generate_sink_node = async (
     author = "Julian E. Plazas P.", output_dir,
     all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers,
-    all_probes_chain, all_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
+    all_probes_and_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
     low_sensing_and_aggregation_code, low_sending_sleeptime, app_name, target_board, default_network_channel,
     default_network_id, all_usemodule_sensors_list, all_sensors_mainvars_definitions, all_sensing_structs,
     all_transforming_structs, all_receiving_structs, reception_code, all_sensing_threads_funcitons_definition,
@@ -113,7 +110,7 @@ const generate_sink_node = async (
         const save_dir = path.join(output_dir, "sink_node");
         await fs.mkdir(save_dir, { recursive: true });
         await copy_replace_State_files(author, save_dir, all_sensors_includes, all_probes_types_pointers, all_save_values_types_pointers,
-            all_probes_chain, all_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
+            all_probes_and_save_values_chain, high_sensing_and_aggregation_code, high_sending_sleeptime,
             low_sensing_and_aggregation_code, low_sending_sleeptime);
         await copy_replace_Makefile(author, save_dir, app_name, target_board, default_network_channel, default_network_id,
             all_usemodule_sensors_list);

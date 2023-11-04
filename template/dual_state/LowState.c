@@ -13,7 +13,7 @@ static void toHighSensing(StatePtr state) {
     transitionToHigh(state);
 }
 
-static void lowSensing(-___all_probes_chain___-, -___all_save_values_chain___-) {
+static void lowSensing(-___all_probes_and_save_values_chain___-) {
     puts("DEBUG_LOW: Started sensing");
     -___low_sensing_and_aggregation_code___-
     puts("DEBUG_LOW: Finished sensing");
