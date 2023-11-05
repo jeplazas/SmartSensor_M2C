@@ -165,10 +165,10 @@ const end_node_code_extractor_faker = async (end_node_model) => {
         "0, %hi, %hu, %hi",
         temp, press, status);
     `;
-    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(30);
+    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(180);
     *press = 0;     // Necessary to avoid not used error.
     lpsxxx_read_temp(lpsx_probe, temp);`;
-    end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(180);
     press = press + 0;      // Necessary to avoid not used error.
     sprintf(output,
         "0, %hi, %hi",
