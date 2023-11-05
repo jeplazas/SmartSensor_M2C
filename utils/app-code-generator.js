@@ -162,8 +162,8 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     end_node_replace_obj.output_values_chain = "int16_t temp, uint16_t press, int16_t status";
     end_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(30);
     sprintf(output,
-        "0, %hi, %hu, %hi",
-        temp, press, status);
+        "0, %hi, %hi, %hu",
+        status, temp, press);
     `;
     end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(180);
     *press = 0;     // Necessary to avoid not used error.
@@ -172,7 +172,7 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     press = press + 0;      // Necessary to avoid not used error.
     sprintf(output,
         "0, %hi, %hi",
-        temp, status);
+        status, temp);
     `;
     end_node_replace_obj.all_usemodule_sensors_list = `lps331ap isl29020`;
     end_node_replace_obj.all_sensors_mainvars_definitions = `static lpsxxx_t lpsxxx;
@@ -249,12 +249,21 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
     sink_node_replace_obj.all_sensors_includes = ``;
     sink_node_replace_obj.all_probes_types_and_save_values_pointers = `void`;
     sink_node_replace_obj.all_probes_and_save_values_chain = `void`;
-    sink_node_replace_obj.output_values_types_chain = "int16_t*,  int16_t*";
-    sink_node_replace_obj.output_values_chain = "int16_t* temp, int16_t* press";
-    sink_node_replace_obj.high_sensing_and_aggregation_code = `xtimer_sleep(300);`;
-    sink_node_replace_obj.high_sending_sleeptime_and_output_building = `300`;
-    sink_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(1800);`;
-    sink_node_replace_obj.low_sending_sleeptime_and_output_building = `1800`;
+    sink_node_replace_obj.output_values_types_chain = "int16_t*,  uint16_t*, int16_t*";
+    sink_node_replace_obj.output_values_chain = "int16_t* temp_0, uint16_t* press_0, int16_t* status";
+    sink_node_replace_obj.high_sensing_and_aggregation_code = ``;
+    sink_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    sprintf(output,
+        "SinkNode Result:\t State: %hi, temp_0: %hi, press_0 %hu",
+        temp_0, press_0, status);
+    `;
+    sink_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(180);`;
+    sink_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    press_0 = press_0 + 0;      // Necessary to avoid not used error.
+    sprintf(output,
+        "SinkNode Result:\\t State: %hi, temp_0: %hi",
+        temp_0, status);
+    `;
     sink_node_replace_obj.all_usemodule_sensors_list = ``;
     sink_node_replace_obj.all_sensors_mainvars_definitions = ``;
     sink_node_replace_obj.all_sensing_structs = ``;
@@ -270,21 +279,9 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
     } Final_Status_publicDataStruct;
     static Final_Status_publicDataStruct public_Final_Status;`;
     sink_node_replace_obj.all_receiving_structs = `// From Node 0:
-    // --Private struct for PlotAvgTemperature:
-    typedef struct PlotAvgTemperature_r0_dataStruct {
-        int16_t avgTemp[1] ;
-        int8_t avgTemp_lastplace;
-        int16_t state[1];
-        int8_t state_lastplace;
-        time_t rec_time;
-    } PlotAvgTemperature_r0_dataStruct;
-    //static PlotAvgTemperature_r0_dataStruct clear_PlotAvgTemperature_r0_dataStruct;	// Uncomment this line if you want to clear the received data after its first use.
-    // --Public struct for PlotAvgTemperature:
-    typedef struct PlotAvgTemperature_r0_publicDataStruct {
-        PlotAvgTemperature_r0_dataStruct data;
-        mutex_t lock;
-    } PlotAvgTemperature_r0_publicDataStruct;
-    static PlotAvgTemperature_r0_publicDataStruct public_r0_PlotAvgTemperature;`;
+    static int16_t temperature = 0;
+    static uint16_t pressure = 0;
+    `;
     sink_node_replace_obj.reception_code = `rtc_get_time(&curtime);
     // Not a header!
     if (node_id == 0){
