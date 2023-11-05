@@ -249,8 +249,8 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
     sink_node_replace_obj.all_sensors_includes = ``;
     sink_node_replace_obj.all_probes_types_and_save_values_pointers = `void`;
     sink_node_replace_obj.all_probes_and_save_values_chain = `void`;
-    sink_node_replace_obj.output_values_types_chain = "int16_t*,  uint16_t*, int16_t*";
-    sink_node_replace_obj.output_values_chain = "int16_t* temp_0, uint16_t* press_0, int16_t* status";
+    sink_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t, int16_t";
+    sink_node_replace_obj.output_values_chain = "int16_t temp_0, uint16_t press_0, int16_t status";
     sink_node_replace_obj.high_sensing_and_aggregation_code = ``;
     sink_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(30);
     sprintf(output,
@@ -267,17 +267,7 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
     sink_node_replace_obj.all_usemodule_sensors_list = ``;
     sink_node_replace_obj.all_sensors_mainvars_definitions = ``;
     sink_node_replace_obj.all_sensing_structs = ``;
-    sink_node_replace_obj.all_transforming_structs = `// Private struct for Final_Status:
-    typedef struct Final_Status_dataStruct {
-        int16_t status_src[1];
-        int8_t status_src_lastplace;
-    } Final_Status_dataStruct;
-    // Public struct for Final_Status:
-    typedef struct Final_Status_publicDataStruct {
-        Final_Status_dataStruct data;
-        mutex_t lock;
-    } Final_Status_publicDataStruct;
-    static Final_Status_publicDataStruct public_Final_Status;`;
+    sink_node_replace_obj.all_transforming_structs = ``;
     sink_node_replace_obj.all_receiving_structs = `// From Node 0:
     static int16_t state_0 = 0;
     static int16_t temp_0 = 0;
