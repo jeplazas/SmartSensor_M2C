@@ -136,40 +136,50 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     end_node_replace_obj.end_node_name = `TestTemp0`;
     end_node_replace_obj.all_sensors_includes = `#include "lpsxxx.h"
     #include "lpsxxx_params.h"
-    #include "isl29020.h"
-    #include "isl29020_params.h"`;
-    end_node_replace_obj.all_probes_types_and_save_values_pointers = `lpsxxx_t*, int16_t*, `;
-    end_node_replace_obj.all_probes_and_save_values_chain = `lpsxxx_t* lpsx_probe, int16_t* temperature`;
-    end_node_replace_obj.high_sensing_and_aggregation_code = `float avgTemp_src[5];
-    int16_t avgTemp_src_lastplace = 0;
+    //#include "isl29020.h"
+    //#include "isl29020_params.h"`;
+    end_node_replace_obj.all_probes_types_and_save_values_pointers = `lpsxxx_t*, int16_t*,  uint16_t*`;
+    end_node_replace_obj.all_probes_and_save_values_chain = `lpsxxx_t* lpsx_probe, int16_t* temp, uint16_t* press`;
+    end_node_replace_obj.high_sensing_and_aggregation_code = `int16_t avg_temp_src[5];
+    uint16_t avg_press_src[5];
+    int16_t sense_lastplace = 0;
     for (int16_t w=0; w< 5; w++) {
-        at30tse75x_get_temperature(probe, &avgTemp_src[w]);
-        avgTemp_src_lastplace = w;
-        xtimer_sleep(60);
+        lpsxxx_read_temp(lpsx_probe, &avg_temp_src[w]);
+        lpsxxx_read_pres(lpsx_probe, &avg_press_src[w]);
+        sense_lastplace = w;
+        xtimer_sleep(6);
     }
-    double sum = 0;
-    for (int8_t  i=0; i<=avgTemp_src_lastplace; i++){
-        sum += avgTemp_src[i];
+    int32_t sum_temp = 0;
+    uint32_t sum_press = 0;
+    for (int8_t  i=0; i<=sense_lastplace; i++){
+        sum_temp += avg_temp_src[i];
+        sum_press += avg_press_src[i];
     }
-    *temperature = sum / (avgTemp_src_lastplace + 1);`;
-    end_node_replace_obj.high_sending_sleeptime_and_output_building = `300`;
-    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(1800);
-    at30tse75x_get_temperature(probe, temperature);`;
-    end_node_replace_obj.low_sending_sleeptime_and_output_building = `1800`;
+    *temp = sum_temp / (sense_lastplace + 1);
+    *press = sum_press / (sense_lastplace + 1);
+    `;
+    end_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t,  int16_t";
+    end_node_replace_obj.output_values_chain = "int16_t temp, uint16_t press, int16_t status";
+    end_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    sprintf(output,
+        "0, %hi, %hu, %hi",
+        temp, press, status);
+    `;
+    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(30);
+    *press = 0;     // Necessary to avoid not used error.
+    lpsxxx_read_temp(lpsx_probe, temp);`;
+    end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    press = press + 0;      // Necessary to avoid not used error.
+    sprintf(output,
+        "0, %hi, %hi",
+        temp, status);
+    `;
     end_node_replace_obj.all_usemodule_sensors_list = `lps331ap isl29020`;
     end_node_replace_obj.all_sensors_mainvars_definitions = `static lpsxxx_t lpsxxx;
-    static isl29020_t isl29020;`;
-    end_node_replace_obj.all_sensing_structs = `// Private struct for AirTemperature_avg:
-    typedef struct AirTemperature_avg_dataStruct {
-        float avgTemp_src[5];
-        int8_t avgTemp_src_lastplace;
-    } AirTemperature_avg_dataStruct;
-    // Public struct for AirTemperature_avg:
-    typedef struct AirTemperature_avg_publicDataStruct {
-        AirTemperature_avg_dataStruct data;
-        mutex_t lock;
-    } AirTemperature_avg_publicDataStruct;
-    static AirTemperature_avg_publicDataStruct public_AirTemperature_avg;`;
+    //static isl29020_t isl29020;`;
+    end_node_replace_obj.all_sensing_structs = `static int16_t temperature = 0;
+    static uint16_t pressure = 0;
+    `;
     end_node_replace_obj.all_transforming_structs = ``;
     end_node_replace_obj.all_sensing_threads_funcitons_definition = `/* Code for thread 'AirTemperature_avgThread' */
     /* Stack of memory for thread 'AirTemperature_avgThread' */
@@ -181,39 +191,28 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     {
         (void)arg;
         while (1) {
-            AirTemperature_avg_dataStruct internalData;
             // Use the state to gather the variables:
-            state.sense(&at30tse75x, &internalData.avgTemp_src[0]);
-            if (internalData.avgTemp_src[0]>=27) {
+            state.sense(&lpsxxx, &temperature, &pressure);
+            if (temperature>=27) {
                 state.toHigh(&state);
             } else {
                 state.toLow(&state);
             }
-            // Save the internal data into the public struct:
-            mutex_lock(&public_AirTemperature_avg.lock);
-            public_AirTemperature_avg.data = internalData;
-            mutex_unlock(&public_AirTemperature_avg.lock);
         }
         return 0;
     }`;
-    end_node_replace_obj.prepare_output_string = `// Sensed AirTemperature_avg data:
-    mutex_lock(&public_AirTemperature_avg.lock);
-    AirTemperature_avg_dataStruct AirTemperature_avg_data = public_AirTemperature_avg.data;
-    mutex_unlock(&public_AirTemperature_avg.lock);
+    end_node_replace_obj.prepare_output_string = `// Use state to prepare output:
     //Get Time
-    rtc_get_time(&curtime);
-    time_t ftime = mktime(&curtime);
-    //Prepare the data string to be sent:
-    char output[254];
-    sprintf(output,
-            "0, %i, %hi, %hi, %ld",
-            (int) AirTemperature_avg_data.avgTemp_src[0], AirTemperature_avg_data.avgTemp_src_lastplace, state.status, (int32_t) ftime);`;
+    // rtc_get_time(&curtime);
+    // time_t ftime = mktime(&curtime);
+    state.sendSleep(output, temperature, pressure, state.status);
+    `;
     end_node_replace_obj.init_all_sensors = `/* Start the RTC */
-    // rtc_init();
     time_t itime = ${Date.now()};
     rtc_set_time(gmtime(&itime));
-    at30tse75x_init(&at30tse75x, 0, 0x4f); // TODO: Check the correct I2C device and address. 0, 0x4f are default for SAMR21 nodes.
-    
+    lpsxxx_init(&lpsxxx, lpsxxx_params);
+    //isl29020_init(&isl29020, isl29020_params);
+
     rtc_get_time(&curtime);`;
     end_node_replace_obj.create_all_sensing_threads = `thread_create(AirTemperature_avgThread_memstack, sizeof(AirTemperature_avgThread_memstack),
     THREAD_PRIORITY_MAIN + 1, 0, AirTemperature_avgThread, NULL,
@@ -250,6 +249,8 @@ const sink_node_code_extractor_faker = async (sink_node_model) => {
     sink_node_replace_obj.all_sensors_includes = ``;
     sink_node_replace_obj.all_probes_types_and_save_values_pointers = `void`;
     sink_node_replace_obj.all_probes_and_save_values_chain = `void`;
+    sink_node_replace_obj.output_values_types_chain = "int16_t*,  int16_t*";
+    sink_node_replace_obj.output_values_chain = "int16_t* temp, int16_t* press";
     sink_node_replace_obj.high_sensing_and_aggregation_code = `xtimer_sleep(300);`;
     sink_node_replace_obj.high_sending_sleeptime_and_output_building = `300`;
     sink_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(1800);`;

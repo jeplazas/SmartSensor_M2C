@@ -106,7 +106,7 @@ static void *MainNodeDeliveryThread(void *arg)
 			sock_udp_close(&sock);
 			return NULL;
 		}
-        printf("Node State = %hi; Output:\n\t%s", state.status, output);
+        printf("Node State = %hi; Output: { %s }\n", state.status, output);
 	}
 	return 0;
 }

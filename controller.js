@@ -67,7 +67,7 @@ const post_file = async (req, res, next) => {
 
         // Provide the ZIP file for download
         output.on('close', () => {
-            res.download(outputZip, 'generated_code.zip', () => {
+            res.download(outputZip, 'generated_code_a.zip', () => {
                 // Clean up the output directory and ZIP file after download
                 fs.rmSync(outputDir, { recursive: true });
                 fs.unlinkSync(outputZip);
