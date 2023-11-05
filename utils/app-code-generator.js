@@ -181,13 +181,13 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     static uint16_t pressure = 0;
     `;
     end_node_replace_obj.all_transforming_structs = ``;
-    end_node_replace_obj.all_sensing_threads_funcitons_definition = `/* Code for thread 'AirTemperature_avgThread' */
-    /* Stack of memory for thread 'AirTemperature_avgThread' */
-    static char AirTemperature_avgThread_memstack[THREAD_STACKSIZE_MAIN];
+    end_node_replace_obj.all_sensing_threads_funcitons_definition = `/* Code for thread 'MainSensingThread' */
+    /* Stack of memory for thread 'MainSensingThread' */
+    static char MainSensingThread_memstack[THREAD_STACKSIZE_MAIN];
     
-    /* Thread 'AirTemperature_avgThread' */
+    /* Thread 'MainSensingThread' */
     /* Thread to sense and transform one variable */
-    static void *AirTemperature_avgThread(void *arg)
+    static void *MainSensingThread(void *arg)
     {
         (void)arg;
         while (1) {
@@ -214,9 +214,9 @@ const end_node_code_extractor_faker = async (end_node_model) => {
     //isl29020_init(&isl29020, isl29020_params);
 
     rtc_get_time(&curtime);`;
-    end_node_replace_obj.create_all_sensing_threads = `thread_create(AirTemperature_avgThread_memstack, sizeof(AirTemperature_avgThread_memstack),
-    THREAD_PRIORITY_MAIN + 1, 0, AirTemperature_avgThread, NULL,
-    "AirTemperature_avgThread_thread0");`;
+    end_node_replace_obj.create_all_sensing_threads = `thread_create(MainSensingThread_memstack, sizeof(MainSensingThread_memstack),
+    THREAD_PRIORITY_MAIN + 1, 0, MainSensingThread, NULL,
+    "MainSensingThread_thread0");`;
     /* ********* */
 
     return end_node_replace_obj;
