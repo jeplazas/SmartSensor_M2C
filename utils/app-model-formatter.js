@@ -140,9 +140,9 @@ const get_node_stateless_data = async (full_node_model, data_types) => {
         const operations = await recursive_single_stereotype_searching(gm, config.gatherOperation);
         const change_mode = await recursive_single_stereotype_searching(gm, config.changeModeDefinition);
         let stateless_sensing_op = null;
-        if (operations.length < 0) stateless_sensing_op = operations[0];
+        if (operations.length > 0) stateless_sensing_op = operations[0];
         let change_mode_op = null;
-        if (change_mode.length < 0) change_mode_op = change_mode[0];
+        if (change_mode.length > 0) change_mode_op = change_mode[0];
         if (variables.length < 0)
             sensed_variables["__NO_STATELESS_VARS__"] = { stateless_sensing_op, change_mode_op };
         else
@@ -167,9 +167,9 @@ const get_node_stateless_data = async (full_node_model, data_types) => {
         const operations = await recursive_single_stereotype_searching(dm, config.sendOperation);
         const change_mode = await recursive_single_stereotype_searching(dm, config.changeModeDefinition);
         let stateless_sending_op = null;
-        if (operations.length < 0) stateless_sending_op = operations[0];
+        if (operations.length > 0) stateless_sending_op = operations[0];
         let change_mode_op = null;
-        if (change_mode.length < 0) change_mode_op = change_mode[0];
+        if (change_mode.length > 0) change_mode_op = change_mode[0];
         const variables = { device_vars, time_vars, sensed_vars };
         sending_data.stateless_sending_op = stateless_sending_op;
         sending_data.change_mode_op = change_mode_op;
@@ -204,7 +204,7 @@ const get_node_states = async (full_node_model, stateless_data, data_types) => {
         variables = add_types_to_variables_list(variables, data_types);
         const operations = await recursive_single_stereotype_searching(gms, config.gatherOperation);
         let sensing_op = null;
-        if (operations.length < 0) sensing_op = operations[0];
+        if (operations.length > 0) sensing_op = operations[0];
         variables.forEach(v => {
             if (sensing_op == null && stateless_data.sensed_variables != null && stateless_data.sensed_variables[v.name] != null && stateless_data.sensed_variables[v.name].stateless_sensing_op != null)
                 sensing_op = stateless_data.sensed_variables[v.name].stateless_sensing_op;
@@ -249,7 +249,7 @@ const get_node_states = async (full_node_model, stateless_data, data_types) => {
         // ....
         const operations = await recursive_single_stereotype_searching(dms, config.sendOperation);
         let sending_op = null;
-        if (operations.length < 0) sending_op = operations[0];
+        if (operations.length > 0) sending_op = operations[0];
         const variables = { device_vars, time_vars, sensed_vars };
         sending_data.sending_op = sending_op;
         sending_data.variables = variables;
@@ -282,8 +282,6 @@ const format_app_model = async (full_app_model, stereotypes, data_types) => {
     application.sink_nodes = await Promise.all(sink_nodes.map(async sk => prepare_sink_node(sk, data_types)));
     application.end_nodes = await Promise.all(end_nodes.map(async en => prepare_end_node(en, data_types)));
     console.log("application\n", JSON.stringify(application));
-    const operations = await recursive_single_stereotype_searching(app_model[0], config.gatherOperation);
-    console.log(operations);
     return application;
 };
 
