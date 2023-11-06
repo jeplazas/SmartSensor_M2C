@@ -46,7 +46,7 @@ const post_file = async (req, res, next) => {
 
         // TODO: Perform XMI parsing and code generation here
         const parsedXmi = await xmi_parser(xmiFilePath, "IOTAM_PSM:");
-        const jsonObject = await model_formatter(parsedXmi.full_app_model, parsedXmi.stereotypes);
+        const jsonObject = await model_formatter(parsedXmi.full_app_model, parsedXmi.stereotypes, parsedXmi.data_types);
         // Create the output directory
         fs.mkdirSync(outputDir);
         // Generate and save the code

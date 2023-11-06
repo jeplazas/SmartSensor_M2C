@@ -51,14 +51,14 @@ const extract_stereotypes_list = (base_obj, stereotype_start) => {
             const base_key_name = extract_stereotype_base_name(temporal_content);
             if (base_key_name) {
                 const base_id = temporal_content[base_key_name];
-                delete temporal_content['xmi:id'];
+                // delete temporal_content['xmi:id'];   // Keep the stereotype xmi:id since it is needed for source.
                 delete temporal_content[base_key_name];
                 stereotype_content[base_id] = { ...temporal_content };
             } else {
                 for (let io in temporal_content) {
                     const io_base_key_name = extract_stereotype_base_name(temporal_content[io]);
                     const save_obj = { ...temporal_content[io] };
-                    delete save_obj['xmi:id'];
+                    // delete save_obj['xmi:id'];   // Keep the stereotype xmi:id since it is needed for source.
                     delete save_obj[io_base_key_name];
                     stereotype_content[temporal_content[io][io_base_key_name]] = { ...save_obj };
                 }
@@ -154,17 +154,35 @@ const add_stereotypes = async (stereotype_list, app_model) => {
 };
 
 /**
+ * Extracts all the data types in the application model.
+ * @param {*} app_model Object containing the application part data as received from extract_app_model. 
+ * @returns Object containing all data types in format.
+ */
+const extract_datatypes_list = (app_model) => {
+    const data_types = {};
+    for (let k of app_model["packagedElement"]) {
+        if (k["xmi:type"] === "uml:DataType") {
+            const tmp = { ...k }
+            delete tmp["xmi:type"];
+            data_types[k["name"]] = { ...tmp };
+        }
+    }
+    return data_types;
+};
+
+/**
  * Extracts an useful representation of an XMI file including the stereotypes marked as indicated in stereotype_key_start.
  * @param {string} file_path Path to the XMI file that will be parsed.
  * @param {string} stereotype_key_start String chain that allows identifying the begining of the stereotypes keys.
- * @returns An object with the complete application model (full_app_model) and the stereotypes list (stereotypes).
+ * @returns An object with the complete application model (full_app_model), the stereotypes list (stereotypes) and the list of data types (data_types).
  */
 const parse_xmi_file = async (file_path, stereotype_key_start = '') => {
     const base_obj = await extract_xmi_object(file_path);
     const app_model = extract_app_model(base_obj);
     const stereotypes = extract_stereotypes_list(base_obj, stereotype_key_start);
+    const data_types = extract_datatypes_list(app_model);
     const full_app_model = await add_stereotypes(stereotypes, app_model);
-    return { full_app_model, stereotypes };
+    return { full_app_model, stereotypes, data_types };
 };
 
 module.exports = parse_xmi_file;
