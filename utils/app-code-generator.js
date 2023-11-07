@@ -100,6 +100,51 @@ const get_all_sensors_information = (node_model) => {
 };
 
 /**
+ * Gets sensing and sending periods for both states.
+ * @param {object} node_model 
+ * @returns {{
+ *       high: {
+ *           sensing: number,
+ *           sending: number,
+ *           agg_epochs: number,
+ *       },
+ *       low: {
+ *           sensing: number,
+ *           sending: number,
+ *           agg_epochs: number,
+ *       },
+ *   }} `node_periods`
+ */
+const get_periods = (node_model) => {
+    const node_periods = {
+        high: {
+            sensing: 0,
+            sending: 0,
+            agg_epochs: 0,
+        },
+        low: {
+            sensing: 0,
+            sending: 0,
+            agg_epochs: 0,
+        },
+    };
+
+    if (node_model.states.High.sensed_variables != null && node_model.states.High.sensed_variables.sensed_variables != null && Object.values(node_model.states.High.sensed_variables.sensed_variables).length > 0)
+        node_periods.high.sensing = Object.values(node_model.states.High.sensed_variables.sensed_variables)[0].sensing_op.stereotype[0].period;
+    node_periods.high.sending = node_model.states.High.sending_data.sending_data.sending_op.stereotype[0].period;
+    if (node_periods.high.sensing != 0 && !isNaN(Number(node_periods.high.sending)) && !isNaN(Number(node_periods.high.sensing)))
+        node_periods.high.agg_epochs = Math.ceil(node_periods.high.sending / node_periods.high.sensing);
+
+    if (node_model.states.Low.sensed_variables != null && node_model.states.Low.sensed_variables.sensed_variables != null && Object.values(node_model.states.Low.sensed_variables.sensed_variables).length > 0)
+        node_periods.low.sensing = Object.values(node_model.states.Low.sensed_variables.sensed_variables)[0].sensing_op.stereotype[0].period;
+    node_periods.low.sending = node_model.states.Low.sending_data.sending_data.sending_op.stereotype[0].period;
+    if (node_periods.low.sensing != 0 && !isNaN(Number(node_periods.low.sending)) && !isNaN(Number(node_periods.low.sensing)))
+        node_periods.low.agg_epochs = Math.ceil(node_periods.low.sending / node_periods.low.sensing);
+
+    return node_periods;
+};
+
+/**
  * Function that generates the application code in the `output_dir` folder.
  * @param {string} author Author name of the current application
  * @param {string} output_dir Output directory that will be later zipped and sent for download.
@@ -176,18 +221,19 @@ const end_node_code_extractor = async (end_node_model) => {
         create_all_sensing_threads: "/* No Generated create_all_sensing_threads */"
     };
     const sensing_info = get_all_sensors_information(end_node_model);
+    const node_periods = get_periods(end_node_model);
     end_node_replace_obj.end_node_name = end_node_model.name;
     end_node_replace_obj.all_sensors_includes = sensing_info.all_sensors_includes;
     end_node_replace_obj.all_probes_types_and_save_values_pointers = sensing_info.all_probes_types_and_save_values_pointers;
     end_node_replace_obj.all_probes_and_save_values_chain = sensing_info.all_probes_and_save_values_chain;
-    end_node_replace_obj.high_sensing_and_aggregation_code = `int16_t avg_temp_src[5];
-    uint16_t avg_press_src[5];
+    end_node_replace_obj.high_sensing_and_aggregation_code = `int16_t avg_temp_src[${node_periods.high.agg_epochs}];
+    uint16_t avg_press_src[${node_periods.high.agg_epochs}];
     int16_t sense_lastplace = 0;
-    for (int16_t w=0; w< 5; w++) {
+    for (int16_t w=0; w< ${node_periods.high.agg_epochs}; w++) {
         lpsxxx_read_temp(${sensing_info.all_sensing_info[0].probe_varname}, &avg_temp_src[w]);
         lpsxxx_read_pres(${sensing_info.all_sensing_info[1].probe_varname}, &avg_press_src[w]);
         sense_lastplace = w;
-        xtimer_sleep(${end_node_model.states.High.sensed_variables.sensed_variables.Temperature.sensing_op.stereotype[0].period});
+        xtimer_sleep(${node_periods.high.sensing});
     }
     int32_t sum_temp = 0;
     uint32_t sum_press = 0;
@@ -200,15 +246,15 @@ const end_node_code_extractor = async (end_node_model) => {
     `;
     end_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t,  int16_t";
     end_node_replace_obj.output_values_chain = `int16_t ${sensing_info.all_sensing_info[0].var_name}, uint16_t ${sensing_info.all_sensing_info[1].var_name}, int16_t status`;
-    end_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(${end_node_model.states.High.sending_data.sending_data.sending_op.stereotype[0].period});
+    end_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(${node_periods.high.sending});
     sprintf(output,
         "0, %hi, %hi, %hu",
         status, ${sensing_info.all_sensing_info[0].var_name}, ${sensing_info.all_sensing_info[1].var_name});
     `;
-    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(${end_node_model.states.Low.sensed_variables.sensed_variables.Temperature.sensing_op.stereotype[0].period});
+    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(${node_periods.low.sensing});
     *${sensing_info.all_sensing_info[1].var_name} = 0;     // Necessary to avoid not used error.
     ${sensing_info.all_sensing_info[0].sense_func.replace("___sense_probe_ptr___", sensing_info.all_sensing_info[0].probe_varname).replace("___sense_var_name_ptr___", sensing_info.all_sensing_info[0].var_name)};`;
-    end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(${end_node_model.states.Low.sending_data.sending_data.sending_op.stereotype[0].period});
+    end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(${node_periods.low.sending});
     ${sensing_info.all_sensing_info[1].var_name} = ${sensing_info.all_sensing_info[1].var_name} + 0;      // Necessary to avoid not used error.
     sprintf(output,
         "0, %hi, %hi",
@@ -278,19 +324,20 @@ const sink_node_code_extractor = async (sink_node_model, all_end_nodes) => {
         create_all_sensing_and_transformation_threads: "/* No Generated create_all_sensing_and_transformation_threads */"
     };
     const sensing_info = get_all_sensors_information(sink_node_model);
+    const node_periods = get_periods(sink_node_model);
     sink_node_replace_obj.all_sensors_includes = sensing_info.all_sensors_includes;
     sink_node_replace_obj.all_probes_types_and_save_values_pointers = sensing_info.all_probes_types_and_save_values_pointers;
     sink_node_replace_obj.all_probes_and_save_values_chain = sensing_info.all_probes_and_save_values_chain;
     sink_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t, int16_t";
     sink_node_replace_obj.output_values_chain = "int16_t temp_0, uint16_t press_0, int16_t status";
     sink_node_replace_obj.high_sensing_and_aggregation_code = ``;
-    sink_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(${sink_node_model.states.High.sending_data.sending_data.sending_op.stereotype[0].period});
+    sink_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(${node_periods.high.sending});
     sprintf(output,
         "SinkNode Result:\t State: %hi, temp_0: %hi, press_0 %hu",
         status, temp_0, press_0);
     `;
     sink_node_replace_obj.low_sensing_and_aggregation_code = ``;
-    sink_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(${sink_node_model.states.Low.sending_data.sending_data.sending_op.stereotype[0].period});
+    sink_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(${node_periods.low.sending});
     press_0 = press_0 + 0;      // Necessary to avoid not used error.
     sprintf(output,
         "SinkNode Result:\\t State: %hi, temp_0: %hi",
