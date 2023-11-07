@@ -161,16 +161,31 @@ const get_node_stateless_data = async (full_node_model, data_types) => {
         time_vars = add_types_to_variables_list(time_vars, data_types);
         // changed from deliveredVariable stereotyte to variable due to errors in the UML model....
         // const sensed_vars = await recursive_single_stereotype_searching(dm, config.deliveredVariable);
-        let sensed_vars = await recursive_single_stereotype_searching(dm, config.variable);
-        sensed_vars = add_types_to_variables_list(sensed_vars, data_types);
+        let sensed_and_received_vars = await recursive_single_stereotype_searching(dm, config.variable);
+        sensed_and_received_vars = add_types_to_variables_list(sensed_and_received_vars, data_types);
         // ....
+        // since only the received variables have source, then split them:
+        const sensed_vars = sensed_and_received_vars.filter(item => {
+            for (let st of item.stereotype) {
+                if (st.source != null)
+                    return false;
+            }
+            return true;
+        });
+        const received_vars = sensed_and_received_vars.filter(item => {
+            for (let st of item.stereotype) {
+                if (st.source != null)
+                    return true;
+            }
+            return false;
+        });
         const operations = await recursive_single_stereotype_searching(dm, config.sendOperation);
         const change_mode = await recursive_single_stereotype_searching(dm, config.changeModeDefinition);
         let stateless_sending_op = null;
         if (operations.length > 0) stateless_sending_op = operations[0];
         let change_mode_op = null;
         if (change_mode.length > 0) change_mode_op = change_mode[0];
-        const variables = { device_vars, time_vars, sensed_vars };
+        const variables = { device_vars, time_vars, sensed_vars, received_vars };
         sending_data.stateless_sending_op = stateless_sending_op;
         sending_data.change_mode_op = change_mode_op;
         sending_data.variables = variables;
@@ -244,13 +259,28 @@ const get_node_states = async (full_node_model, stateless_data, data_types) => {
         time_vars = add_types_to_variables_list(time_vars, data_types);
         // changed from deliveredVariable stereotyte to variable due to errors in the UML model....
         // const sensed_vars = await recursive_single_stereotype_searching(dms, config.deliveredVariable);
-        let sensed_vars = await recursive_single_stereotype_searching(dms, config.variable);
-        sensed_vars = add_types_to_variables_list(sensed_vars, data_types);
+        let sensed_and_received_vars = await recursive_single_stereotype_searching(dms, config.variable);
+        sensed_and_received_vars = add_types_to_variables_list(sensed_and_received_vars, data_types);
         // ....
+        // since only the received variables have source, then split them:
+        const sensed_vars = sensed_and_received_vars.filter(item => {
+            for (let st of item.stereotype) {
+                if (st.source != null)
+                    return false;
+            }
+            return true;
+        });
+        const received_vars = sensed_and_received_vars.filter(item => {
+            for (let st of item.stereotype) {
+                if (st.source != null)
+                    return true;
+            }
+            return false;
+        });
         const operations = await recursive_single_stereotype_searching(dms, config.sendOperation);
         let sending_op = null;
         if (operations.length > 0) sending_op = operations[0];
-        const variables = { device_vars, time_vars, sensed_vars };
+        const variables = { device_vars, time_vars, sensed_vars, received_vars };
         sending_data.sending_op = sending_op;
         sending_data.variables = variables;
         states[dms.stereotype[0].Mode].sending_data = { ...states[dms.stereotype[0].Mode].sending_data, sending_data };

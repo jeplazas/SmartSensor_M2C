@@ -39,8 +39,8 @@ const get_all_sensors_information = (node_model) => {
     const existing_mainvars = [];
     const all_delivered_variables = [
         ...node_model.stateless_data.sending_data.variables.sensed_vars,
-        ...node_model.states.High.sending_data.sending_data.variables,
-        ...node_model.states.Low.sending_data.sending_data.variables,
+        ...node_model.states.High.sending_data.sending_data.variables.sensed_vars,
+        ...node_model.states.Low.sending_data.sending_data.variables.sensed_vars,
     ];
     for (let deli_var of all_delivered_variables) {
         if (deli_var.type == null || !m3_sensors_names.includes(deli_var.type)) {
@@ -83,6 +83,12 @@ const get_all_sensors_information = (node_model) => {
     all_sensors_information.all_sensing_structs = "\n" + all_sensing_info.map(item => {
         return "static " + item.c_type + " " + item.var_name + ";";
     }).join("\n") + "\n";
+
+    if (all_sensors_information.all_probes_types_and_save_values_pointers == "")
+        all_sensors_information.all_probes_types_and_save_values_pointers = 'void';
+    if (all_sensors_information.all_probes_and_save_values_chain == "")
+        all_sensors_information.all_probes_and_save_values_chain = 'void';
+
     return all_sensors_information;
 };
 
@@ -99,7 +105,7 @@ const generate_application_code = async (author, output_dir, formated_app_model)
     const default_network_channel = Math.floor(Math.random() * 12 + 1); // Math.floor(Math.random() * (max - min + 1) + min);
     const default_network_id = crypto.randomBytes(2).toString('hex');
     const errors = [];
-    for (end_node_model in formated_app_model.end_nodes) {
+    for (end_node_model of formated_app_model.end_nodes) {
         const code_replace = await end_node_code_extractor(end_node_model);
         const error = await save_endnode_code(
             author, output_dir, code_replace.end_node_name,
@@ -118,7 +124,7 @@ const generate_application_code = async (author, output_dir, formated_app_model)
             errors.push(error)
     }
 
-    for (sink_node_model in formated_app_model.sink_nodes) {
+    for (sink_node_model of formated_app_model.sink_nodes) {
         const code_replace = await sink_node_code_extractor(sink_node_model, formated_app_model.end_nodes);
         const error = await save_sinknode_code(
             author, output_dir,
@@ -264,9 +270,10 @@ const sink_node_code_extractor = async (sink_node_model, all_end_nodes) => {
         init_all_sensors: "/* No Generated init_all_sensors */",
         create_all_sensing_and_transformation_threads: "/* No Generated create_all_sensing_and_transformation_threads */"
     };
-    sink_node_replace_obj.all_sensors_includes = ``;
-    sink_node_replace_obj.all_probes_types_and_save_values_pointers = `void`;
-    sink_node_replace_obj.all_probes_and_save_values_chain = `void`;
+    const sensing_info = get_all_sensors_information(sink_node_model);
+    sink_node_replace_obj.all_sensors_includes = sensing_info.all_sensors_includes;
+    sink_node_replace_obj.all_probes_types_and_save_values_pointers = sensing_info.all_probes_types_and_save_values_pointers;
+    sink_node_replace_obj.all_probes_and_save_values_chain = sensing_info.all_probes_and_save_values_chain;
     sink_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t, int16_t";
     sink_node_replace_obj.output_values_chain = "int16_t temp_0, uint16_t press_0, int16_t status";
     sink_node_replace_obj.high_sensing_and_aggregation_code = ``;
@@ -282,9 +289,9 @@ const sink_node_code_extractor = async (sink_node_model, all_end_nodes) => {
         "SinkNode Result:\\t State: %hi, temp_0: %hi",
         status, temp_0);
     `;
-    sink_node_replace_obj.all_usemodule_sensors_list = ``;
-    sink_node_replace_obj.all_sensors_mainvars_definitions = ``;
-    sink_node_replace_obj.all_sensing_structs = ``;
+    sink_node_replace_obj.all_usemodule_sensors_list = sensing_info.all_usemodule_sensors_list;
+    sink_node_replace_obj.all_sensors_mainvars_definitions = sensing_info.all_sensors_mainvars_definitions;
+    sink_node_replace_obj.all_sensing_structs = sensing_info.all_sensing_structs;
     sink_node_replace_obj.all_transforming_structs = ``;
     sink_node_replace_obj.all_receiving_structs = `// From Node 0:
     static int16_t state_0 = 0;
@@ -306,7 +313,7 @@ const sink_node_code_extractor = async (sink_node_model, all_end_nodes) => {
     state.sendSleep(output, temp_0, pres_0, state.status);
     int change_to_high_state = state_0;
     `;
-    sink_node_replace_obj.init_all_sensors = ``;
+    sink_node_replace_obj.init_all_sensors = sensing_info.init_all_sensors;
     sink_node_replace_obj.create_all_sensing_and_transformation_threads = ``;
     return sink_node_replace_obj;
 };
