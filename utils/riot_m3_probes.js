@@ -6,6 +6,8 @@ const m3_sensors_list = {
         sense_function: "lpsxxx_read_temp(___sense_probe_ptr___, ___sense_var_name_ptr___);\n",
         usemodule: "lps331ap",
         mainvar_definition: "static lpsxxx_t lpsxxx;\n",
+        probe_vartype: "lpsxxx_t",
+        probe_varname: "lpsxxx",
         initialization_function: "lpsxxx_init(&lpsxxx, lpsxxx_params);\n",
     },
     Pressure_lps: {
@@ -15,6 +17,8 @@ const m3_sensors_list = {
         sense_function: "lpsxxx_read_pres(___sense_probe_ptr___, ___sense_var_name_ptr___);\n",
         usemodule: "lps331ap",
         mainvar_definition: "static lpsxxx_t lpsxxx;\n",
+        probe_vartype: "lpsxxx_t",
+        probe_varname: "lpsxxx",
         initialization_function: "lpsxxx_init(&lpsxxx, lpsxxx_params);\n",
     },
     Light_isl: {
@@ -24,6 +28,8 @@ const m3_sensors_list = {
         sense_function: "isl29020_read(___sense_probe_ptr___);\n",
         usemodule: "isl29020",
         mainvar_definition: "static isl29020_t isl29020;\n",
+        probe_vartype: "isl29020_t",
+        probe_varname: "isl29020",
         initialization_function: "isl29020_init(&isl29020, isl29020_params);\n",
     },
 };
