@@ -1,0 +1,927 @@
+1699368620.433521;m3-4;Server Address: fe80::ec19:4de3:d3ba:1732		Port: 8888
+1699368620.433833;m3-4;Network configuration loaded successfully
+1699368620.433960;m3-4;Passed to Low State
+1699368620.434064;m3-4;DEBUG_LOW: Started sensing
+1699368620.434160;m3-4;DEBUG_LOW: Waiting to send
+1699368624.633200;m3-2;Configured network interfaces:
+1699368624.633497;m3-2;Iface  5  HWaddr: 17:32  Channel: 26  Page: 0  NID: 0x23  PHY: O-QPSK 
+1699368624.633625;m3-2;          
+1699368624.633725;m3-2;          Long HWaddr: EE:19:4D:E3:D3:BA:17:32 
+1699368624.633821;m3-2;           TX-Power: 0dBm  State: IDLE  max. Retrans.: 3  CSMA Retries: 4 
+1699368624.633916;m3-2;          AUTOACK  ACK_REQ  CSMA  L2-PDU:102  MTU:1280  HL:64  6LO  
+1699368624.634009;m3-2;          IPHC  
+1699368624.634093;m3-2;          Source address length: 8
+1699368624.634180;m3-2;          Link type: wireless
+1699368624.634266;m3-2;          inet6 addr: fe80::ec19:4de3:d3ba:1732  scope: link  VAL
+1699368624.634355;m3-2;          inet6 group: ff02::1
+1699368624.634439;m3-2;          
+1699368624.648023;m3-2;Server Port: 8888
+1699368624.648237;m3-2;Network configuration loaded successfully
+1699368624.648358;m3-2;SinkNode startup time: Sun Jul  4 20:26:50 2060
+1699368624.648462;m3-2;
+1699368624.648553;m3-2;Passed to Low State
+1699368624.648642;m3-2;DEBUG_LOW: Waiting to send
+1699368650.431461;m3-4;DEBUG_LOW: Finished sensing
+1699368650.431812;m3-4;Passed to High State
+1699368650.431950;m3-4;DEBUG_HIGH: Started sensing
+1699368650.432054;m3-4;DEBUG_LOW: Output built
+1699368650.447135;m3-4;Node State = 1; Output: { 0, 0, 0 }
+1699368650.447388;m3-4;DEBUG_HIGH: Waiting to send
+1699368654.645976;m3-2;DEBUG_LOW: Output built
+1699368654.646316;m3-2;SinkNode Result:	 State: 0, temp_0: 0
+1699368654.646453;m3-2;DEBUG_def_LOW: Waiting to send
+1699368655.438990;m3-4;DEBUG_HIGH: Finished sensing
+1699368655.439327;m3-4;DEBUG_def_HIGH: Started sensing
+1699368655.454763;m3-4;DEBUG_HIGH: Output built
+1699368655.470726;m3-4;Node State = 1; Output: { 0, 1, 994, 0 }
+1699368655.470940;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368660.462740;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368660.463070;m3-4;DEBUG_def_HIGH: Started sensing
+1699368660.463304;m3-4;DEBUG_def_HIGH: Output built
+1699368660.478450;m3-4;Node State = 1; Output: { 0, 1, 4025, 994 }
+1699368660.478667;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368665.470407;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368665.470761;m3-4;DEBUG_def_HIGH: Started sensing
+1699368665.486082;m3-4;DEBUG_def_HIGH: Output built
+1699368665.486304;m3-4;Node State = 1; Output: { 0, 1, 4034, 994 }
+1699368665.486425;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368670.477928;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368670.478275;m3-4;DEBUG_def_HIGH: Started sensing
+1699368670.493654;m3-4;DEBUG_def_HIGH: Output built
+1699368670.509622;m3-4;Node State = 1; Output: { 0, 1, 4042, 994 }
+1699368670.509836;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368675.485557;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368675.485899;m3-4;DEBUG_def_HIGH: Started sensing
+1699368675.517297;m3-4;DEBUG_def_HIGH: Output built
+1699368675.517510;m3-4;Node State = 1; Output: { 0, 1, 4047, 994 }
+1699368675.517629;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368680.509273;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368680.509624;m3-4;DEBUG_def_HIGH: Started sensing
+1699368680.524917;m3-4;DEBUG_def_HIGH: Output built
+1699368680.540952;m3-4;Node State = 1; Output: { 0, 1, 4053, 994 }
+1699368680.541169;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368684.643723;m3-2;DEBUG_def_LOW: Output built
+1699368684.644038;m3-2;SinkNode Result:	 State: 0, temp_0: 0
+1699368684.644169;m3-2;Passed to High State
+1699368684.644269;m3-2;DEBUG_HIGH: Waiting to send
+1699368685.516800;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368685.517017;m3-4;DEBUG_def_HIGH: Started sensing
+1699368685.532662;m3-4;DEBUG_def_HIGH: Output built
+1699368685.548584;m3-4;Node State = 1; Output: { 0, 1, 4059, 994 }
+1699368685.548800;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368689.651435;m3-2;DEBUG_HIGH: Output built
+1699368689.651699;m3-2;SinkNode Result:	 State: 1, temp_0: 4053, press_0 994
+1699368689.651843;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368690.524490;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368690.524719;m3-4;DEBUG_def_HIGH: Started sensing
+1699368690.556318;m3-4;DEBUG_def_HIGH: Output built
+1699368690.572247;m3-4;Node State = 1; Output: { 0, 1, 4065, 994 }
+1699368690.572464;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368694.659035;m3-2;DEBUG_def_HIGH: Output built
+1699368694.659398;m3-2;SinkNode Result:	 State: 1, temp_0: 4059, press_0 994
+1699368694.659526;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368695.532274;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368695.532583;m3-4;DEBUG_def_HIGH: Started sensing
+1699368695.563964;m3-4;DEBUG_def_HIGH: Output built
+1699368695.579836;m3-4;Node State = 1; Output: { 0, 1, 4069, 994 }
+1699368695.580053;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368699.650575;m3-2;DEBUG_def_HIGH: Output built
+1699368699.650878;m3-2;SinkNode Result:	 State: 1, temp_0: 4065, press_0 994
+1699368699.651011;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368700.555718;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368700.555946;m3-4;DEBUG_def_HIGH: Started sensing
+1699368700.587507;m3-4;DEBUG_def_HIGH: Output built
+1699368700.603502;m3-4;Node State = 1; Output: { 0, 1, 4073, 994 }
+1699368700.603716;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368704.658295;m3-2;DEBUG_def_HIGH: Output built
+1699368704.658646;m3-2;SinkNode Result:	 State: 1, temp_0: 4069, press_0 994
+1699368704.658783;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368705.563453;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368705.563680;m3-4;DEBUG_def_HIGH: Started sensing
+1699368705.595278;m3-4;DEBUG_def_HIGH: Output built
+1699368705.611245;m3-4;Node State = 1; Output: { 0, 1, 4078, 994 }
+1699368705.611461;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368709.665900;m3-2;DEBUG_def_HIGH: Output built
+1699368709.666192;m3-2;SinkNode Result:	 State: 1, temp_0: 4073, press_0 994
+1699368709.666320;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368710.571072;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368710.571368;m3-4;DEBUG_def_HIGH: Started sensing
+1699368710.618907;m3-4;DEBUG_def_HIGH: Output built
+1699368710.619188;m3-4;Node State = 1; Output: { 0, 1, 4084, 994 }
+1699368710.634846;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368714.657589;m3-2;DEBUG_def_HIGH: Output built
+1699368714.657920;m3-2;SinkNode Result:	 State: 1, temp_0: 4078, press_0 994
+1699368714.658056;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368715.578734;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368715.578981;m3-4;DEBUG_def_HIGH: Started sensing
+1699368715.626559;m3-4;DEBUG_def_HIGH: Output built
+1699368715.642522;m3-4;Node State = 1; Output: { 0, 1, 4084, 994 }
+1699368715.642738;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368719.665052;m3-2;DEBUG_def_HIGH: Output built
+1699368719.665381;m3-2;SinkNode Result:	 State: 1, temp_0: 4084, press_0 994
+1699368719.665518;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368720.602287;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368720.602510;m3-4;DEBUG_def_HIGH: Started sensing
+1699368720.634246;m3-4;DEBUG_def_HIGH: Output built
+1699368720.650209;m3-4;Node State = 1; Output: { 0, 1, 4088, 994 }
+1699368720.650429;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368724.672837;m3-2;DEBUG_def_HIGH: Output built
+1699368724.673199;m3-2;SinkNode Result:	 State: 1, temp_0: 4084, press_0 994
+1699368724.673340;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368725.610220;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368725.610556;m3-4;DEBUG_def_HIGH: Started sensing
+1699368725.657787;m3-4;DEBUG_def_HIGH: Output built
+1699368725.673743;m3-4;Node State = 1; Output: { 0, 1, 4092, 994 }
+1699368725.673962;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368729.664454;m3-2;DEBUG_def_HIGH: Output built
+1699368729.664732;m3-2;SinkNode Result:	 State: 1, temp_0: 4088, press_0 994
+1699368729.664858;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368730.617623;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368730.617881;m3-4;DEBUG_def_HIGH: Started sensing
+1699368730.665400;m3-4;DEBUG_def_HIGH: Output built
+1699368730.681368;m3-4;Node State = 1; Output: { 0, 1, 4094, 994 }
+1699368730.681586;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368734.672014;m3-2;DEBUG_def_HIGH: Output built
+1699368734.672357;m3-2;SinkNode Result:	 State: 1, temp_0: 4092, press_0 994
+1699368734.672496;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368735.625223;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368735.625463;m3-4;DEBUG_def_HIGH: Started sensing
+1699368735.689125;m3-4;DEBUG_def_HIGH: Output built
+1699368735.705084;m3-4;Node State = 1; Output: { 0, 1, 4098, 994 }
+1699368735.705301;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368739.679622;m3-2;DEBUG_def_HIGH: Output built
+1699368739.679931;m3-2;SinkNode Result:	 State: 1, temp_0: 4094, press_0 994
+1699368739.680064;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368740.632989;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368740.648804;m3-4;DEBUG_def_HIGH: Started sensing
+1699368740.696742;m3-4;DEBUG_def_HIGH: Output built
+1699368740.712745;m3-4;Node State = 1; Output: { 0, 1, 4101, 994 }
+1699368740.712963;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368744.671314;m3-2;DEBUG_def_HIGH: Output built
+1699368744.671599;m3-2;SinkNode Result:	 State: 1, temp_0: 4098, press_0 994
+1699368744.671725;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368745.656640;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368745.656866;m3-4;DEBUG_def_HIGH: Started sensing
+1699368745.720477;m3-4;DEBUG_def_HIGH: Output built
+1699368745.736426;m3-4;Node State = 1; Output: { 0, 1, 4105, 994 }
+1699368745.736644;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368749.678904;m3-2;DEBUG_def_HIGH: Output built
+1699368749.679248;m3-2;SinkNode Result:	 State: 1, temp_0: 4101, press_0 994
+1699368749.679385;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368750.664293;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368750.664515;m3-4;DEBUG_def_HIGH: Started sensing
+1699368750.744063;m3-4;DEBUG_def_HIGH: Output built
+1699368750.744279;m3-4;Node State = 1; Output: { 0, 1, 4107, 994 }
+1699368750.744402;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368754.686632;m3-2;DEBUG_def_HIGH: Output built
+1699368754.686940;m3-2;SinkNode Result:	 State: 1, temp_0: 4105, press_0 994
+1699368754.687072;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368755.671978;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368755.672289;m3-4;DEBUG_def_HIGH: Started sensing
+1699368755.751701;m3-4;DEBUG_def_HIGH: Output built
+1699368755.767642;m3-4;Node State = 1; Output: { 0, 1, 4111, 994 }
+1699368755.767859;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368759.678122;m3-2;DEBUG_def_HIGH: Output built
+1699368759.678391;m3-2;SinkNode Result:	 State: 1, temp_0: 4107, press_0 994
+1699368759.678518;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368760.679605;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368760.695401;m3-4;DEBUG_def_HIGH: Started sensing
+1699368760.775366;m3-4;DEBUG_def_HIGH: Output built
+1699368760.775579;m3-4;Node State = 1; Output: { 0, 1, 4114, 994 }
+1699368760.791393;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368764.685792;m3-2;DEBUG_def_HIGH: Output built
+1699368764.686132;m3-2;SinkNode Result:	 State: 1, temp_0: 4111, press_0 994
+1699368764.686271;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368765.703282;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368765.703520;m3-4;DEBUG_def_HIGH: Started sensing
+1699368765.783157;m3-4;DEBUG_def_HIGH: Output built
+1699368765.799010;m3-4;Node State = 1; Output: { 0, 1, 4116, 994 }
+1699368765.799302;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368769.693402;m3-2;DEBUG_def_HIGH: Output built
+1699368769.693712;m3-2;SinkNode Result:	 State: 1, temp_0: 4114, press_0 994
+1699368769.693842;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368770.710853;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368770.711237;m3-4;DEBUG_def_HIGH: Started sensing
+1699368770.806655;m3-4;DEBUG_def_HIGH: Output built
+1699368770.822644;m3-4;Node State = 1; Output: { 0, 1, 4119, 994 }
+1699368770.822859;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368774.685126;m3-2;DEBUG_def_HIGH: Output built
+1699368774.685473;m3-2;SinkNode Result:	 State: 1, temp_0: 4116, press_0 994
+1699368774.700868;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368775.718493;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368775.718729;m3-4;DEBUG_def_HIGH: Started sensing
+1699368775.814368;m3-4;DEBUG_def_HIGH: Output built
+1699368775.830294;m3-4;Node State = 1; Output: { 0, 1, 4121, 994 }
+1699368775.830510;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368779.692677;m3-2;DEBUG_def_HIGH: Output built
+1699368779.693005;m3-2;SinkNode Result:	 State: 1, temp_0: 4119, press_0 994
+1699368779.693141;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368780.726217;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368780.726437;m3-4;DEBUG_def_HIGH: Started sensing
+1699368780.838055;m3-4;DEBUG_def_HIGH: Output built
+1699368780.854006;m3-4;Node State = 1; Output: { 0, 1, 4121, 994 }
+1699368780.854224;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368784.700342;m3-2;DEBUG_def_HIGH: Output built
+1699368784.700706;m3-2;SinkNode Result:	 State: 1, temp_0: 4121, press_0 994
+1699368784.700846;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368785.749953;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368785.750291;m3-4;DEBUG_def_HIGH: Started sensing
+1699368785.845568;m3-4;DEBUG_def_HIGH: Output built
+1699368785.861506;m3-4;Node State = 1; Output: { 0, 1, 4125, 994 }
+1699368785.861727;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368789.691871;m3-2;DEBUG_def_HIGH: Output built
+1699368789.707695;m3-2;SinkNode Result:	 State: 1, temp_0: 4121, press_0 994
+1699368789.707919;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368790.757473;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368790.757738;m3-4;DEBUG_def_HIGH: Started sensing
+1699368790.869158;m3-4;DEBUG_def_HIGH: Output built
+1699368790.885204;m3-4;Node State = 1; Output: { 0, 1, 4128, 994 }
+1699368790.885423;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368794.699724;m3-2;DEBUG_def_HIGH: Output built
+1699368794.700078;m3-2;SinkNode Result:	 State: 1, temp_0: 4125, press_0 994
+1699368794.700222;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368795.765206;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368795.765435;m3-4;DEBUG_def_HIGH: Started sensing
+1699368795.892977;m3-4;DEBUG_def_HIGH: Output built
+1699368795.893192;m3-4;Node State = 1; Output: { 0, 1, 4130, 994 }
+1699368795.893315;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368799.707232;m3-2;DEBUG_def_HIGH: Output built
+1699368799.707534;m3-2;SinkNode Result:	 State: 1, temp_0: 4128, press_0 994
+1699368799.707659;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368800.772831;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368800.773063;m3-4;DEBUG_def_HIGH: Started sensing
+1699368800.900595;m3-4;DEBUG_def_HIGH: Output built
+1699368800.916544;m3-4;Node State = 1; Output: { 0, 1, 4131, 994 }
+1699368800.916761;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368804.698780;m3-2;DEBUG_def_HIGH: Output built
+1699368804.714584;m3-2;SinkNode Result:	 State: 1, temp_0: 4130, press_0 994
+1699368804.714809;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368805.796484;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368805.796713;m3-4;DEBUG_def_HIGH: Started sensing
+1699368805.908304;m3-4;DEBUG_def_HIGH: Output built
+1699368805.924227;m3-4;Node State = 1; Output: { 0, 1, 4132, 994 }
+1699368805.924441;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368809.706415;m3-2;DEBUG_def_HIGH: Output built
+1699368809.706710;m3-2;SinkNode Result:	 State: 1, temp_0: 4131, press_0 994
+1699368809.706836;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368810.804171;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368810.804469;m3-4;DEBUG_def_HIGH: Started sensing
+1699368810.931878;m3-4;DEBUG_def_HIGH: Output built
+1699368810.947813;m3-4;Node State = 1; Output: { 0, 1, 4134, 994 }
+1699368810.948030;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368814.714144;m3-2;DEBUG_def_HIGH: Output built
+1699368814.714412;m3-2;SinkNode Result:	 State: 1, temp_0: 4132, press_0 994
+1699368814.714541;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368815.811864;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368815.812168;m3-4;DEBUG_def_HIGH: Started sensing
+1699368815.939523;m3-4;DEBUG_def_HIGH: Output built
+1699368815.955459;m3-4;Node State = 1; Output: { 0, 1, 4136, 994 }
+1699368815.955676;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368819.721530;m3-2;DEBUG_def_HIGH: Output built
+1699368819.721801;m3-2;SinkNode Result:	 State: 1, temp_0: 4134, press_0 994
+1699368819.721927;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368820.819374;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368820.819650;m3-4;DEBUG_def_HIGH: Started sensing
+1699368820.963259;m3-4;DEBUG_def_HIGH: Output built
+1699368820.963474;m3-4;Node State = 1; Output: { 0, 1, 4138, 994 }
+1699368820.963595;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368824.713344;m3-2;DEBUG_def_HIGH: Output built
+1699368824.713676;m3-2;SinkNode Result:	 State: 1, temp_0: 4136, press_0 994
+1699368824.713816;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368825.843033;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368825.843381;m3-4;DEBUG_def_HIGH: Started sensing
+1699368825.970768;m3-4;DEBUG_def_HIGH: Output built
+1699368825.986680;m3-4;Node State = 1; Output: { 0, 1, 4139, 994 }
+1699368825.986897;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368829.720860;m3-2;DEBUG_def_HIGH: Output built
+1699368829.721140;m3-2;SinkNode Result:	 State: 1, temp_0: 4138, press_0 994
+1699368829.721268;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368830.850648;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368830.850887;m3-4;DEBUG_def_HIGH: Started sensing
+1699368830.994458;m3-4;DEBUG_def_HIGH: Output built
+1699368831.010446;m3-4;Node State = 1; Output: { 0, 1, 4142, 994 }
+1699368831.010662;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368834.728692;m3-2;DEBUG_def_HIGH: Output built
+1699368834.729027;m3-2;SinkNode Result:	 State: 1, temp_0: 4139, press_0 994
+1699368834.729165;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368835.858389;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368835.858640;m3-4;DEBUG_def_HIGH: Started sensing
+1699368836.002172;m3-4;DEBUG_def_HIGH: Output built
+1699368836.018128;m3-4;Node State = 1; Output: { 0, 1, 4145, 994 }
+1699368836.018346;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368839.720209;m3-2;DEBUG_def_HIGH: Output built
+1699368839.720533;m3-2;SinkNode Result:	 State: 1, temp_0: 4142, press_0 994
+1699368839.720667;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368840.866014;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368840.866256;m3-4;DEBUG_def_HIGH: Started sensing
+1699368841.009884;m3-4;DEBUG_def_HIGH: Output built
+1699368841.025817;m3-4;Node State = 1; Output: { 0, 1, 4142, 994 }
+1699368841.026034;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368844.727849;m3-2;DEBUG_def_HIGH: Output built
+1699368844.728180;m3-2;SinkNode Result:	 State: 1, temp_0: 4145, press_0 994
+1699368844.728317;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368845.889777;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368845.890133;m3-4;DEBUG_def_HIGH: Started sensing
+1699368846.033444;m3-4;DEBUG_def_HIGH: Output built
+1699368846.049334;m3-4;Node State = 1; Output: { 0, 1, 4145, 994 }
+1699368846.049553;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368849.735550;m3-2;DEBUG_def_HIGH: Output built
+1699368849.735874;m3-2;SinkNode Result:	 State: 1, temp_0: 4142, press_0 994
+1699368849.736008;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368850.897254;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368850.897543;m3-4;DEBUG_def_HIGH: Started sensing
+1699368851.057081;m3-4;DEBUG_def_HIGH: Output built
+1699368851.057297;m3-4;Node State = 1; Output: { 0, 1, 4146, 994 }
+1699368851.057419;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368854.727268;m3-2;DEBUG_def_HIGH: Output built
+1699368854.727605;m3-2;SinkNode Result:	 State: 1, temp_0: 4145, press_0 994
+1699368854.727735;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368855.904941;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368855.905202;m3-4;DEBUG_def_HIGH: Started sensing
+1699368856.064777;m3-4;DEBUG_def_HIGH: Output built
+1699368856.080642;m3-4;Node State = 1; Output: { 0, 1, 4148, 994 }
+1699368856.080860;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368859.734653;m3-2;DEBUG_def_HIGH: Output built
+1699368859.734947;m3-2;SinkNode Result:	 State: 1, temp_0: 4146, press_0 994
+1699368859.735076;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368860.912596;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368860.912842;m3-4;DEBUG_def_HIGH: Started sensing
+1699368861.088378;m3-4;DEBUG_def_HIGH: Output built
+1699368861.104337;m3-4;Node State = 1; Output: { 0, 1, 4148, 994 }
+1699368861.104552;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368864.742159;m3-2;DEBUG_def_HIGH: Output built
+1699368864.742482;m3-2;SinkNode Result:	 State: 1, temp_0: 4148, press_0 994
+1699368864.742634;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368865.936210;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368865.936483;m3-4;DEBUG_def_HIGH: Started sensing
+1699368866.095987;m3-4;DEBUG_def_HIGH: Output built
+1699368866.111898;m3-4;Node State = 1; Output: { 0, 1, 4149, 994 }
+1699368866.112114;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368869.734004;m3-2;DEBUG_def_HIGH: Output built
+1699368869.734346;m3-2;SinkNode Result:	 State: 1, temp_0: 4148, press_0 994
+1699368869.734485;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368870.943871;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368870.944115;m3-4;DEBUG_def_HIGH: Started sensing
+1699368871.119656;m3-4;DEBUG_def_HIGH: Output built
+1699368871.135598;m3-4;Node State = 1; Output: { 0, 1, 4152, 994 }
+1699368871.135816;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368874.741591;m3-2;DEBUG_def_HIGH: Output built
+1699368874.741841;m3-2;SinkNode Result:	 State: 1, temp_0: 4149, press_0 994
+1699368874.741966;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368875.951566;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368875.951868;m3-4;DEBUG_def_HIGH: Started sensing
+1699368876.127382;m3-4;DEBUG_def_HIGH: Output built
+1699368876.143330;m3-4;Node State = 1; Output: { 0, 1, 4153, 994 }
+1699368876.143546;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368879.749131;m3-2;DEBUG_def_HIGH: Output built
+1699368879.749367;m3-2;SinkNode Result:	 State: 1, temp_0: 4152, press_0 994
+1699368879.749492;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368880.959149;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368880.959408;m3-4;DEBUG_def_HIGH: Started sensing
+1699368881.150841;m3-4;DEBUG_def_HIGH: Output built
+1699368881.151140;m3-4;Node State = 1; Output: { 0, 1, 4153, 994 }
+1699368881.166797;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368884.740814;m3-2;DEBUG_def_HIGH: Output built
+1699368884.741151;m3-2;SinkNode Result:	 State: 1, temp_0: 4153, press_0 994
+1699368884.741286;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368885.982511;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368885.982752;m3-4;DEBUG_def_HIGH: Started sensing
+1699368886.158478;m3-4;DEBUG_def_HIGH: Output built
+1699368886.174473;m3-4;Node State = 1; Output: { 0, 1, 4155, 994 }
+1699368886.174689;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368889.748380;m3-2;DEBUG_def_HIGH: Output built
+1699368889.748645;m3-2;SinkNode Result:	 State: 1, temp_0: 4153, press_0 994
+1699368889.748770;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368890.990314;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368890.990542;m3-4;DEBUG_def_HIGH: Started sensing
+1699368891.182362;m3-4;DEBUG_def_HIGH: Output built
+1699368891.182670;m3-4;Node State = 1; Output: { 0, 1, 4157, 994 }
+1699368891.198146;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368894.755994;m3-2;DEBUG_def_HIGH: Output built
+1699368894.756266;m3-2;SinkNode Result:	 State: 1, temp_0: 4155, press_0 994
+1699368894.756391;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368895.998036;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368895.998270;m3-4;DEBUG_def_HIGH: Started sensing
+1699368896.189832;m3-4;DEBUG_def_HIGH: Output built
+1699368896.205767;m3-4;Node State = 1; Output: { 0, 1, 4157, 994 }
+1699368896.205983;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368899.747497;m3-2;DEBUG_def_HIGH: Output built
+1699368899.747814;m3-2;SinkNode Result:	 State: 1, temp_0: 4157, press_0 994
+1699368899.763375;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368901.005698;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368901.005940;m3-4;DEBUG_def_HIGH: Started sensing
+1699368901.213486;m3-4;DEBUG_def_HIGH: Output built
+1699368901.213714;m3-4;Node State = 1; Output: { 0, 1, 4159, 994 }
+1699368901.213835;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368904.755430;m3-2;DEBUG_def_HIGH: Output built
+1699368904.755782;m3-2;SinkNode Result:	 State: 1, temp_0: 4157, press_0 994
+1699368904.755911;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368906.013494;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368906.029054;m3-4;DEBUG_def_HIGH: Started sensing
+1699368906.221216;m3-4;DEBUG_def_HIGH: Output built
+1699368906.237026;m3-4;Node State = 1; Output: { 0, 1, 4158, 994 }
+1699368906.237273;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368909.762938;m3-2;DEBUG_def_HIGH: Output built
+1699368909.763429;m3-2;SinkNode Result:	 State: 1, temp_0: 4159, press_0 994
+1699368909.763567;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368911.037079;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368911.037416;m3-4;DEBUG_def_HIGH: Started sensing
+1699368911.244812;m3-4;DEBUG_def_HIGH: Output built
+1699368911.260635;m3-4;Node State = 1; Output: { 0, 1, 4162, 994 }
+1699368911.260859;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368914.754529;m3-2;DEBUG_def_HIGH: Output built
+1699368914.770267;m3-2;SinkNode Result:	 State: 1, temp_0: 4158, press_0 994
+1699368914.770504;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368916.044538;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368916.044787;m3-4;DEBUG_def_HIGH: Started sensing
+1699368916.252382;m3-4;DEBUG_def_HIGH: Output built
+1699368916.268287;m3-4;Node State = 1; Output: { 0, 1, 4163, 994 }
+1699368916.268504;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368919.762104;m3-2;DEBUG_def_HIGH: Output built
+1699368919.762451;m3-2;SinkNode Result:	 State: 1, temp_0: 4162, press_0 994
+1699368919.762594;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368921.052226;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368921.052476;m3-4;DEBUG_def_HIGH: Started sensing
+1699368921.275944;m3-4;DEBUG_def_HIGH: Output built
+1699368921.291941;m3-4;Node State = 1; Output: { 0, 1, 4161, 994 }
+1699368921.292158;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368924.769696;m3-2;DEBUG_def_HIGH: Output built
+1699368924.769985;m3-2;SinkNode Result:	 State: 1, temp_0: 4163, press_0 994
+1699368924.770113;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368926.059815;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368926.075651;m3-4;DEBUG_def_HIGH: Started sensing
+1699368926.283681;m3-4;DEBUG_def_HIGH: Output built
+1699368926.299627;m3-4;Node State = 1; Output: { 0, 1, 4162, 994 }
+1699368926.299842;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368929.761408;m3-2;DEBUG_def_HIGH: Output built
+1699368929.777139;m3-2;SinkNode Result:	 State: 1, temp_0: 4161, press_0 994
+1699368929.777365;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368931.083498;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368931.083733;m3-4;DEBUG_def_HIGH: Started sensing
+1699368931.307979;m3-4;DEBUG_def_HIGH: Output built
+1699368931.323281;m3-4;Node State = 1; Output: { 0, 1, 4163, 994 }
+1699368931.323498;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368934.769103;m3-2;DEBUG_def_HIGH: Output built
+1699368934.769447;m3-2;SinkNode Result:	 State: 1, temp_0: 4162, press_0 994
+1699368934.769588;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368936.091256;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368936.091568;m3-4;DEBUG_def_HIGH: Started sensing
+1699368936.315063;m3-4;DEBUG_def_HIGH: Output built
+1699368936.330966;m3-4;Node State = 1; Output: { 0, 1, 4166, 994 }
+1699368936.331220;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368939.776502;m3-2;DEBUG_def_HIGH: Output built
+1699368939.776798;m3-2;SinkNode Result:	 State: 1, temp_0: 4163, press_0 994
+1699368939.776928;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368941.098962;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368941.099303;m3-4;DEBUG_def_HIGH: Started sensing
+1699368941.338548;m3-4;DEBUG_def_HIGH: Output built
+1699368941.354401;m3-4;Node State = 1; Output: { 0, 1, 4166, 994 }
+1699368941.354617;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368944.784010;m3-2;DEBUG_def_HIGH: Output built
+1699368944.784343;m3-2;SinkNode Result:	 State: 1, temp_0: 4166, press_0 994
+1699368944.784479;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368946.106451;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368946.106724;m3-4;DEBUG_def_HIGH: Started sensing
+1699368946.362220;m3-4;DEBUG_def_HIGH: Output built
+1699368946.362437;m3-4;Node State = 1; Output: { 0, 1, 4168, 994 }
+1699368946.378122;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368949.775786;m3-2;DEBUG_def_HIGH: Output built
+1699368949.776035;m3-2;SinkNode Result:	 State: 1, temp_0: 4166, press_0 994
+1699368949.776159;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368951.130118;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368951.130424;m3-4;DEBUG_def_HIGH: Started sensing
+1699368951.369943;m3-4;DEBUG_def_HIGH: Output built
+1699368951.385782;m3-4;Node State = 1; Output: { 0, 1, 4167, 994 }
+1699368951.386000;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368954.783420;m3-2;DEBUG_def_HIGH: Output built
+1699368954.783714;m3-2;SinkNode Result:	 State: 1, temp_0: 4168, press_0 994
+1699368954.783844;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368956.137666;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368956.137912;m3-4;DEBUG_def_HIGH: Started sensing
+1699368956.393441;m3-4;DEBUG_def_HIGH: Output built
+1699368956.409276;m3-4;Node State = 1; Output: { 0, 1, 4168, 994 }
+1699368956.409429;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368959.791269;m3-2;DEBUG_def_HIGH: Output built
+1699368959.791590;m3-2;SinkNode Result:	 State: 1, temp_0: 4167, press_0 994
+1699368959.791718;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368961.145288;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368961.145591;m3-4;DEBUG_def_HIGH: Started sensing
+1699368961.401212;m3-4;DEBUG_def_HIGH: Output built
+1699368961.417175;m3-4;Node State = 1; Output: { 0, 1, 4170, 994 }
+1699368961.417395;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368964.782694;m3-2;DEBUG_def_HIGH: Output built
+1699368964.783266;m3-2;SinkNode Result:	 State: 1, temp_0: 4168, press_0 994
+1699368964.783424;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368966.153103;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368966.153431;m3-4;DEBUG_def_HIGH: Started sensing
+1699368966.424890;m3-4;DEBUG_def_HIGH: Output built
+1699368966.440794;m3-4;Node State = 1; Output: { 0, 1, 4169, 994 }
+1699368966.441010;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368969.790278;m3-2;DEBUG_def_HIGH: Output built
+1699368969.790611;m3-2;SinkNode Result:	 State: 1, temp_0: 4170, press_0 994
+1699368969.790737;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368971.176747;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368971.177072;m3-4;DEBUG_def_HIGH: Started sensing
+1699368971.432414;m3-4;DEBUG_def_HIGH: Output built
+1699368971.448348;m3-4;Node State = 1; Output: { 0, 1, 4169, 994 }
+1699368971.448566;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368974.797945;m3-2;DEBUG_def_HIGH: Output built
+1699368974.798292;m3-2;SinkNode Result:	 State: 1, temp_0: 4169, press_0 994
+1699368974.798435;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368976.184197;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368976.184428;m3-4;DEBUG_def_HIGH: Started sensing
+1699368976.456029;m3-4;DEBUG_def_HIGH: Output built
+1699368976.472108;m3-4;Node State = 1; Output: { 0, 1, 4171, 994 }
+1699368976.472330;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368979.789644;m3-2;DEBUG_def_HIGH: Output built
+1699368979.789959;m3-2;SinkNode Result:	 State: 1, temp_0: 4169, press_0 994
+1699368979.790089;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368981.191828;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368981.192065;m3-4;DEBUG_def_HIGH: Started sensing
+1699368981.463698;m3-4;DEBUG_def_HIGH: Output built
+1699368981.479617;m3-4;Node State = 1; Output: { 0, 1, 4171, 994 }
+1699368981.479833;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368984.796934;m3-2;DEBUG_def_HIGH: Output built
+1699368984.797198;m3-2;SinkNode Result:	 State: 1, temp_0: 4171, press_0 994
+1699368984.797323;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368986.199479;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368986.199712;m3-4;DEBUG_def_HIGH: Started sensing
+1699368986.487357;m3-4;DEBUG_def_HIGH: Output built
+1699368986.503271;m3-4;Node State = 1; Output: { 0, 1, 4171, 994 }
+1699368986.503489;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368989.804714;m3-2;DEBUG_def_HIGH: Output built
+1699368989.804989;m3-2;SinkNode Result:	 State: 1, temp_0: 4171, press_0 994
+1699368989.805117;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368991.223186;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368991.223427;m3-4;DEBUG_def_HIGH: Started sensing
+1699368991.495064;m3-4;DEBUG_def_HIGH: Output built
+1699368991.510986;m3-4;Node State = 1; Output: { 0, 1, 4173, 994 }
+1699368991.511237;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368994.796423;m3-2;DEBUG_def_HIGH: Output built
+1699368994.796683;m3-2;SinkNode Result:	 State: 1, temp_0: 4171, press_0 994
+1699368994.796809;m3-2;DEBUG_def_HIGH: Waiting to send
+1699368996.230949;m3-4;DEBUG_def_HIGH: Finished sensing
+1699368996.231334;m3-4;DEBUG_def_HIGH: Started sensing
+1699368996.518689;m3-4;DEBUG_def_HIGH: Output built
+1699368996.534624;m3-4;Node State = 1; Output: { 0, 1, 4174, 994 }
+1699368996.534881;m3-4;DEBUG_def_HIGH: Waiting to send
+1699368999.804045;m3-2;DEBUG_def_HIGH: Output built
+1699368999.804302;m3-2;SinkNode Result:	 State: 1, temp_0: 4173, press_0 994
+1699368999.804425;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369001.238565;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369001.238852;m3-4;DEBUG_def_HIGH: Started sensing
+1699369001.526167;m3-4;DEBUG_def_HIGH: Output built
+1699369001.542166;m3-4;Node State = 1; Output: { 0, 1, 4175, 994 }
+1699369001.542382;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369004.811644;m3-2;DEBUG_def_HIGH: Output built
+1699369004.811987;m3-2;SinkNode Result:	 State: 1, temp_0: 4174, press_0 994
+1699369004.812128;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369006.246156;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369006.246393;m3-4;DEBUG_def_HIGH: Started sensing
+1699369006.549904;m3-4;DEBUG_def_HIGH: Output built
+1699369006.565838;m3-4;Node State = 1; Output: { 0, 1, 4175, 994 }
+1699369006.566053;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369009.803262;m3-2;DEBUG_def_HIGH: Output built
+1699369009.803519;m3-2;SinkNode Result:	 State: 1, temp_0: 4175, press_0 994
+1699369009.803643;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369011.269718;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369011.270033;m3-4;DEBUG_def_HIGH: Started sensing
+1699369011.557471;m3-4;DEBUG_def_HIGH: Output built
+1699369011.573422;m3-4;Node State = 1; Output: { 0, 1, 4175, 994 }
+1699369011.573640;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369014.811071;m3-2;DEBUG_def_HIGH: Output built
+1699369014.811377;m3-2;SinkNode Result:	 State: 1, temp_0: 4175, press_0 994
+1699369014.811504;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369016.277337;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369016.277591;m3-4;DEBUG_def_HIGH: Started sensing
+1699369016.581173;m3-4;DEBUG_def_HIGH: Output built
+1699369016.597117;m3-4;Node State = 1; Output: { 0, 1, 4177, 994 }
+1699369016.597332;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369019.818565;m3-2;DEBUG_def_HIGH: Output built
+1699369019.818955;m3-2;SinkNode Result:	 State: 1, temp_0: 4175, press_0 994
+1699369019.819124;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369021.284971;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369021.285279;m3-4;DEBUG_def_HIGH: Started sensing
+1699369021.588896;m3-4;DEBUG_def_HIGH: Output built
+1699369021.604711;m3-4;Node State = 1; Output: { 0, 1, 4176, 994 }
+1699369021.604929;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369024.810113;m3-2;DEBUG_def_HIGH: Output built
+1699369024.810444;m3-2;SinkNode Result:	 State: 1, temp_0: 4177, press_0 994
+1699369024.810584;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369026.292811;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369026.293160;m3-4;DEBUG_def_HIGH: Started sensing
+1699369026.612502;m3-4;DEBUG_def_HIGH: Output built
+1699369026.628432;m3-4;Node State = 1; Output: { 0, 1, 4177, 994 }
+1699369026.628649;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369029.817715;m3-2;DEBUG_def_HIGH: Output built
+1699369029.817973;m3-2;SinkNode Result:	 State: 1, temp_0: 4176, press_0 994
+1699369029.818100;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369031.316349;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369031.316604;m3-4;DEBUG_def_HIGH: Started sensing
+1699369031.620167;m3-4;DEBUG_def_HIGH: Output built
+1699369031.636126;m3-4;Node State = 1; Output: { 0, 1, 4177, 994 }
+1699369031.636344;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369034.825460;m3-2;DEBUG_def_HIGH: Output built
+1699369034.825804;m3-2;SinkNode Result:	 State: 1, temp_0: 4177, press_0 994
+1699369034.825950;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369036.323977;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369036.324215;m3-4;DEBUG_def_HIGH: Started sensing
+1699369036.643707;m3-4;DEBUG_def_HIGH: Output built
+1699369036.659628;m3-4;Node State = 1; Output: { 0, 1, 4178, 994 }
+1699369036.659846;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369039.817062;m3-2;DEBUG_def_HIGH: Output built
+1699369039.817380;m3-2;SinkNode Result:	 State: 1, temp_0: 4177, press_0 994
+1699369039.832780;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369041.331550;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369041.331780;m3-4;DEBUG_def_HIGH: Started sensing
+1699369041.651348;m3-4;DEBUG_def_HIGH: Output built
+1699369041.667283;m3-4;Node State = 1; Output: { 0, 1, 4180, 994 }
+1699369041.667499;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369044.824517;m3-2;DEBUG_def_HIGH: Output built
+1699369044.824766;m3-2;SinkNode Result:	 State: 1, temp_0: 4178, press_0 994
+1699369044.824890;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369046.339229;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369046.339478;m3-4;DEBUG_def_HIGH: Started sensing
+1699369046.675072;m3-4;DEBUG_def_HIGH: Output built
+1699369046.690984;m3-4;Node State = 1; Output: { 0, 1, 4179, 994 }
+1699369046.691249;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369049.832169;m3-2;DEBUG_def_HIGH: Output built
+1699369049.832408;m3-2;SinkNode Result:	 State: 1, temp_0: 4180, press_0 994
+1699369049.832531;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369051.362716;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369051.362947;m3-4;DEBUG_def_HIGH: Started sensing
+1699369051.682723;m3-4;DEBUG_def_HIGH: Output built
+1699369051.698683;m3-4;Node State = 1; Output: { 0, 1, 4179, 994 }
+1699369051.698900;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369054.823842;m3-2;DEBUG_def_HIGH: Output built
+1699369054.839606;m3-2;SinkNode Result:	 State: 1, temp_0: 4179, press_0 994
+1699369054.839824;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369056.370559;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369056.370941;m3-4;DEBUG_def_HIGH: Started sensing
+1699369056.706300;m3-4;DEBUG_def_HIGH: Output built
+1699369056.722261;m3-4;Node State = 1; Output: { 0, 1, 4179, 994 }
+1699369056.722478;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369059.831558;m3-2;DEBUG_def_HIGH: Output built
+1699369059.831887;m3-2;SinkNode Result:	 State: 1, temp_0: 4179, press_0 994
+1699369059.832022;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369061.378241;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369061.378537;m3-4;DEBUG_def_HIGH: Started sensing
+1699369061.713958;m3-4;DEBUG_def_HIGH: Output built
+1699369061.729902;m3-4;Node State = 1; Output: { 0, 1, 4179, 994 }
+1699369061.730120;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369064.839059;m3-2;DEBUG_def_HIGH: Output built
+1699369064.839436;m3-2;SinkNode Result:	 State: 1, temp_0: 4179, press_0 994
+1699369064.839567;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369066.385848;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369066.386105;m3-4;DEBUG_def_HIGH: Started sensing
+1699369066.737598;m3-4;DEBUG_def_HIGH: Output built
+1699369066.753541;m3-4;Node State = 1; Output: { 0, 1, 4180, 994 }
+1699369066.753759;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369069.830764;m3-2;DEBUG_def_HIGH: Output built
+1699369069.846444;m3-2;SinkNode Result:	 State: 1, temp_0: 4179, press_0 994
+1699369069.846703;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369071.393396;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369071.409148;m3-4;DEBUG_def_HIGH: Started sensing
+1699369071.745169;m3-4;DEBUG_def_HIGH: Output built
+1699369071.761121;m3-4;Node State = 1; Output: { 0, 1, 4181, 994 }
+1699369071.761337;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369074.838331;m3-2;DEBUG_def_HIGH: Output built
+1699369074.838617;m3-2;SinkNode Result:	 State: 1, temp_0: 4180, press_0 994
+1699369074.838748;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369076.417046;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369076.417304;m3-4;DEBUG_def_HIGH: Started sensing
+1699369076.768874;m3-4;DEBUG_def_HIGH: Output built
+1699369076.784828;m3-4;Node State = 1; Output: { 0, 1, 4181, 994 }
+1699369076.785044;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369079.846018;m3-2;DEBUG_def_HIGH: Output built
+1699369079.846328;m3-2;SinkNode Result:	 State: 1, temp_0: 4181, press_0 994
+1699369079.846463;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369081.424599;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369081.424870;m3-4;DEBUG_def_HIGH: Started sensing
+1699369081.792543;m3-4;DEBUG_def_HIGH: Output built
+1699369081.792784;m3-4;Node State = 1; Output: { 0, 1, 4184, 994 }
+1699369081.792925;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369084.853331;m3-2;DEBUG_def_HIGH: Output built
+1699369084.853647;m3-2;SinkNode Result:	 State: 1, temp_0: 4181, press_0 994
+1699369084.853779;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369086.432393;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369086.432738;m3-4;DEBUG_def_HIGH: Started sensing
+1699369086.800170;m3-4;DEBUG_def_HIGH: Output built
+1699369086.816200;m3-4;Node State = 1; Output: { 0, 1, 4182, 994 }
+1699369086.816417;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369089.845186;m3-2;DEBUG_def_HIGH: Output built
+1699369089.845442;m3-2;SinkNode Result:	 State: 1, temp_0: 4184, press_0 994
+1699369089.845568;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369091.440016;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369091.440324;m3-4;DEBUG_def_HIGH: Started sensing
+1699369091.807922;m3-4;DEBUG_def_HIGH: Output built
+1699369091.823822;m3-4;Node State = 1; Output: { 0, 1, 4183, 994 }
+1699369091.839774;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369094.852885;m3-2;DEBUG_def_HIGH: Output built
+1699369094.853221;m3-2;SinkNode Result:	 State: 1, temp_0: 4182, press_0 994
+1699369094.853356;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369096.463694;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369096.463947;m3-4;DEBUG_def_HIGH: Started sensing
+1699369096.831378;m3-4;DEBUG_def_HIGH: Output built
+1699369096.847309;m3-4;Node State = 1; Output: { 0, 1, 4182, 994 }
+1699369096.847528;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369099.860575;m3-2;DEBUG_def_HIGH: Output built
+1699369099.860907;m3-2;SinkNode Result:	 State: 1, temp_0: 4183, press_0 994
+1699369099.861047;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369101.471313;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369101.471560;m3-4;DEBUG_def_HIGH: Started sensing
+1699369101.855154;m3-4;DEBUG_def_HIGH: Output built
+1699369101.855377;m3-4;Node State = 1; Output: { 0, 1, 4183, 994 }
+1699369101.870964;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369104.851948;m3-2;DEBUG_def_HIGH: Output built
+1699369104.852193;m3-2;SinkNode Result:	 State: 1, temp_0: 4182, press_0 994
+1699369104.852318;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369106.479029;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369106.479397;m3-4;DEBUG_def_HIGH: Started sensing
+1699369106.862843;m3-4;DEBUG_def_HIGH: Output built
+1699369106.878702;m3-4;Node State = 1; Output: { 0, 1, 4183, 994 }
+1699369106.878920;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369109.859669;m3-2;DEBUG_def_HIGH: Output built
+1699369109.859953;m3-2;SinkNode Result:	 State: 1, temp_0: 4183, press_0 994
+1699369109.860079;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369111.486740;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369111.487012;m3-4;DEBUG_def_HIGH: Started sensing
+1699369111.870448;m3-4;DEBUG_def_HIGH: Output built
+1699369111.886377;m3-4;Node State = 1; Output: { 0, 1, 4183, 994 }
+1699369111.902272;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369114.867252;m3-2;DEBUG_def_HIGH: Output built
+1699369114.867489;m3-2;SinkNode Result:	 State: 1, temp_0: 4183, press_0 994
+1699369114.867612;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369116.510178;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369116.510660;m3-4;DEBUG_def_HIGH: Started sensing
+1699369116.894064;m3-4;DEBUG_def_HIGH: Output built
+1699369116.910001;m3-4;Node State = 1; Output: { 0, 1, 4182, 994 }
+1699369116.910218;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369119.858908;m3-2;DEBUG_def_HIGH: Output built
+1699369119.859198;m3-2;SinkNode Result:	 State: 1, temp_0: 4183, press_0 994
+1699369119.859327;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369121.517846;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369121.518094;m3-4;DEBUG_def_HIGH: Started sensing
+1699369121.917747;m3-4;DEBUG_def_HIGH: Output built
+1699369121.933803;m3-4;Node State = 1; Output: { 0, 1, 4185, 994 }
+1699369121.934021;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369124.866642;m3-2;DEBUG_def_HIGH: Output built
+1699369124.866996;m3-2;SinkNode Result:	 State: 1, temp_0: 4182, press_0 994
+1699369124.867223;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369126.525500;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369126.525739;m3-4;DEBUG_def_HIGH: Started sensing
+1699369126.925262;m3-4;DEBUG_def_HIGH: Output built
+1699369126.941375;m3-4;Node State = 1; Output: { 0, 1, 4184, 994 }
+1699369126.941594;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369129.873955;m3-2;DEBUG_def_HIGH: Output built
+1699369129.874202;m3-2;SinkNode Result:	 State: 1, temp_0: 4185, press_0 994
+1699369129.874325;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369131.533208;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369131.533513;m3-4;DEBUG_def_HIGH: Started sensing
+1699369131.948942;m3-4;DEBUG_def_HIGH: Output built
+1699369131.964688;m3-4;Node State = 1; Output: { 0, 1, 4185, 994 }
+1699369131.964842;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369134.865764;m3-2;DEBUG_def_HIGH: Output built
+1699369134.865999;m3-2;SinkNode Result:	 State: 1, temp_0: 4184, press_0 994
+1699369134.866122;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369136.556743;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369136.556999;m3-4;DEBUG_def_HIGH: Started sensing
+1699369136.956728;m3-4;DEBUG_def_HIGH: Output built
+1699369136.972558;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369136.972774;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369139.873424;m3-2;DEBUG_def_HIGH: Output built
+1699369139.873747;m3-2;SinkNode Result:	 State: 1, temp_0: 4185, press_0 994
+1699369139.873882;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369141.564374;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369141.564654;m3-4;DEBUG_def_HIGH: Started sensing
+1699369141.980271;m3-4;DEBUG_def_HIGH: Output built
+1699369141.996109;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369141.996327;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369144.880940;m3-2;DEBUG_def_HIGH: Output built
+1699369144.881255;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369144.881387;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369146.572242;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369146.572585;m3-4;DEBUG_def_HIGH: Started sensing
+1699369146.988007;m3-4;DEBUG_def_HIGH: Output built
+1699369147.003826;m3-4;Node State = 1; Output: { 0, 1, 4187, 994 }
+1699369147.004044;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369149.872597;m3-2;DEBUG_def_HIGH: Output built
+1699369149.872908;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369149.873050;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369151.579793;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369151.580105;m3-4;DEBUG_def_HIGH: Started sensing
+1699369152.011717;m3-4;DEBUG_def_HIGH: Output built
+1699369152.027543;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369152.027760;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369154.880239;m3-2;DEBUG_def_HIGH: Output built
+1699369154.880571;m3-2;SinkNode Result:	 State: 1, temp_0: 4187, press_0 994
+1699369154.880708;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369156.603434;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369156.603688;m3-4;DEBUG_def_HIGH: Started sensing
+1699369157.019343;m3-4;DEBUG_def_HIGH: Output built
+1699369157.035232;m3-4;Node State = 1; Output: { 0, 1, 4184, 994 }
+1699369157.035448;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369159.887895;m3-2;DEBUG_def_HIGH: Output built
+1699369159.888206;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369159.888341;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369161.610948;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369161.611239;m3-4;DEBUG_def_HIGH: Started sensing
+1699369162.042860;m3-4;DEBUG_def_HIGH: Output built
+1699369162.058687;m3-4;Node State = 1; Output: { 0, 1, 4185, 994 }
+1699369162.058904;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369164.879384;m3-2;DEBUG_def_HIGH: Output built
+1699369164.879627;m3-2;SinkNode Result:	 State: 1, temp_0: 4184, press_0 994
+1699369164.879751;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369166.618651;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369166.618949;m3-4;DEBUG_def_HIGH: Started sensing
+1699369167.050579;m3-4;DEBUG_def_HIGH: Output built
+1699369167.066438;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369167.066655;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369169.886996;m3-2;DEBUG_def_HIGH: Output built
+1699369169.887298;m3-2;SinkNode Result:	 State: 1, temp_0: 4185, press_0 994
+1699369169.887445;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369171.626198;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369171.626599;m3-4;DEBUG_def_HIGH: Started sensing
+1699369172.074189;m3-4;DEBUG_def_HIGH: Output built
+1699369172.090067;m3-4;Node State = 1; Output: { 0, 1, 4187, 994 }
+1699369172.090284;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369174.894691;m3-2;DEBUG_def_HIGH: Output built
+1699369174.894932;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369174.895056;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369176.649964;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369176.650289;m3-4;DEBUG_def_HIGH: Started sensing
+1699369177.081884;m3-4;DEBUG_def_HIGH: Output built
+1699369177.097716;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369177.097933;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369179.886408;m3-2;DEBUG_def_HIGH: Output built
+1699369179.886645;m3-2;SinkNode Result:	 State: 1, temp_0: 4187, press_0 994
+1699369179.902126;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369181.657560;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369181.657799;m3-4;DEBUG_def_HIGH: Started sensing
+1699369182.105539;m3-4;DEBUG_def_HIGH: Output built
+1699369182.121381;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369182.121597;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369184.893845;m3-2;DEBUG_def_HIGH: Output built
+1699369184.894185;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369184.894323;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369186.665247;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369186.665487;m3-4;DEBUG_def_HIGH: Started sensing
+1699369187.113153;m3-4;DEBUG_def_HIGH: Output built
+1699369187.129035;m3-4;Node State = 1; Output: { 0, 1, 4188, 994 }
+1699369187.129252;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369189.901532;m3-2;DEBUG_def_HIGH: Output built
+1699369189.901785;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369189.901908;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369191.672820;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369191.673127;m3-4;DEBUG_def_HIGH: Started sensing
+1699369192.136585;m3-4;DEBUG_def_HIGH: Output built
+1699369192.152441;m3-4;Node State = 1; Output: { 0, 1, 4187, 994 }
+1699369192.152580;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369194.893218;m3-2;DEBUG_def_HIGH: Output built
+1699369194.909016;m3-2;SinkNode Result:	 State: 1, temp_0: 4188, press_0 994
+1699369194.909242;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369196.696525;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369196.696794;m3-4;DEBUG_def_HIGH: Started sensing
+1699369197.144372;m3-4;DEBUG_def_HIGH: Output built
+1699369197.160204;m3-4;Node State = 1; Output: { 0, 1, 4187, 994 }
+1699369197.160424;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369199.900857;m3-2;DEBUG_def_HIGH: Output built
+1699369199.901200;m3-2;SinkNode Result:	 State: 1, temp_0: 4187, press_0 994
+1699369199.901342;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369201.704025;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369201.704324;m3-4;DEBUG_def_HIGH: Started sensing
+1699369202.168091;m3-4;DEBUG_def_HIGH: Output built
+1699369202.183757;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369202.183993;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369204.908465;m3-2;DEBUG_def_HIGH: Output built
+1699369204.908792;m3-2;SinkNode Result:	 State: 1, temp_0: 4187, press_0 994
+1699369204.908924;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369206.711880;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369206.712233;m3-4;DEBUG_def_HIGH: Started sensing
+1699369207.175795;m3-4;DEBUG_def_HIGH: Output built
+1699369207.191593;m3-4;Node State = 1; Output: { 0, 1, 4188, 994 }
+1699369207.191860;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369209.900064;m3-2;DEBUG_def_HIGH: Output built
+1699369209.915758;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369209.915973;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369211.719429;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369211.719747;m3-4;DEBUG_def_HIGH: Started sensing
+1699369212.199304;m3-4;DEBUG_def_HIGH: Output built
+1699369212.215269;m3-4;Node State = 1; Output: { 0, 1, 4186, 994 }
+1699369212.215516;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369214.907693;m3-2;DEBUG_def_HIGH: Output built
+1699369214.908151;m3-2;SinkNode Result:	 State: 1, temp_0: 4188, press_0 994
+1699369214.908313;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369216.742893;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369216.743267;m3-4;DEBUG_def_HIGH: Started sensing
+1699369217.207167;m3-4;DEBUG_def_HIGH: Output built
+1699369217.222781;m3-4;Node State = 1; Output: { 0, 1, 4188, 994 }
+1699369217.223033;m3-4;DEBUG_def_HIGH: Waiting to send
+1699369219.915429;m3-2;DEBUG_def_HIGH: Output built
+1699369219.915811;m3-2;SinkNode Result:	 State: 1, temp_0: 4186, press_0 994
+1699369219.915953;m3-2;DEBUG_def_HIGH: Waiting to send
+1699369221.750712;m3-4;DEBUG_def_HIGH: Finished sensing
+1699369221.751007;m3-4;DEBUG_def_HIGH: Started sensing
+1699369222.230715;m3-4;DEBUG_def_HIGH: Output built
+1699369222.246506;m3-4;Node State = 1; Output: { 0, 1, 4188, 994 }
+1699369222.246770;m3-4;DEBUG_def_HIGH: Waiting to send
