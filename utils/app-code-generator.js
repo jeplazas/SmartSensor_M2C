@@ -187,7 +187,7 @@ const end_node_code_extractor = async (end_node_model) => {
         lpsxxx_read_temp(${sensing_info.all_sensing_info[0].probe_varname}, &avg_temp_src[w]);
         lpsxxx_read_pres(${sensing_info.all_sensing_info[1].probe_varname}, &avg_press_src[w]);
         sense_lastplace = w;
-        xtimer_sleep(6);
+        xtimer_sleep(${end_node_model.states.High.sensed_variables.sensed_variables.Temperature.sensing_op.stereotype[0].period});
     }
     int32_t sum_temp = 0;
     uint32_t sum_press = 0;
@@ -200,15 +200,15 @@ const end_node_code_extractor = async (end_node_model) => {
     `;
     end_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t,  int16_t";
     end_node_replace_obj.output_values_chain = `int16_t ${sensing_info.all_sensing_info[0].var_name}, uint16_t ${sensing_info.all_sensing_info[1].var_name}, int16_t status`;
-    end_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    end_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(${end_node_model.states.High.sending_data.sending_data.sending_op.stereotype[0].period});
     sprintf(output,
         "0, %hi, %hi, %hu",
         status, ${sensing_info.all_sensing_info[0].var_name}, ${sensing_info.all_sensing_info[1].var_name});
     `;
-    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(180);
+    end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(${end_node_model.states.Low.sensed_variables.sensed_variables.Temperature.sensing_op.stereotype[0].period});
     *${sensing_info.all_sensing_info[1].var_name} = 0;     // Necessary to avoid not used error.
     ${sensing_info.all_sensing_info[0].sense_func.replace("___sense_probe_ptr___", sensing_info.all_sensing_info[0].probe_varname).replace("___sense_var_name_ptr___", sensing_info.all_sensing_info[0].var_name)};`;
-    end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(180);
+    end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(${end_node_model.states.Low.sending_data.sending_data.sending_op.stereotype[0].period});
     ${sensing_info.all_sensing_info[1].var_name} = ${sensing_info.all_sensing_info[1].var_name} + 0;      // Necessary to avoid not used error.
     sprintf(output,
         "0, %hi, %hi",
@@ -284,13 +284,13 @@ const sink_node_code_extractor = async (sink_node_model, all_end_nodes) => {
     sink_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t, int16_t";
     sink_node_replace_obj.output_values_chain = "int16_t temp_0, uint16_t press_0, int16_t status";
     sink_node_replace_obj.high_sensing_and_aggregation_code = ``;
-    sink_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    sink_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(${sink_node_model.states.High.sending_data.sending_data.sending_op.stereotype[0].period});
     sprintf(output,
         "SinkNode Result:\t State: %hi, temp_0: %hi, press_0 %hu",
         status, temp_0, press_0);
     `;
-    sink_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(180);`;
-    sink_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(30);
+    sink_node_replace_obj.low_sensing_and_aggregation_code = ``;
+    sink_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(${sink_node_model.states.Low.sending_data.sending_data.sending_op.stereotype[0].period});
     press_0 = press_0 + 0;      // Necessary to avoid not used error.
     sprintf(output,
         "SinkNode Result:\\t State: %hi, temp_0: %hi",
