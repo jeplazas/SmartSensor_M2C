@@ -17,6 +17,7 @@ const save_sinknode_code = require('./sink-node-coder');
  * all_sensors_mainvars_definitions: string, 
  * init_all_sensors: string, 
  * all_sensing_structs: string, 
+ * all_sense_vars_state_call: string,
  * all_sensing_info: object[]}} 
  * 
 */
@@ -29,6 +30,7 @@ const get_all_sensors_information = (node_model) => {
         all_sensors_mainvars_definitions: "",
         init_all_sensors: "",
         all_sensing_structs: "",
+        all_sense_vars_state_call: "",
         all_sensing_info: [],
     };
     const all_sensing_info = [];
@@ -68,6 +70,9 @@ const get_all_sensors_information = (node_model) => {
     all_sensors_information.all_sensors_includes = existing_includes.join('\n');
     all_sensors_information.init_all_sensors = existing_initializations.join('\t\t');
     all_sensors_information.all_sensors_mainvars_definitions = existing_mainvars.join('\n');
+    all_sensors_information.all_sensing_structs = "\n" + all_sensing_info.map(item => {
+        return "static " + item.c_type + " " + item.var_name + ";";
+    }).join("\n") + "\n";
     const all_probes_types_pointers = existing_probes_vars.map(item => item.probe_vartype + "*");
     const all_save_values_pointers = all_sensing_info.map(item => item.c_type + "*");
     all_sensors_information.all_probes_types_and_save_values_pointers =
@@ -80,9 +85,10 @@ const get_all_sensors_information = (node_model) => {
     });
     all_sensors_information.all_probes_and_save_values_chain =
         all_probes_chain.concat(all_save_values_chain).join(', ');
-    all_sensors_information.all_sensing_structs = "\n" + all_sensing_info.map(item => {
-        return "static " + item.c_type + " " + item.var_name + ";";
-    }).join("\n") + "\n";
+    const all_probes_vars = existing_probes_vars.map(item => "&" + item.probe_varname);
+    const all_save_values_vars = all_sensing_info.map(item => "&" + item.var_name);
+    all_sensors_information.all_sense_vars_state_call =
+        all_probes_vars.concat(all_save_values_vars).join(', ');
 
     if (all_sensors_information.all_probes_types_and_save_values_pointers == "")
         all_sensors_information.all_probes_types_and_save_values_pointers = 'void';
@@ -177,8 +183,8 @@ const end_node_code_extractor = async (end_node_model) => {
     uint16_t avg_press_src[5];
     int16_t sense_lastplace = 0;
     for (int16_t w=0; w< 5; w++) {
-        lpsxxx_read_temp(lpsx_probe, &avg_temp_src[w]);
-        lpsxxx_read_pres(lpsx_probe, &avg_press_src[w]);
+        lpsxxx_read_temp(${sensing_info.all_sensing_info[0].probe_varname}, &avg_temp_src[w]);
+        lpsxxx_read_pres(${sensing_info.all_sensing_info[1].probe_varname}, &avg_press_src[w]);
         sense_lastplace = w;
         xtimer_sleep(6);
     }
@@ -188,24 +194,24 @@ const end_node_code_extractor = async (end_node_model) => {
         sum_temp += avg_temp_src[i];
         sum_press += avg_press_src[i];
     }
-    *temp = sum_temp / (sense_lastplace + 1);
-    *press = sum_press / (sense_lastplace + 1);
+    *${sensing_info.all_sensing_info[0].var_name} = sum_temp / (sense_lastplace + 1);
+    *${sensing_info.all_sensing_info[1].var_name} = sum_press / (sense_lastplace + 1);
     `;
     end_node_replace_obj.output_values_types_chain = "int16_t,  uint16_t,  int16_t";
-    end_node_replace_obj.output_values_chain = "int16_t temp, uint16_t press, int16_t status";
+    end_node_replace_obj.output_values_chain = `int16_t ${sensing_info.all_sensing_info[0].var_name}, uint16_t ${sensing_info.all_sensing_info[1].var_name}, int16_t status`;
     end_node_replace_obj.high_sending_sleeptime_and_output_building = `xtimer_sleep(30);
     sprintf(output,
         "0, %hi, %hi, %hu",
-        status, temp, press);
+        status, ${sensing_info.all_sensing_info[0].var_name}, ${sensing_info.all_sensing_info[1].var_name});
     `;
     end_node_replace_obj.low_sensing_and_aggregation_code = `xtimer_sleep(180);
-    *press = 0;     // Necessary to avoid not used error.
-    lpsxxx_read_temp(lpsx_probe, temp);`;
+    *${sensing_info.all_sensing_info[1].var_name} = 0;     // Necessary to avoid not used error.
+    ${sensing_info.all_sensing_info[0].sense_func.replace("___sense_probe_ptr___", sensing_info.all_sensing_info[0].probe_varname).replace("___sense_var_name_ptr___", sensing_info.all_sensing_info[0].var_name)};`;
     end_node_replace_obj.low_sending_sleeptime_and_output_building = `xtimer_sleep(180);
-    press = press + 0;      // Necessary to avoid not used error.
+    ${sensing_info.all_sensing_info[1].var_name} = ${sensing_info.all_sensing_info[1].var_name} + 0;      // Necessary to avoid not used error.
     sprintf(output,
         "0, %hi, %hi",
-        status, temp);
+        status, ${sensing_info.all_sensing_info[0].var_name});
     `;
     end_node_replace_obj.all_usemodule_sensors_list = sensing_info.all_usemodule_sensors_list;
     end_node_replace_obj.all_sensors_mainvars_definitions = sensing_info.all_sensors_mainvars_definitions;
@@ -222,8 +228,8 @@ const end_node_code_extractor = async (end_node_model) => {
         (void)arg;
         while (1) {
             // Use the state to gather the variables:
-            state.sense(&lpsxxx, &temperature, &pressure);
-            if (temperature>=27) {
+            state.sense(${sensing_info.all_sense_vars_state_call});
+            if (${sensing_info.all_sensing_info[0].var_name}>=27) {
                 state.toHigh(&state);
             } else {
                 state.toLow(&state);
@@ -235,7 +241,7 @@ const end_node_code_extractor = async (end_node_model) => {
     //Get Time
     // rtc_get_time(&curtime);
     // time_t ftime = mktime(&curtime);
-    state.sendSleep(output, temperature, pressure, state.status);
+    state.sendSleep(output, ${sensing_info.all_sensing_info[0].var_name}, ${sensing_info.all_sensing_info[1].var_name}, state.status);
     `;
     end_node_replace_obj.init_all_sensors = `/* Start the RTC */
     time_t itime = ${Date.now()};
