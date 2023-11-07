@@ -95,6 +95,7 @@ const get_all_sensors_information = (node_model) => {
     if (all_sensors_information.all_probes_and_save_values_chain == "")
         all_sensors_information.all_probes_and_save_values_chain = 'void';
 
+    all_sensors_information.all_sensing_info = all_sensing_info;
     return all_sensors_information;
 };
 
